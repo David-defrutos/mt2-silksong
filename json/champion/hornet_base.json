@@ -54,8 +54,8 @@
     ],
     "character_triggers": [
         { "id": "HornetProtector1ImbueProtectTrigger", "trigger": "on_kill", "effects": [ { "id": "@HornetProtector1ImbueEffect" }, { "id": "@HornetProtector1ProtectEffect" } ], "descriptions": { "english": "Apply [effect0.status0.power] [Silk_Song_Clan.Plugin_PermanentImbue] and [effect1.status0.power] [Silk_Song_Clan.Plugin_PermanentProtection] to friendly units." } },
-        { "id": "HornetProtector2ImbueProtectTrigger", "trigger": "on_any_unit_death_on_floor", "effects": [ { "id": "@HornetProtector1ImbueEffect" }, { "id": "@HornetProtector1ProtectEffect" } ], "descriptions": { "english": "Apply [effect0.status0.power] [Silk_Song_Clan.Plugin_PermanentImbue] and [effect1.status0.power] [Silk_Song_Clan.Plugin_PermanentProtection] to friendly units." } },
-        { "id": "HornetProtector3ImbueProtectTrigger", "trigger": "on_any_unit_death_on_floor", "effects": [ { "id": "@HornetProtector2ImbueEffect" }, { "id": "@HornetProtector2ProtectEffect" } ], "descriptions": { "english": "Apply [effect0.status0.power] [Silk_Song_Clan.Plugin_PermanentImbue] and [effect1.status0.power] [Silk_Song_Clan.Plugin_PermanentProtection] to friendly units." } }
+        { "id": "HornetProtector2ImbueProtectTrigger", "trigger": "on_any_unit_death_on_floor", "effects": [ { "id": "@HornetProtector2ImbueEffect" }, { "id": "@HornetProtector2ProtectEffect" } ], "descriptions": { "english": "Apply [effect0.status0.power] [Silk_Song_Clan.Plugin_PermanentImbue] and [effect1.status0.power] [Silk_Song_Clan.Plugin_PermanentProtection] to friendly units." } },
+        { "id": "HornetProtector3ImbueProtectTrigger", "trigger": "on_any_unit_death_on_floor", "effects": [ { "id": "@HornetProtector3ImbueEffect" }, { "id": "@HornetProtector3ProtectEffect" } ], "descriptions": { "english": "Apply [effect0.status0.power] [Silk_Song_Clan.Plugin_PermanentImbue] and [effect1.status0.power] [Silk_Song_Clan.Plugin_PermanentProtection] to friendly units." } }
     ],
     "effects": [
         { "id": "SpawnHornet", "name": "CardEffectSpawnMonster", "target_mode": "room", "target_card_type": "spell", "param_character": "@Hornet" },
