@@ -1,0 +1,54 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "relics": [
+        {
+            "id": "ArchitectKey",
+            "type": "collectable",
+            "names": {
+                "english": "Architect's Key",
+                "chinese": "建筑师的钥匙"
+            },
+            "descriptions": {
+                "english": "Whenever a unit is moved, it gains [valor] [effect0.status0.power].",
+                "chinese": "每当一个单位移动时，它获得[valor] [effect0.status0.power]。"
+            },
+            "icon": "@ArchitectKeyIcon",
+            "icon_small": "@ArchitectKeyIcon",
+            "lore_tooltips": [
+                {
+                    "english": "Rotary key of the Architects. Opens their Chapel in the Underworks.",
+                    "chinese": "建筑师的旋转钥匙。用于打开他们在下层工厂的教堂。"
+                }
+            ],
+            "relic_effects": [
+                "@ArchitectKeyEffect"
+            ],
+            "extensions": [
+                {
+                    "collectable": {
+                        "class": "@Silksong",
+                        "rarity": "rare"
+                    }
+                }
+            ]
+        }
+    ],
+    "relic_effects": [
+        {
+            "id": "ArchitectKeyEffect",
+            "name": "RelicEffectAddStatusEffectOnUnitMoved",
+            "param_status_effects": [
+                {
+                    "status": "valor",
+                    "count": 1
+                }
+            ]
+        }
+    ],
+    "sprites": [
+        {
+            "id": "ArchitectKeyIcon",
+            "path": "textures/ArchitectKeyIcon.png"
+        }
+    ]
+}

@@ -1,0 +1,180 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnZaza",
+      "names": {
+        "english": "Zaza",
+        "chinese": "扎扎",
+        "french": "Zaza"
+      },
+      "card_art": "@ZazaCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@Silksong",
+      "unlock_level": 5,
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnZazaEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "The beast has been spotted! Once Zaza has fully rested, we'll set to tracking it down!",
+          "chinese": "野兽现身了！等扎扎休息好了，我们就立刻去追踪它！"
+        }
+      ]
+    },
+    {
+      "id": "ZazaHumbleSteedAbility",
+      "names": {
+        "english": "Humble Steed",
+        "chinese": "卑微的坐骑"
+      },
+      "descriptions": {
+        "english": "Add a random Equipment to Hand."
+      },
+      "is_an_ability": true,
+      "cooldown": 2,
+      "initial_cooldown": 0,
+      "targetless": true,
+      "effects": [
+        {
+          "id": "@ZazaAddEquipmentEffect"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "Zaza",
+      "names": {
+        "english": "Zaza",
+        "chinese": "扎扎",
+        "french": "Zaza"
+      },
+      "character_art": "@ZazaCharacterArt",
+      "size": 1,
+      "health": 12,
+      "attack_damage": 20,
+      "subtypes": [
+        "@Bug",
+        "SubtypesData_BannerUnit"
+      ],
+      "starting_status_effects": [
+        {
+          "status": "valor",
+          "count": 8
+        }
+      ],
+      "triggers": [
+        {
+          "id": "@ZazaSpawnTrigger"
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "ZazaSpawnTrigger",
+      "trigger": "on_spawn",
+      "descriptions": {
+        "english": "[Silk_Song_Clan.Plugin_Combo] with Garamond: Gain \"[ability]: Add a random Equipment to Hand\"."
+      },
+      "effects": [
+        {
+          "id": "@ZazaSpawnEffectCombo"
+        },
+        {
+          "id": "@ZazaSpawnEffect"
+        }
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "ZazaComboUpgrade",
+      "ability_upgrade": "@ZazaHumbleSteedAbility"
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnZazaEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "drop_target_character",
+      "param_character": "@Zaza"
+    },
+    {
+      "id": "ZazaSpawnEffectCombo",
+      "name": "@CardEffectTestLastCardName",
+      "target_mode": "self",
+      "param_card": "@SpawnGaramond",
+      "should_test": true,
+      "should_cancel_subsequent_effects_if_test_fails": true,
+      "additional_tooltips": [
+        "@ComboTooltip"
+      ]
+    },
+    {
+      "id": "ZazaSpawnEffect",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "self",
+      "target_team": "monsters",
+      "param_upgrade": "@ZazaComboUpgrade"
+    },
+    {
+      "id": "ZazaAddEquipmentEffect",
+      "name": "CardEffectAddBattleCard",
+      "target_mode": "hand",
+      "param_card_type": "equipment",
+      "param_card_pool": "RoomAndEquipmentMerchant_EquipmentPool"
+    }
+  ],
+  "sprites": [
+    {
+      "id": "ZazaCardArt",
+      "path": "textures/ZazaCardArt.png"
+    },
+    {
+      "id": "ZazaCharacterArt",
+      "path": "textures/ZazaCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "ZazaCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@ZazaCardArt"
+        }
+      }
+    },
+    {
+      "id": "ZazaCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@ZazaCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.8,
+              "z": 0
+            },
+            "scale": {
+              "x": 1.2,
+              "y": 1.2,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

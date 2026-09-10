@@ -1,0 +1,100 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "PaleNale",
+      "names": {
+        "english": "Pale Nail",
+        "chinese": "苍白爪击"
+      },
+      "descriptions": {
+        "english": "Deal Damage equal to 2x [Silk_Song_Clan.Plugin_Silk] to the front enemy, then All Enemies. Gain [effect2.power] [Silk_Song_Clan.Plugin_Silk].",
+        "chinese": "对前排敌方单位造成伤害，伤害值为 [Silk_Song_Clan.Plugin_Silk] 层数的 2 倍。然后对所有敌方单位造成同等伤害。获得 [effect2.power] [Silk_Song_Clan.Plugin_Silk]。"
+      },
+      "cost": 0,
+      "card_type": "spell",
+      "rarity": "rare",
+      "class": "@Silksong",
+      "card_art": "@PaleNaleCardArt",
+      "targetless": true,
+      "hide_in_logbook": true,
+      "traits": [
+        "@PaleNaleConsumeTrait",
+        "@PaleNaleScaleSilk"
+      ],
+      "effects": [
+        {
+          "id": "@PaleNaleFrontDamageEffect"
+        },
+        {
+          "id": "@PaleNaleAllDamageEffect"
+        },
+        {
+          "id": "@PaleNaleGainSilkEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A pale needle of immense power, forged from ancient silk."
+        }
+      ]
+    }
+  ],
+  "traits": [
+    {
+      "id": "PaleNaleConsumeTrait",
+      "name": "CardTraitExhaustState"
+    },
+    {
+      "id": "PaleNaleScaleSilk",
+      "name": "CardTraitScalingAddDamage",
+      "param_tracked_value": "@Silk",
+      "param_int": 1,
+      "param_float": 2.00
+    }
+  ],
+  "effects": [
+    {
+      "id": "PaleNaleFrontDamageEffect",
+      "name": "CardEffectDamage",
+      "target_mode": "front_in_room",
+      "target_team": "heroes",
+      "param_int": 0,
+      "param_track_silk": true
+    },
+    {
+      "id": "PaleNaleAllDamageEffect",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 0,
+      "param_track_silk": true
+    },
+    {
+      "id": "PaleNaleGainSilkEffect",
+      "name": "@CardEffectRewardSilk",
+      "param_int": 3,
+      "additional_tooltips": [
+        "@SilkTooltip"
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "PaleNaleCardArt",
+      "path": "textures/PaleNaleCardArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "PaleNaleCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@PaleNaleCardArt"
+        }
+      }
+    }
+  ]
+}
+

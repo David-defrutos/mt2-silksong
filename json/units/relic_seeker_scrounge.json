@@ -1,0 +1,157 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnRelicSeekerScrounge",
+      "names": {
+        "english": "Relic Seeker Scrounge",
+        "chinese": "古董猎手 拾荒奇"
+      },
+      "card_art": "@RelicSeekerScroungeCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@Silksong",
+      "unlock_level": 4,
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnRelicSeekerScroungeEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "What? What, what? Who is it? What've you got? What do you want?",
+          "chinese": "什么？什么，什么？是谁？你有什么？你想要什么？"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "RelicSeekerScrounge",
+      "names": {
+        "english": "Relic Seeker Scrounge",
+        "chinese": "古董猎手 拾荒奇",
+        "french": "Relic Seeker Scrounge"
+      },
+      "character_art": "@RelicSeekerScroungeCharacterArt",
+      "size": 2,
+      "health": 24,
+      "attack_damage": 24,
+      "subtypes": [
+        "@Bug",
+        "SubtypesData_BannerUnit"
+      ],
+      "triggers": [
+        {
+          "id": "@RelicSeekerScroungeEquippedTrigger"
+        },
+        {
+          "id": "@RelicSeekerScroungeSilksongTrigger"
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "RelicSeekerScroungeEquippedTrigger",
+      "descriptions": {
+        "english": "Remove the Equipment. Gain [effect1.power] [coin].",
+        "chinese": "移除装备。获得 [effect1.power][coin]。"
+      },
+      "trigger": "on_equipment_added",
+      "effects": [
+        {
+          "id": "@RelicSeekerScroungeRemoveEquipmentEffect"
+        },
+        {
+          "id": "@RelicSeekerScroungeGainGoldEffect"
+        }
+      ]
+    },
+    {
+      "id": "RelicSeekerScroungeSilksongTrigger",
+      "descriptions": {
+        "english": "Gain [effect0.power] [coin].",
+        "chinese": "获得 [effect0.power][coin]。"
+      },
+      "trigger": "@Silksong",
+      "effects": [
+        {
+          "id": "@RelicSeekerScroungeSilksongGoldEffect"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnRelicSeekerScroungeEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@RelicSeekerScrounge"
+    },
+    {
+      "id": "RelicSeekerScroungeRemoveEquipmentEffect",
+      "name": "CardEffectRemoveEquipment",
+      "target_mode": "self"
+    },
+    {
+      "id": "RelicSeekerScroungeGainGoldEffect",
+      "name": "CardEffectRewardGold",
+      "target_mode": "self",
+      "param_int": 20
+    },
+    {
+      "id": "RelicSeekerScroungeSilksongGoldEffect",
+      "name": "CardEffectRewardGold",
+      "target_mode": "self",
+      "param_int": 20
+    }
+  ],
+  "sprites": [
+    {
+      "id": "RelicSeekerScroungeCardArt",
+      "path": "textures/RelicSeekerScroungeCardArt.png"
+    },
+    {
+      "id": "RelicSeekerScroungeCharacterArt",
+      "path": "textures/RelicSeekerScroungeCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "RelicSeekerScroungeCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@RelicSeekerScroungeCardArt"
+        }
+      }
+    },
+    {
+      "id": "RelicSeekerScroungeCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@RelicSeekerScroungeCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 1,
+              "z": 0
+            },
+            "scale": {
+              "x": 1.3,
+              "y": 1.3,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

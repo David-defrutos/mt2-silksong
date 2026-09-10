@@ -1,0 +1,180 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnGrishkin",
+      "names": {
+        "english": "Grishkin",
+        "chinese": "格里希金",
+        "french": "Grishkin"
+      },
+      "card_art": "@GrishkinCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@Silksong",
+      "unlock_level": 2,
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnGrishkinEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "My fellows give much worry for the other fleas, but I'm not give at all. They will find their way to us, and if not, who keep count of them anyway? Har har!",
+          "chinese": "我的伙伴们心口上老是挂着那些失踪的蚤民，可我一点儿不往心里搁。他们会想办法找到咱们的。要是找不到嘛，哎呀，谁又能数清少了几只小蚤崽子呢？哈，哈！"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "Grishkin",
+      "names": {
+        "english": "Grishkin",
+        "chinese": "格里希金",
+        "french": "Grishkin"
+      },
+      "character_art": "@GrishkinCharacterArt",
+      "size": 1,
+      "health": 15,
+      "attack_damage": 20,
+      "subtypes": ["@Flea", "SubtypesData_BannerUnit"],
+      "triggers": [
+        {
+          "id": "@GrishkinShiftTrigger"
+        }
+      ]
+    }
+  ],
+  "upgrade_masks": [
+    {
+      "id": "GrishkinUpgradeMask",
+      "card_type": "monster",
+      "required_subtypes": ["@Flea"]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "GrishkinComboUpgrade",
+      "trigger_upgrades": [
+        {
+          "id": "@GrishkinShiftTrigger"
+        }
+      ]
+    },
+    {
+      "id": "GrishkinBuffFleasUpgrade",
+      "bonus_damage": 1,
+      "bonus_hp": 1
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "GrishkinSpawnTrigger",
+      "descriptions": {
+        "english": "[Silk_Song_Clan.Plugin_Combo] with Flea Subtype: Gain \"[shift]: Give Friendly Fleas +[effect1.upgrade.charactertrigger0.effect0.upgrade.bonusdamage] [attack] and +[effect1.upgrade.charactertrigger0.effect0.upgrade.bonushp] [health].\""
+      },
+      "trigger": "on_spawn",
+      "effects": [
+        {
+          "id": "@GrishkinComboEffect"
+        },
+        {
+          "id": "@GrishkinSpawnEffect"
+        }
+      ]
+    },
+    {
+      "id": "GrishkinShiftTrigger",
+      "descriptions": {
+        "english": "Give Friendly Fleas +[effect0.upgrade.bonusdamage] [attack] and +[effect0.upgrade.bonushp] [health]."
+      },
+      "trigger": "on_shift",
+      "effects": [
+        {
+          "id": "@GrishkinBuffFleasEffect"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnGrishkinEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@Grishkin"
+    },
+    {
+      "id": "GrishkinComboEffect",
+      "name": "@CardEffectTestLastCard",
+      "target_mode": "self",
+      "should_test": true,
+      "should_cancel_subsequent_effects_if_test_fails": true,
+      "param_card_filter": "@GrishkinUpgradeMask",
+      "additional_tooltips": [
+        "@ComboTooltip"
+      ]
+    },
+    {
+      "id": "GrishkinSpawnEffect",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "self",
+      "param_upgrade": "@GrishkinComboUpgrade"
+    },
+    {
+      "id": "GrishkinBuffFleasEffect",
+      "name": "@CardEffectAddCardUpgradeToUnitsFilter",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_upgrade": "@GrishkinBuffFleasUpgrade",
+      "param_card_filter": "@GrishkinUpgradeMask"
+    }
+  ],
+  "sprites": [
+    {
+      "id": "GrishkinCardArt",
+      "path": "textures/GrishkinCardArt.png"
+    },
+    {
+      "id": "GrishkinCharacterArt",
+      "path": "textures/GrishkinCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "GrishkinCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@GrishkinCardArt"
+        }
+      }
+    },
+    {
+      "id": "GrishkinCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@GrishkinCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnVog",
+      "names": {
+        "english": "Vog",
+        "chinese": "沃葛",
+        "french": "Vog"
+      },
+      "card_art": "@VogCardArt",
+      "cost": 2,
+      "card_type": "monster",
+      "rarity": "rare",
+      "class": "@Silksong",
+      "unlock_level": 7,
+      "pools": [
+        "MegaPool",
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnVogEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Caravan? Grrr. Felt it in my fur... Time for change. If caravan is close, then my task, these lands, may near be complete.",
+          "chinese": "大篷车？咕噜...我的毛皮感觉到了...是时候改变了。如果大篷车快到了，那么我的任务，在这里的任务，也许就要完成了。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "Vog",
+      "names": {
+        "english": "Vog",
+        "chinese": "沃葛",
+        "french": "Vog"
+      },
+      "character_art": "@VogCharacterArt",
+      "size": 2,
+      "health": 40,
+      "attack_damage": 30,
+      "subtypes": [
+        "@Flea",
+        "SubtypesData_BannerUnit"
+      ],
+      "triggers": [
+        {
+          "id": "@VogHarvestTrigger"
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "VogHarvestTrigger",
+      "descriptions": {
+        "english": "If a Flea Died, Add a random Flea to Hand.",
+        "chinese": "蚤民单位死亡时，将一个随机蚤民单位加入你的手牌。"
+      },
+      "trigger": "on_any_unit_death_on_floor",
+      "effects": [
+        {
+          "id": "@VogDyingFleaEffect"
+        },
+        {
+          "id": "@VogAddFleaEffect"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnVogEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "drop_target_character",
+      "param_character": "@Vog"
+    },
+    {
+      "id": "VogDyingFleaEffect",
+      "name": "@CardEffectTestDyingSubtype",
+      "param_subtype": "@Flea",
+      "should_test": true,
+      "should_cancel_subsequent_effects_if_test_fails": true
+    },
+    {
+      "id": "VogAddFleaEffect",
+      "name": "CardEffectAddBattleCard",
+      "param_card_pool": "@FleaPool",
+      "param_int": 3,
+      "additional_param_int": 1
+    }
+  ],
+  "sprites": [
+    {
+      "id": "VogCardArt",
+      "path": "textures/VogCardArt.png"
+    },
+    {
+      "id": "VogCharacterArt",
+      "path": "textures/VogCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "VogCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@VogCardArt"
+        }
+      }
+    },
+    {
+      "id": "VogCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@VogCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.8,
+              "z": 0
+            },
+            "scale": {
+              "x": 1.4,
+              "y": 1.4,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

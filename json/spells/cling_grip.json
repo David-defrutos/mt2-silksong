@@ -1,0 +1,119 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "ClingGrip",
+      "names": {
+        "english": "Cling Grip",
+        "chinese": "攀附抓握"
+      },
+      "descriptions": {
+        "english": "[retreat]. Add \"Advance\" to Hand.",
+        "chinese": "[retreat]。将一张<b>前进</b>卡牌加入你的手牌。"
+      },
+      "cost": 1,
+      "unlock_level": 2,
+      "card_type": "spell",
+      "rarity": "common",
+      "class": "@Silksong",
+      "card_art": "@ClingGripCardArt",
+      "pools": [
+        "MegaPool"
+      ],
+      "effects": [
+        {
+          "id": "@ClingGripRetreatEffect"
+        },
+        {
+          "id": "@ClingGripGainCardEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A defensive grip that can become an offensive advance when combined with other techniques."
+        }
+      ]
+    },
+    {
+      "id": "ClingGripAdvanceEffect",
+      "names": {
+        "english": "Advance",
+        "chinese": "前进"
+      },
+      "descriptions": {
+        "english": "[advance].",
+        "chinese": "[advance]。"
+      },
+      "cost": 0,
+      "card_type": "spell",
+      "rarity": "common",
+      "class": "@Silksong",
+      "card_art": "@ClingGripCardArt",
+      "targets_room": true,
+      "linked_mastery_card": "@ClingGrip",
+      "traits": [
+        "@ClingGripEphemeralTrait"
+      ],
+      "effects": [
+        {
+          "id": "@ClingGripAdvanceEffect"
+        }
+      ]
+    }
+  ],
+  "traits": [
+    {
+      "id": "ClingGripEphemeralTrait",
+      "name": "CardTraitEphemeral"
+    }
+  ],
+  "effects": [
+    {
+      "id": "ClingGripRetreatEffect",
+      "name": "CardEffectFloorRearrange",
+      "target_mode": "drop_target_character",
+      "target_team": "both",
+      "param_int": 1
+    },
+    {
+      "id": "ClingGripAdvanceEffect",
+      "name": "CardEffectFloorRearrange",
+      "target_mode": "drop_target_character",
+      "target_team": "both",
+      "param_int": 0
+    },
+    {
+      "id": "ClingGripGainCardEffect",
+      "name": "CardEffectAddBattleCard",
+      "target_mode": "self",
+      "param_int": 3,
+      "param_int_2": 1,
+      "param_card_pool": "@ClingGripPool"
+    }
+  ],
+  "card_pools": [
+    {
+      "id": "ClingGripPool",
+      "cards": [
+        "@ClingGripAdvanceEffect"
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "ClingGripCardArt",
+      "path": "textures/ClingGripCardArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "ClingGripCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@ClingGripCardArt"
+        }
+      }
+    }
+  ]
+}

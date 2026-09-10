@@ -1,0 +1,94 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "NeedleStrike",
+      "names": {
+        "english": "Needle Strike",
+        "chinese": "针刺"
+      },
+      "descriptions": {
+        "english": "Deal damage to all enemies equal to 2x [Silk_Song_Clan.Plugin_Silk]. Gain [effect1.power] [Silk_Song_Clan.Plugin_Silk]. [Silk_Song_Clan.Plugin_Combo] with Unit: Repeat.",
+        "chinese": "对所有敌方单位造成伤害，伤害值为 [Silk_Song_Clan.Plugin_Silk] 层数的 2 倍。获得 [effect1.power][Silk_Song_Clan.Plugin_Silk]。[Silk_Song_Clan.Plugin_Combo]与单位：重复。"
+      },
+      "cost": 2,
+      "card_type": "spell",
+      "rarity": "uncommon",
+      "class": "@Silksong",
+      "card_art": "@NeedleStrikeCardArt",
+      "targetless": true,
+      "targets_room": true,
+      "pools": [
+        "MegaPool"
+      ],
+      "effects": [
+        "@NeedleStrikeDamageEffect",
+        "@NeedleStrikeGainSilkEffect",
+        "@NeedleStrikeComboEffect",
+        "@NeedleStrikeDamageEffect",
+        "@NeedleStrikeGainSilkEffect"
+      ],
+      "traits": [
+        "@NeedleStrikeScaleSilk"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A precise strike that pierces through all enemies with silk-enhanced power."
+        }
+      ]
+    }
+  ],
+  "traits": [
+    {
+      "id": "NeedleStrikeScaleSilk",
+      "name": "CardTraitScalingAddDamage",
+      "param_tracked_value": "@Silk",
+      "param_int": 1,
+      "param_float": 2.00
+    }
+  ],
+  "effects": [
+    {
+      "id": "NeedleStrikeGainSilkEffect",
+      "name": "@CardEffectRewardSilk",
+      "param_int": 1,
+      "additional_tooltips": [
+        "@SilkTooltip"
+      ]
+    },
+    {
+      "id": "NeedleStrikeDamageEffect",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 0
+    },
+    {
+      "id": "NeedleStrikeComboEffect",
+      "name": "@CardEffectTestLastCard",
+      "target_mode": "self",
+      "should_test": true,
+      "should_cancel_subsequent_effects_if_test_fails": true,
+      "additional_tooltips": [
+        "@ComboPreviousTooltip"
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "NeedleStrikeCardArt",
+      "path": "textures/NeedleStrikeCardArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "NeedleStrikeCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@NeedleStrikeCardArt"
+        }
+      }
+    }
+  ]
+}

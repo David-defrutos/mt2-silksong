@@ -1,0 +1,141 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnPinmasterPlinney",
+      "names": {
+        "english": "Pinmaster Plinney",
+        "chinese": "针匠大师 普林尼",
+        "french": "Pinmaster Plinney"
+      },
+      "card_art": "@PinmasterPlinneyCardArt",
+      "cost": 2,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@Silksong",
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnPinmasterPlinneyEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Bonva! What wonder? What wish? To steal a gift so fine. Few are the pinmasters of our age that ever worked with such a substance.",
+          "chinese": "好哇！是何等奇迹，何种愿望，使你能窃来如此珍贵的馈赠。当今世上，鲜有针匠大师能有幸施展它的神奇功效。"
+        }
+      ]
+    },
+    {
+      "id": "PinmasterAbilityTrigger",
+      "names": {
+        "english": "Sharpen",
+        "chinese": "磨砺"
+      },
+      "descriptions": {
+        "english": "Give a friendly unit [Silk_Song_Clan.Plugin_PermanentImbue] [effect1.status0.power]."
+      },
+      "is_an_ability": true,
+      "cooldown": 2,
+      "initial_cooldown": 0,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@PinmasterSharpenEffect"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "PinmasterPlinney",
+      "names": {
+        "english": "Pinmaster Plinney",
+        "chinese": "针匠大师 普林尼",
+        "french": "Pinmaster Plinney"
+      },
+      "character_art": "@PinmasterPlinneyCharacterArt",
+      "size": 2,
+      "health": 16,
+      "attack_damage": 16,
+      "subtypes": [
+        "@Bug",
+        "SubtypesData_BannerUnit"
+      ],
+      "ability": "@PinmasterAbilityTrigger"
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnPinmasterPlinneyEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "drop_target_character",
+      "param_character": "@PinmasterPlinney"
+    },
+    {
+      "id": "PinmasterSpendGoldEffect",
+      "name": "CardEffectRewardGold",
+      "target_mode": "self",
+      "param_int": -30,
+      "should_test": true,
+      "should_cancel_subsequent_effects_if_test_fails": true
+    },
+    {
+      "id": "PinmasterSharpenEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "drop_target_character",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "@PermanentImbue",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "PinmasterPlinneyCardArt",
+      "path": "textures/PinmasterPlinneyCardArt.png"
+    },
+    {
+      "id": "PinmasterPlinneyCharacterArt",
+      "path": "textures/PinmasterPlinneyCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "PinmasterPlinneyCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@PinmasterPlinneyCardArt"
+        }
+      }
+    },
+    {
+      "id": "PinmasterPlinneyCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@PinmasterPlinneyCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.9,
+              "z": 0
+            },
+            "scale": {
+              "x": 1.2,
+              "y": 1.2,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

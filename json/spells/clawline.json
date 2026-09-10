@@ -1,0 +1,95 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "Clawline",
+      "names": {
+        "english": "Clawline",
+        "chinese": "飞针穿梭"
+      },
+      "descriptions": {
+        "english": "Deal 5x [Silk_Song_Clan.Plugin_Silk] damage to front enemy. [advance] the backmost friendly. Gain [effect2.power] [Silk_Song_Clan.Plugin_Silk].",
+        "chinese": "对前排敌方单位造成伤害，伤害值为 [Silk_Song_Clan.Plugin_Silk] 层数的 5 倍。使后排友方单位[advance]。获得 [effect2.power][Silk_Song_Clan.Plugin_Silk]。"
+      },
+      "cost": 1,
+      "card_type": "spell",
+      "rarity": "uncommon",
+      "class": "@Silksong",
+      "card_art": "@ClawlineCardArt",
+      "targetless": true,
+      "targets_room": true,
+      "pools": [
+        "MegaPool"
+      ],
+      "effects": [
+        {
+          "id": "@ClawlineDamageEffect"
+        },
+        {
+          "id": "@ClawlineAdvanceEffect"
+        },
+        {
+          "id": "@ClawlineGainSilkEffect"
+        }
+      ],
+      "traits": [
+        "@ClawlineScaleSilk"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A focused strike that channels silk energy into a devastating claw attack."
+        }
+      ]
+    }
+  ],
+  "traits": [
+    {
+      "id": "ClawlineScaleSilk",
+      "name": "CardTraitScalingAddDamage",
+      "param_tracked_value": "@Silk",
+      "param_int": 1,
+      "param_float": 5.00
+    }
+  ],
+  "effects": [
+    {
+      "id": "ClawlineGainSilkEffect",
+      "name": "@CardEffectRewardSilk",
+      "param_int": 1,
+      "additional_tooltips": [
+        "@SilkTooltip"
+      ]
+    },
+    {
+      "id": "ClawlineDamageEffect",
+      "name": "CardEffectDamage",
+      "target_mode": "front_in_room",
+      "target_team": "heroes",
+      "param_int": 0
+    },
+    {
+      "id": "ClawlineAdvanceEffect",
+      "name": "CardEffectFloorRearrange",
+      "target_mode": "back_in_room",
+      "target_team": "monsters",
+      "param_int": 0
+    }
+  ],
+  "sprites": [
+    {
+      "id": "ClawlineCardArt",
+      "path": "textures/ClawlineCardArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "ClawlineCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@ClawlineCardArt"
+        }
+      }
+    }
+  ]
+}

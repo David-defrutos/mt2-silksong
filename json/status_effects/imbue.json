@@ -1,0 +1,63 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+    "status_effects": [
+        {
+            "id": "Imbue",
+            "class_name": "@StatusEffectAcrobaticState",
+            "names": {
+                "english": "Imbue",
+                "chinese": "线轴"
+            },
+            "stackable_names": {
+                "english": "Imbue {0}",
+                "chinese": "线轴 {0}"
+            },
+            "card_tooltips": {
+                "english": "At the start of each turn, gain +[codeint0] [attack]. Lost if damaged."
+            },
+            "character_tooltips": {
+                "english": "At the start of each turn, gain +[codeint0] [attack]. Lost if damaged."
+            },
+            "notifications": {
+                "english": "Imbued",
+                "chinese": "获得线轴"
+            },
+            "replacement_texts": {
+                "english": "<b>Imbue</b>",
+                "chinese": "<b>线轴</b>"
+            },
+            "display_category": "positive",
+            "trigger_stage": "on_post_room_combat",
+            "additional_trigger_stages": ["on_attacked"],
+            "is_stackable": true,
+            "param_int": 1,
+            "param_int_2": 0,
+            "param_str": "damage",
+            "icon": "@Imbue"
+        }
+    ],
+    "additional_tooltips": [
+        {
+            "id": "ImbueTooltip",
+            "titles": {
+                "english": "Imbue",
+                "chinese": "线轴"
+            },
+            "descriptions": {
+                "english": "At the start of each turn, gain [attack] equal to stacks of [Silk_Song_Clan.Plugin_Imbue]. Lost if damaged."
+            }
+        }
+    ],
+    "sprites": [
+        {
+            "id": "Imbue",
+            "path": "textures/StatusImbue.png"
+        }
+    ],
+    "atlas_icons": [
+        {
+            "id": "Imbue",
+            "path": "textures/StatusImbueTooltip.png"
+        }
+    ]
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnFleamasterMooshka",
+      "names": {
+        "english": "Fleamaster Mooshka",
+        "chinese": "蚤大师 穆什卡",
+        "french": "Fleamaster Mooshka"
+      },
+      "card_art": "@FleamasterMooshkaCardArt",
+      "cost": 2,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@Silksong",
+      "unlock_level": 2,
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnFleamasterMooshkaEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "The time has come for us fleas to find each other and travel together, as has happened through generations before.",
+          "chinese": "是时候让我们蚤民同胞相聚，结伴远行了，就像我们的先辈那样。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "FleamasterMooshka",
+      "names": {
+        "english": "Fleamaster Mooshka",
+        "chinese": "蚤大师 穆什卡",
+        "french": "Fleamaster Mooshka"
+      },
+      "character_art": "@FleamasterMooshkaCharacterArt",
+      "size": 2,
+      "health": 16,
+      "attack_damage": 12,
+      "subtypes": ["@Flea", "SubtypesData_BannerUnit"],
+      "triggers": [
+        {
+          "id": "@FleamasterResolveTrigger"
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "FleamasterResolveTrigger",
+      "descriptions": {
+        "english": "Add a random Flea to Hand.",
+        "chinese": "将一个随机蚤民单位加入你的手牌。"
+      },
+      "trigger": "pre_combat",
+      "effects": [
+        {
+          "id": "@FleamasterAddFleaEffect"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnFleamasterMooshkaEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "drop_target_character",
+      "param_character": "@FleamasterMooshka"
+    },
+    {
+      "id": "FleamasterAddFleaEffect",
+      "name": "CardEffectAddBattleCard",
+      "param_int": 3,
+      "param_int_2": 1,
+      "param_card_pool": "@FleaPool",
+      "param_bool": true
+    }
+  ],
+  "sprites": [
+    {
+      "id": "FleamasterMooshkaCardArt",
+      "path": "textures/FleamasterMooshkaCardArt.png"
+    },
+    {
+      "id": "FleamasterMooshkaCharacterArt",
+      "path": "textures/FleamasterMooshkaCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "FleamasterMooshkaCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@FleamasterMooshkaCardArt"
+        }
+      }
+    },
+    {
+      "id": "FleamasterMooshkaCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@FleamasterMooshkaCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.5,
+              "z": 0
+            },
+            "scale": {
+              "x": 1.2,
+              "y": 1.2,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

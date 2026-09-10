@@ -1,0 +1,182 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnChapelMaid",
+      "names": {
+        "english": "Chapel Maid",
+        "chinese": "教堂侍女",
+        "french": "Chapel Maid"
+      },
+      "card_art": "@ChapelMaidCardArt",
+      "cost": 2,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@Silksong",
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnChapelMaidEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Up with you! Up! I won't have you dying on my floor!",
+          "chinese": "起来！快点起来！我可不想看你死在我的地板上！"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "ChapelMaid",
+      "names": {
+        "english": "Chapel Maid",
+        "chinese": "教堂侍女",
+        "french": "Chapel Maid"
+      },
+      "character_art": "@ChapelMaidCharacterArt",
+      "size": 2,
+      "health": 8,
+      "attack_damage": 8,
+      "starting_status_effects": [
+        {
+          "status": "armor",
+          "count": 16
+        }
+      ],
+      "subtypes": ["@Snail", "SubtypesData_BannerUnit"],
+      "triggers": [
+        "@ChapelMaidSilksongTrigger",
+        "@ChapelMaidSpawnTrigger"
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "ChapelMaidSpawnTrigger",
+      "descriptions": {
+        "english": "[Silk_Song_Clan.Plugin_Combo] with Snail Subtype: Apply [duality].",
+        "chinese": "[Silk_Song_Clan.Plugin_Combo]与蜗牛子类型：应用 [duality]。"
+      },
+      "trigger": "on_spawn",
+      "effects": [
+        {
+          "id": "@ChapelMaidComboEffect"
+        },
+        {
+          "id": "@ChapelMaidDualityEffect"
+        }
+      ]
+    },
+    {
+      "id": "ChapelMaidSilksongTrigger",
+      "descriptions": {
+        "english": "Apply [Silk_Song_Clan.Plugin_PermanentProtection] [effect0.status0.power] to friendly units.",
+        "chinese": "友方单位获得[Silk_Song_Clan.Plugin_PermanentProtection] [effect0.status0.power]。"
+      },
+      "trigger": "@Silksong",
+      "effects": [
+        {
+          "id": "@ChapelMaidProtectionStatusEffect"
+        }
+      ]
+    }
+  ],
+  "upgrade_masks": [
+    {
+      "id": "ChapelMaidComboSnailMask",
+      "card_type": "monster",
+      "required_subtypes": [
+        "@Snail"
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "ChapelMaidDualityEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "duality",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "SpawnChapelMaidEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@ChapelMaid"
+    },
+    {
+      "id": "ChapelMaidComboEffect",
+      "name": "@CardEffectTestLastCard",
+      "target_mode": "self",
+      "should_test": true,
+      "should_cancel_subsequent_effects_if_test_fails": true,
+      "param_card_filter": "@ChapelMaidComboSnailMask",
+      "additional_tooltips": [
+        "@ComboTooltip"
+      ]
+    },
+    {
+      "id": "ChapelMaidProtectionStatusEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "@PermanentProtection",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "ChapelMaidCardArt",
+      "path": "textures/ChapelMaidCardArt.png"
+    },
+    {
+      "id": "ChapelMaidCharacterArt",
+      "path": "textures/ChapelMaidCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "ChapelMaidCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@ChapelMaidCardArt"
+        }
+      }
+    },
+    {
+      "id": "ChapelMaidCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@ChapelMaidCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 1,
+              "z": 0
+            },
+            "scale": {
+              "x": 0.3,
+              "y": 0.3,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

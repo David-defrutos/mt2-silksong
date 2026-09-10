@@ -1,0 +1,78 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "relics": [
+        {
+            "id": "SnailStone",
+            "type": "enhancer",
+            "names": {
+                "english": "Snail Stone",
+                "chinese": "蜗牛石"
+            },
+            "descriptions": {
+                "english": "Upgrade a spell with [consume] and [juice3].",
+                "chinese": "升级一个法术，使其获得[consume]和[juice3]。"
+            },
+            "relic_effects": [
+                "@SnailStoneEnhancer"
+            ],
+            "icon": "@SnailStoneIcon",
+            "extensions": [
+                {
+                    "enhancer": {
+                        "class": "@Silksong",
+                        "pools": [
+                            "SpellUpgradePoolCommon"
+                        ],
+                        "rarity": "rare"
+                    }
+                }
+            ]
+        }
+    ],
+    "relic_effects": [
+        {
+            "id": "SnailStoneEnhancer",
+            "name": "RelicEffectCardUpgrade",
+            "param_card_type": "spell",
+            "param_upgrade": "@SnailStoneUpgrade"
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "SnailStoneUpgrade",
+            "titles": {
+                "english": "Snail Stone",
+                "chinese": "蜗牛石"
+            },
+            "icon": "@SnailStoneIcon",
+            "trait_upgrades": [
+                "@SnailStoneConsumeTrait",
+                "@SnailStoneJuiceTrait"
+            ],
+            "use_upgrade_hightlight_tags": true
+        }
+    ],
+    "traits": [
+        {
+            "id": "SnailStoneConsumeTrait",
+            "name": "CardTraitExhaustState"
+        },
+        {
+            "id": "SnailStoneJuiceTrait",
+            "name": "CardTraitJuice3"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "SnailStoneIcon",
+            "path": "textures/SnailStoneIcon.png"
+        }
+    ],
+    "atlas_icons": [
+        {
+            "id": "SnailStoneIcon",
+            "path": "textures/SnailStoneIcon.png"
+        }
+    ]
+}
+

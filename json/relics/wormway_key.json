@@ -1,0 +1,49 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "relics": [
+        {
+            "id": "WormwayKey",
+            "type": "collectable",
+            "names": {
+                "english": "Simple Key",
+                "chinese": "简单钥匙"
+            },
+            "icon": "@WormwayKeyIcon",
+            "icon_small": "@WormwayKeyIcon",
+            "descriptions": {
+                "english": "Increase the maximum amount of [Silk_Song_Clan.Plugin_Silk] by [effect0.power].",
+                "chinese": "增加最大丝绸数量 by [effect0.power]。"
+            },
+            "lore_tooltips": [
+                {
+                    "english": "Rusted key of common design. Can be used to open a variety of locks.",
+                    "chinese": "造型普通的生锈钥匙。可用于打开简单的锁具。"
+                }
+            ],
+            "relic_effects": [
+                "@SimpleKeyMaxSilkEffect"
+            ],
+            "extensions": [
+                {
+                    "collectable": {
+                        "class": "@Silksong",
+                        "rarity": "rare"
+                    }
+                }
+            ]
+        }
+    ],
+    "relic_effects": [
+        {
+            "id": "SimpleKeyMaxSilkEffect",
+            "name": "@RelicEffectAddMaxSilk",
+            "param_int": 4
+        }
+    ],
+    "sprites": [
+        {
+            "id": "WormwayKeyIcon",
+            "path": "textures/WormwayKeyIcon.png"
+        }
+    ]
+}

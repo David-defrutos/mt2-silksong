@@ -1,0 +1,13 @@
+{
+  "namespace": "David",
+  "name": "Silksong_David",
+  "description": "Hollow Knight Silksong Mod for Monster Train 2",
+  "version_number": "0.4.0",
+  "dependencies": [
+    "BepInEx-BepInExPack-5.4.2304",
+    "MT2-Trainworks_Reloaded-0.7.0",
+    "Conductor-Conductor-0.4.0"
+  ],
+  "website_url": "https://thunderstore.io",
+  "FullName": "David-Silksong_David"
+}

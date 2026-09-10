@@ -1,0 +1,128 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+    "cards": [
+        {
+            "id": "SpawnHugeFlea",
+            "names": {
+                "english": "Huge Flea",
+                "chinese": "巨大小球蚤"
+            },
+            "card_art": "@HugeFleaCardArt",
+            "cost": 0,
+            "card_type": "monster",
+            "rarity": "common",
+            "class": "@Silksong",
+            "targets_room": true,
+            "effects": [
+                {
+                    "id": "@SpawnHugeFleaEffect"
+                }
+            ],
+            "lore_tooltips": [
+                {
+                    "english": "A larger flea that provides significant power boosts to the entire swarm."
+                }
+            ]
+        }
+    ],
+    "character_triggers": [
+        {
+            "id": "HugeFleaShiftTrigger",
+            "descriptions": {
+                "english": "Friendly Units get +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health].",
+                "chinese": "友方单位获得 +[effect0.upgrade.bonusdamage][attack]，+[effect0.upgrade.bonushp][health]。"
+            },
+            "trigger": "on_shift",
+            "effects": [
+                {
+                    "id": "@HugeFleaPetEffect"
+                }
+            ]
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "HugeFleaPetUpgrade",
+            "bonus_damage": 3,
+            "bonus_hp": 3
+        }
+    ],
+    "characters": [
+        {
+            "id": "HugeFlea",
+            "names": {
+                "english": "Huge Flea",
+                "chinese": "巨大小球蚤"
+            },
+            "character_art": "@HugeFleaCharacterArt",
+            "size": 2,
+            "health": 15,
+            "attack_damage": 15,
+            "subtypes": [
+                "@Flea"
+            ],
+            "triggers": [
+                {
+                    "id": "@HugeFleaShiftTrigger"
+                }
+            ]
+        }
+    ],
+    "effects": [
+        {
+            "id": "SpawnHugeFleaEffect",
+            "name": "CardEffectSpawnMonster",
+            "target_mode": "drop_target_character",
+            "param_character": "@HugeFlea"
+        },
+        {
+            "id": "HugeFleaPetEffect",
+            "name": "CardEffectAddCardUpgradeToUnits",
+            "target_mode": "room",
+            "target_team": "monsters",
+            "param_upgrade": "@HugeFleaPetUpgrade"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "HugeFleaCardArt",
+            "path": "textures/HugeFleaCardArt.png"
+        },
+        {
+            "id": "HugeFleaCharacterArt",
+            "path": "textures/HugeFleaCharacterArt.png"
+        }
+    ],
+    "game_objects": [
+        {
+            "id": "HugeFleaCardArt",
+            "type": "card_art",
+            "extensions": {
+                "card_art": {
+                    "sprite": "@HugeFleaCardArt"
+                }
+            }
+        },
+        {
+            "id": "HugeFleaCharacterArt",
+            "type": "character_art",
+            "extensions": {
+                "character_art": {
+                    "sprite": "@HugeFleaCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 1,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 1.5,
+                            "y": 1.5,
+                            "z": 1
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

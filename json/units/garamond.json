@@ -1,0 +1,202 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnGaramond",
+      "names": {
+        "english": "Garamond&Zaza",
+        "chinese": "加蒙德"
+      },
+      "card_art": "@GaramondCardArt",
+      "cost": 2,
+      "card_type": "monster",
+      "rarity": "rare",
+      "class": "@Silksong",
+      "unlock_level": 5,
+      "pools": [
+        "MegaPool",
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnGaramondEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Guurroooo! Scoundrel! Fiend! Who dares wake brave Garmond from his well needed kip!",
+          "chinese": "咕噜噜——！恶棍！混账！是谁胆敢让勇敢的加蒙德从他来之不易的小憩中惊醒？"
+        }
+      ]
+    },
+    {
+      "id": "GaramondLanceAbility",
+      "names": {
+        "english": "Lance",
+        "chinese": "长矛"
+      },
+      "descriptions": {
+        "english": "Attack.",
+        "chinese": "立即攻击。"
+      },
+      "is_an_ability": true,
+      "cooldown": 2,
+      "targets_room": false,
+      "targetless": true,
+      "effects": [
+        {
+          "id": "@GaramondLanceEffect"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "Garamond",
+      "names": {
+        "english": "Garamond",
+        "chinese": "加蒙德",
+        "french": "Garamond"
+      },
+      "character_art": "@GaramondCharacterArt",
+      "size": 2,
+      "health": 24,
+      "attack_damage": 36,
+      "subtypes": ["@Bug", "SubtypesData_BannerUnit"],
+      "starting_status_effects": [
+        {
+          "status": "@Warrior",
+          "count": 1
+        }
+      ],
+      "triggers": [
+        "@GaramondUpgradeSpawnTrigger",
+        "@GaramondSpawnTrigger"
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "GaramondUpgradeSpawnTrigger",
+      "descriptions": {
+        "english": "Gain +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] permanently.",
+        "chinese": "永久获得 +[effect0.upgrade.bonusdamage][attack]，+[effect0.upgrade.bonushp][health]。"
+      },
+      "trigger": "on_spawn",
+      "effects": [
+        {
+          "id": "@GaramondAddDamageAndHPUpgrade"
+        }
+      ]
+    },
+    {
+      "id": "GaramondSpawnTrigger",
+      "descriptions": {
+        "english": "[Silk_Song_Clan.Plugin_Combo] with Zaza: Gain  \"[ability]: Attack.\"",
+        "chinese": "[Silk_Song_Clan.Plugin_Combo]与扎扎：获得 \"[ability]: 攻击。\"。"
+      },
+      "trigger": "on_spawn",
+      "effects": [
+        {
+          "id": "@GaramondSpawnEffectCombo"
+        },
+        {
+          "id": "@GaramondAbilitySpawnEffect"
+        }
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "GaramondAbilityComboUpgrade",
+      "ability_upgrade": "@GaramondLanceAbility"
+    },
+    {
+      "id": "GaramondComboUpgrade",
+      "bonus_damage": 12,
+      "bonus_hp": 12
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnGaramondEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@Garamond"
+    },
+    {
+      "id": "GaramondSpawnEffectCombo",
+      "name": "@CardEffectTestLastCardName",
+      "target_mode": "self",
+      "param_card": "@SpawnZaza",
+      "should_test": true,
+      "should_cancel_subsequent_effects_if_test_fails": true,
+      "additional_tooltips": [
+        "@ComboTooltip"
+      ]
+    },
+    {
+      "id": "GaramondAddDamageAndHPUpgrade",
+      "name": "CardEffectAddCardUpgradeToUnits",
+      "target_mode": "self",
+      "target_team": "monsters",
+      "param_upgrade": "@GaramondComboUpgrade",
+      "param_int_3": 2
+    },
+    {
+      "id": "GaramondAbilitySpawnEffect",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "self",
+      "target_team": "monsters",
+      "param_upgrade": "@GaramondAbilityComboUpgrade"
+    },
+    {
+      "id": "GaramondLanceEffect",
+      "name": "CardEffectAttackWithUnit",
+      "target_mode": "self"
+    }
+  ],
+  "sprites": [
+    {
+      "id": "GaramondCardArt",
+      "path": "textures/GaramondCardArt.png"
+    },
+    {
+      "id": "GaramondCharacterArt",
+      "path": "textures/GaramondCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "GaramondCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@GaramondCardArt"
+        }
+      }
+    },
+    {
+      "id": "GaramondCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@GaramondCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.9,
+              "z": 0
+            },
+            "scale": {
+              "x": 0.3,
+              "y": 0.3,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

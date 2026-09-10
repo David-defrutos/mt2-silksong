@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "Needolin",
+      "names": {
+        "english": "Needolin",
+        "chinese": "丝之琴"
+      },
+      "descriptions": {
+        "english": "Apply [dazed] [effect0.status0.power] to the front enemy unit.",
+        "chinese": "对前排敌方单位施加[dazed] [effect0.status0.power]。"
+      },
+      "cost": 2,
+      "card_type": "spell",
+      "rarity": "uncommon",
+      "card_art": "@NeedolinCardArt",
+      "class": "@Silksong",
+      "targets_room": true,
+      "targetless": true,
+      "pools": [
+        "MegaPool"
+      ],
+      "effects": [
+        {
+          "id": "@NeedolinDazeEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A disorienting needle strike that confuses the enemy."
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "NeedolinDazeEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "front_in_room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "dazed",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "NeedolinCardArt",
+      "path": "textures/NeedolinCardArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "NeedolinCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@NeedolinCardArt"
+        }
+      }
+    }
+  ]
+}

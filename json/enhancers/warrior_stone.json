@@ -1,0 +1,87 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "relics": [
+        {
+            "id": "WarriorStone",
+            "type": "enhancer",
+            "names": {
+                "english": "Warrior Stone",
+                "chinese": "战士石"
+            },
+            "descriptions": {
+                "english": "Upgrade a unit with +[effect0.upgrade0.bonusdamage][attack], +[effect0.upgrade0.bonushp][health], and [Silk_Song_Clan.Plugin_Warrior].",
+                "chinese": "升级一个单位，使其获得[Silk_Song_Clan.Plugin_Warrior]，+[effect0.upgrade.bonusdamage][attack]，+[effect0.upgrade.bonushp][health]。"
+            },
+            "relic_effects": [
+                "@WarriorStoneEnhancer"
+            ],
+            "icon": "@WarriorStoneIcon",
+            "extensions": [
+                {
+                    "enhancer": {
+                        "class": "@Silksong",
+                        "pools": [
+                            "UnitUpgradePoolCommon"
+                        ],
+                        "rarity": "common"
+                    }
+                }
+            ]
+        }
+    ],
+    "relic_effects": [
+        {
+            "id": "WarriorStoneEnhancer",
+            "name": "RelicEffectCardUpgrade",
+            "param_card_type": "monster",
+            "param_upgrade": "@WarriorStoneUpgrade"
+        }
+    ],
+    "upgrade_masks": [
+        {
+            "id": "WarriorStoneFilter",
+            "card_type": "monster",
+            "excluded_status": [
+                {
+                    "status": "@Warrior",
+                    "count": 1
+                }
+            ],
+            "excluded_status_operator": "or"
+        }
+    ],
+    "upgrades": [
+        {
+            "id": "WarriorStoneUpgrade",
+            "titles": {
+                "english": "Warrior Stone",
+                "chinese": "战士石"
+            },
+            "icon": "@WarriorStoneIcon",
+            "bonus_damage": 5,
+            "bonus_hp": 5,
+            "status_effect_upgrades": [
+                {
+                    "status": "@Warrior",
+                    "count": 1
+                }
+            ],
+            "filters": [
+                "@WarriorStoneFilter"
+            ],
+            "use_upgrade_hightlight_tags": true
+        }
+    ],
+    "sprites": [
+        {
+            "id": "WarriorStoneIcon",
+            "path": "textures/WarriorStoneIcon.png"
+        }
+    ],
+    "atlas_icons": [
+        {
+            "id": "WarriorStoneIcon",
+            "path": "textures/WarriorStoneIcon.png"
+        }
+    ]
+}

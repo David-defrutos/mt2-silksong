@@ -1,0 +1,167 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnSherma",
+      "names": {
+        "english": "Sherma",
+        "chinese": "谢尔玛",
+        "french": "Sherma"
+      },
+      "card_art": "@ShermaCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@Silksong",
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnShermaEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Gate, gate, gate! Nicest gate I've met! Gate, gate, gate! Greatest miracle yet! Ha ha ha!",
+          "chinese": "门，门，门！最漂亮的大门！<br>门，门，门！伟大奇迹如神！哈哈哈！"
+        }
+      ]
+    },
+    {
+      "id": "ShermaRetreatAbility",
+      "names": {
+        "english": "Caretake",
+        "chinese": "看护"
+      },
+      "descriptions": {
+        "english": "[retreat] a friendly unit.",
+        "chinese": "[retreat]一个友方单位。"
+      },
+      "is_an_ability": true,
+      "cooldown": 2,
+      "initial_cooldown": 0,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@ShermaRetreatEffect"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "Sherma",
+      "names": {
+        "english": "Sherma",
+        "chinese": "谢尔玛",
+        "french": "Sherma"
+      },
+      "character_art": "@ShermaCharacterArt",
+      "size": 1,
+      "health": 10,
+      "attack_damage": 0,
+      "subtypes": [
+        "@Bug",
+        "SubtypesData_BannerUnit"
+      ],
+      "ability": "@ShermaRetreatAbility",
+      "starting_status_effects": [
+        {
+          "status": "endless",
+          "count": 1
+        }
+      ],
+      "triggers": [
+        {
+          "id": "@ShermaResolveTrigger"
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "ShermaResolveTrigger",
+      "trigger": "pre_combat",
+      "descriptions": {
+        "english": "Give Friendly Units [Silk_Song_Clan.Plugin_Protection] [effect0.status0.power].",
+        "chinese": "友方单位获得[Silk_Song_Clan.Plugin_Protection] [effect0.status0.power]。"
+      },
+      "effects": [
+        {
+          "id": "@ShermaApplyProtection"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnShermaEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "drop_target_character",
+      "param_character": "@Sherma"
+    },
+    {
+      "id": "ShermaApplyProtection",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "@Protection",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "id": "ShermaRetreatEffect",
+      "name": "CardEffectFloorRearrange",
+      "target_mode": "drop_target_character",
+      "target_team": "monsters",
+      "param_int": 1
+    }
+  ],
+  "sprites": [
+    {
+      "id": "ShermaCardArt",
+      "path": "textures/ShermaCardArt.png"
+    },
+    {
+      "id": "ShermaCharacterArt",
+      "path": "textures/ShermaCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "ShermaCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@ShermaCardArt"
+        }
+      }
+    },
+    {
+      "id": "ShermaCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@ShermaCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.2,
+              "z": 0
+            },
+            "scale": {
+              "x": 1.5,
+              "y": 1.5,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

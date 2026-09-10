@@ -1,0 +1,34 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+    "replacement_texts": [
+        {
+            "key": "Combo",
+            "texts": {
+                "english": "<b>Combo</b>",
+                "chinese": "<b>连招</b>"
+            }
+        }
+    ],
+    "additional_tooltips": [
+        {
+            "id": "ComboTooltip",
+            "titles": {
+                "english": "Combo",
+                "chinese": "连招"
+            },
+            "descriptions": {
+                "english": "Gain additional effects if the previous card played was a specific type."
+            }
+        },
+        {
+            "id": "ComboPreviousTooltip",
+            "titles": {
+                "english": "Combo",
+                "chinese": "连招"
+            },
+            "descriptions": {
+                "english": "Gain additional effects if a previous card was played."
+            }
+        }
+    ]
+}

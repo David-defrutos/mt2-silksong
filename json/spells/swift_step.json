@@ -1,0 +1,100 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SwiftStep",
+      "names": {
+        "english": "Swift Step",
+        "chinese": "疾风步"
+      },
+      "descriptions": {
+        "english": "Give a friendly unit [Silk_Song_Clan.Plugin_Protection] [effect0.status0.power]. Combo with Unit: Also give [quick].",
+        "chinese": "使一个友方单位获得[Silk_Song_Clan.Plugin_Protection] [effect0.status0.power]。"
+      },
+      "cost": 1,
+      "card_type": "spell",
+      "card_art": "@SwiftStepCardArt",
+      "rarity": "common",
+      "class": "@Silksong",
+      "pools": [
+        "MegaPool"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SwiftStepProtectionEffect"
+        },
+        {
+          "id": "@SwiftStepComboEffect"
+        },
+        {
+          "id": "@SwiftStepAmbushEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A quick defensive maneuver that shields allies from harm."
+        }
+      ]
+    }
+  ],
+  "upgrade_masks": [
+    {
+      "id": "SwiftStepComboMask",
+      "card_type": "monster"
+    }
+  ],
+  "effects": [
+    {
+      "id": "SwiftStepProtectionEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "drop_target_character",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "@Protection",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "id": "SwiftStepComboEffect",
+      "name": "@CardEffectTestLastCard",
+      "target_mode": "self",
+      "should_test": true,
+      "should_cancel_subsequent_effects_if_test_fails": true,
+      "param_card_filter": "@SwiftStepComboMask",
+      "additional_tooltips": [
+        "@ComboTooltip"
+      ]
+    },
+    {
+      "id": "SwiftStepAmbushEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_targeted_characters",
+      "param_status_effects": [
+        {
+          "status": "ambush",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "SwiftStepCardArt",
+      "path": "textures/SwiftStepCardArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "SwiftStepCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@SwiftStepCardArt"
+        }
+      }
+    }
+  ]
+}

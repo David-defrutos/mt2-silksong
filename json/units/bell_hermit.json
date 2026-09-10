@@ -1,0 +1,185 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnBellHermit",
+      "names": {
+        "english": "Bell Hermit",
+        "chinese": "钟底隐士",
+        "french": "Bell Hermit"
+      },
+      "card_art": "@BellHermitCardArt",
+      "cost": 2,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@Silksong",
+      "unlock_level": 3,
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnBellHermitEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Hnff... So the slave comes seeking? I've heard it. Wishing on a world cut free, yes? Along with my nephew up there. Sounds he's sunk as simple as you.",
+          "chinese": "哼...奴隶是有求而来的？我都听说了。想要一个没有束缚的自由世界，是吗？还和我上面的侄子一起？听起来他沦落得和你一样蠢了。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "BellHermit",
+      "names": {
+        "english": "Bell Hermit",
+        "chinese": "钟底隐士",
+        "french": "Bell Hermit"
+      },
+      "character_art": "@BellHermitCharacterArt",
+      "size": 2,
+      "health": 8,
+      "attack_damage": 16,
+      "subtypes": [
+        "@Snail",
+        "SubtypesData_BannerUnit"
+      ],
+      "starting_status_effects": [
+        {
+          "status": "armor",
+          "count": 8
+        }
+      ],
+      "triggers": [
+        "@BellHermitSilksongTrigger",
+        "@BellHermitSpawnTrigger"
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "BellHermitSpawnTrigger",
+      "descriptions": {
+        "english": "[Silk_Song_Clan.Plugin_Combo] with Snail Subtype: Apply [duality]."
+      },
+      "trigger": "on_spawn",
+      "effects": [
+        {
+          "id": "@BellHermitComboEffect"
+        },
+        {
+          "id": "@BellHermitDualityEffect"
+        }
+      ]
+    },
+    {
+      "id": "BellHermitSilksongTrigger",
+      "descriptions": {
+        "english": "Apply [Silk_Song_Clan.Plugin_PermanentImbue] [effect0.status0.power] to friendly units.",
+        "chinese": "友方单位获得[Silk_Song_Clan.Plugin_PermanentImbue] [effect0.status0.power]。"
+      },
+      "trigger": "@Silksong",
+      "effects": [
+        {
+          "id": "@BellHermitImbueEffect"
+        }
+      ]
+    }
+  ],
+  "upgrade_masks": [
+    {
+      "id": "BellHermitComboSnailMask",
+      "card_type": "monster",
+      "required_subtypes": [
+        "@Snail"
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "BellHermitDualityEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "duality",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "SpawnBellHermitEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "drop_target_character",
+      "param_character": "@BellHermit"
+    },
+    {
+      "id": "BellHermitComboEffect",
+      "name": "@CardEffectTestLastCard",
+      "target_mode": "self",
+      "should_test": true,
+      "should_cancel_subsequent_effects_if_test_fails": true,
+      "param_card_filter": "@BellHermitComboSnailMask",
+      "additional_tooltips": [
+        "@ComboTooltip"
+      ]
+    },
+    {
+      "id": "BellHermitImbueEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "@PermanentImbue",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "BellHermitCardArt",
+      "path": "textures/BellHermitCardArt.png"
+    },
+    {
+      "id": "BellHermitCharacterArt",
+      "path": "textures/BellHermitCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "BellHermitCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@BellHermitCardArt"
+        }
+      }
+    },
+    {
+      "id": "BellHermitCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@BellHermitCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.9,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

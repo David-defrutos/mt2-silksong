@@ -1,0 +1,152 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnGrindle",
+      "names": {
+        "english": "Grindle",
+        "chinese": "格林德尔",
+        "french": "Grindle"
+      },
+      "card_art": "@GrindleCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@Silksong",
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnGrindleEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Hoho, free at last! Locked up in here much too long, we was. Nasty place to keep a poir little snitchbug like Grindle.",
+          "chinese": "哦嚯嚯，终于自由啦！一个破牢房能关这么久，咱不过是只可怜虫，格林德尔罢了。"
+        }
+      ]
+    },
+    {
+      "id": "GrindleRetreatAbility",
+      "names": {
+        "english": "Retreat",
+        "chinese": "后退"
+      },
+      "descriptions": {
+        "english": "[retreat].",
+        "chinese": "[retreat]。"
+      },
+      "is_an_ability": true,
+      "cooldown": 2,
+      "initial_cooldown": 0,
+      "targetless": true,
+      "effects": [
+        {
+          "id": "@GrindleRetreatEffect"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "Grindle",
+      "names": {
+        "english": "Grindle",
+        "chinese": "格林德尔",
+        "french": "Grindle"
+      },
+      "character_art": "@GrindleCharacterArt",
+      "size": 1,
+      "health": 5,
+      "attack_damage": 5,
+      "subtypes": ["@Bug", "SubtypesData_BannerUnit"],
+      "ability": "@GrindleRetreatAbility",
+      "triggers": [
+        {
+          "id": "@GrindleStrikeTrigger"
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "GrindleStrikeTrigger",
+      "descriptions": {
+        "english": "Gain [effect0.power] [coin].",
+        "chinese": "获得 [effect0.power][coin]。"
+      },
+      "trigger": "on_attacking",
+      "effects": [
+        {
+          "id": "@GrindleGainGoldEffect"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnGrindleEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@Grindle"
+    },
+    {
+      "id": "GrindleGainGoldEffect",
+      "name": "CardEffectRewardGold",
+      "target_mode": "self",
+      "param_int": 10
+    },
+    {
+      "id": "GrindleRetreatEffect",
+      "name": "CardEffectFloorRearrange",
+      "target_mode": "self",
+      "target_team": "monsters",
+      "param_int": 1
+    }
+  ],
+  "sprites": [
+    {
+      "id": "GrindleCardArt",
+      "path": "textures/GrindleCardArt.png"
+    },
+    {
+      "id": "GrindleCharacterArt",
+      "path": "textures/GrindleCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "GrindleCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@GrindleCardArt"
+        }
+      }
+    },
+    {
+      "id": "GrindleCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@GrindleCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.3,
+              "z": 0
+            },
+            "scale": {
+              "x": 1.2,
+              "y": 1.2,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

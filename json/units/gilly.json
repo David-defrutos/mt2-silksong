@@ -1,0 +1,143 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnGilly",
+      "names": {
+        "english": "Gilly",
+        "chinese": "吉莉",
+        "french": "Gilly"
+      },
+      "card_art": "@GillyCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@Silksong",
+      "unlock_level": 3,
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnGillyEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Upon the last wish of my father, I've taken up the study of these wild caves. These fields still display life and growth, even as the lands around erode to dust. ",
+          "chinese": "我继承了父亲的遗志，正在调查这些洞穴。<br>即使附近的土地被腐蚀成灰，这片荒野依旧生机勃勃。"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "Gilly",
+      "names": {
+        "english": "Gilly",
+        "chinese": "吉莉",
+        "french": "Gilly"
+      },
+      "character_art": "@GillyCharacterArt",
+      "size": 2,
+      "health": 15,
+      "attack_damage": 25,
+      "subtypes": [
+        "@Bug",
+        "SubtypesData_BannerUnit"
+      ],
+      "starting_status_effects": [
+        {
+          "status": "stealth",
+          "count": 2
+        },
+        {
+          "status": "trample",
+          "count": 1
+        }
+      ],
+      "triggers": [
+        {
+          "id": "@GillySilksongTrigger"
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "GillySilksongTrigger",
+      "descriptions": {
+        "english": "Gain [stealth] [effect0.status0.power].",
+        "chinese": "获得[stealth] [effect0.status0.power]。"
+      },
+      "trigger": "@Silksong",
+      "effects": [
+        {
+          "id": "@GillyGainStealthEffect"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnGillyEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@Gilly"
+    },
+    {
+      "id": "GillyGainStealthEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "stealth",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "GillyCardArt",
+      "path": "textures/GillyCardArt.png"
+    },
+    {
+      "id": "GillyCharacterArt",
+      "path": "textures/GillyCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "GillyCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@GillyCardArt"
+        }
+      }
+    },
+    {
+      "id": "GillyCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@GillyCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.9,
+              "z": 0
+            },
+            "scale": {
+              "x": 0.3,
+              "y": 0.3,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnPinstress",
+      "names": {
+        "english": "Pinstress",
+        "chinese": "珠针女士",
+        "french": "Pinstress"
+      },
+      "card_art": "@PinstressCardArt",
+      "cost": 2,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@Silksong",
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnPinstressEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "The black quakes... Pharloom's finale arrives. So let's stop the yapping, aye! How's 'bout we begin? ",
+          "chinese": "黑色的震动...纺都终局已定。<br>所以别再啰嗦了，好吗！现在就开始吧？"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "Pinstress",
+      "names": {
+        "english": "Pinstress",
+        "chinese": "珠针女士",
+        "french": "Pinstress"
+      },
+      "character_art": "@PinstressCharacterArt",
+      "size": 3,
+      "health": 40,
+      "attack_damage": 25,
+      "subtypes": [
+        "@Pinstress",
+        "SubtypesData_BannerUnit"
+      ],
+      "starting_status_effects": [
+        {
+          "status": "mageblade",
+          "count": 2
+        }
+      ],
+      "triggers": [
+        {
+          "id": "@PinstressSpawnTrigger"
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "PinstressSpawnTrigger",
+      "trigger": "on_spawn",
+      "descriptions": {
+        "english": "[Silk_Song_Clan.Plugin_Combo] with Pinstress Subtype: Gain \"[strike]: Gain [conduit] [effect1.upgrade.charactertrigger0.effect0.status0.power].\""
+      },
+      "effects": [
+        {
+          "id": "@PinstressComboEffect"
+        },
+        {
+          "id": "@PinstressSpawnEffect"
+        }
+      ]
+    },
+    {
+      "id": "PinstressStrikeTrigger",
+      "trigger": "on_attacking",
+      "descriptions": {
+        "english": "Gain [conduit] [effect0.status0.power]."
+      },
+      "effects": [
+        {
+          "id": "@PinstressStrikeEffect"
+        }
+      ]
+    }
+  ],
+  "upgrade_masks": [
+    {
+      "id": "PinstressComboPinstressMask",
+      "required_subtypes": [
+        "@Pinstress"
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "PinstressComboUpgrade",
+      "trigger_upgrades": [
+        {
+          "id": "@PinstressStrikeTrigger"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnPinstressEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@Pinstress"
+    },
+    {
+      "id": "PinstressComboEffect",
+      "name": "@CardEffectTestLastCard",
+      "target_mode": "self",
+      "should_test": true,
+      "should_cancel_subsequent_effects_if_test_fails": true,
+      "param_card_filter": "@PinstressComboPinstressMask",
+      "additional_tooltips": [
+        "@ComboTooltip"
+      ]
+    },
+    {
+      "id": "PinstressSpawnEffect",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "self",
+      "target_team": "monsters",
+      "param_upgrade": "@PinstressComboUpgrade"
+    },
+    {
+      "id": "PinstressStrikeEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "conduit",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "PinstressCardArt",
+      "path": "textures/PinstressCardArt.png"
+    },
+    {
+      "id": "PinstressCharacterArt",
+      "path": "textures/PinstressCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "PinstressCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@PinstressCardArt"
+        }
+      }
+    },
+    {
+      "id": "PinstressCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@PinstressCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 1.3,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

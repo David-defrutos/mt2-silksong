@@ -1,0 +1,153 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnLumbleTheLucky",
+      "names": {
+        "english": "Lumble the Lucky",
+        "chinese": "兰布尔 幸运儿"
+      },
+      "cost": 1,
+      "rarity": "rare",
+      "traits": [],
+      "class": "@Silksong",
+      "card_art": "@LumbleTheLuckyCardArt",
+      "card_type": "monster",
+      "pools": [
+        "MegaPool",
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnLumbleTheLuckyEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "care to test your luck with a game of dice?",
+          "chinese": "想不想玩玩骰子，试试运气？"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "LumbleTheLucky",
+      "names": {
+        "english": "Lumble the Lucky",
+        "chinese": "兰布尔 幸运儿",
+        "french": "Lumble the Lucky"
+      },
+      "attack_damage": 25,
+      "health": 15,
+      "size": 2,
+      "subtypes": [
+        "@Bug",
+        "SubtypesData_BannerUnit"
+      ],
+      "character_art": "@LumbleTheLuckyCharacterArt",
+      "triggers": [
+        "@LumbleTheLuckyIncantTrigger",
+        "@LumbleTheLuckyExtinguishTrigger"
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "LumbleTheLuckyIncantTrigger",
+      "trigger": "on_shift",
+      "descriptions": {
+        "english": "Gain [effect0.power] [coin].",
+        "chinese": "获得 [effect0.power][coin]。"
+      },
+      "effects": [
+        "@LumbleTheLuckyIncantEffect"
+      ]
+    },
+    {
+      "id": "LumbleTheLuckyExtinguishTrigger",
+      "trigger": "on_death",
+      "descriptions": {
+        "english": "Apply [Silk_Song_Clan.Plugin_PermanentProtection] [effect0.status0.power] to friendly units.",
+        "chinese": "友方单位获得[Silk_Song_Clan.Plugin_PermanentProtection] [effect0.status0.power]。"
+      },
+      "effects": [
+        "@LumbleTheLuckyExtinguishEffect"
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnLumbleTheLuckyEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "drop_target_character",
+      "param_character": "@LumbleTheLucky"
+    },
+    {
+      "id": "LumbleTheLuckyIncantEffect",
+      "name": "CardEffectRewardGold",
+      "target_mode": "self",
+      "param_int": 10
+    },
+    {
+      "id": "LumbleTheLuckyExtinguishEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "@PermanentProtection",
+          "count": 5
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "LumbleTheLuckyCardArt",
+      "path": "textures/LumbleTheLuckyCardArt.png"
+    },
+    {
+      "id": "LumbleTheLuckyCharacterArt",
+      "path": "textures/LumbleTheLuckyCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "LumbleTheLuckyCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@LumbleTheLuckyCardArt"
+        }
+      }
+    },
+    {
+      "id": "LumbleTheLuckyCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@LumbleTheLuckyCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.5,
+              "z": 0
+            },
+            "scale": {
+              "x": 1.2,
+              "y": 1.2,
+              "z": 1
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

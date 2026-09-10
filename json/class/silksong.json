@@ -1,0 +1,207 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+    "class_card_styles": [
+        {
+            "id": "Silksong",
+            "spell_card_frame_sprite": "@SilksongSpellCardFrame",
+            "unit_card_frame_sprite": "@SilksongUnitCardFrame"
+        }
+    ],
+    "classes": [
+        {
+            "card_draft_icon": "@SilksongCardDraftIcon",
+            "card_style": "@Silksong",
+            "champions": [
+                {
+                    "card_data": "@SpawnHornet",
+                    "icon": "@HornetChampionIcon",
+                    "id": "HornetChampion",
+                    "locked_icon": "@HornetChampionIcon",
+                    "portrait": "@HornetChampionIcon",
+                    "starter_card": "@NailStrike",
+                    "upgrade_tree": [
+                        [
+                            "@HornetHunter1",
+                            "@HornetHunter2",
+                            "@HornetHunter3"
+                        ],
+                        [
+                            "@HornetReaper1",
+                            "@HornetReaper2",
+                            "@HornetReaper3"
+                        ],
+                        [
+                            "@HornetProtector1",
+                            "@HornetProtector2",
+                            "@HornetProtector3"
+                        ]
+                    ]
+                },
+                {
+                    "card_data": "@SpawnLace",
+                    "icon": "@LaceChampionIcon",
+                    "id": "LaceChampion",
+                    "locked_icon": "@LaceChampionIcon",
+                    "portrait": "@LaceChampionIcon",
+                    "starter_card": "@NailStrike",
+                    "upgrade_tree": [
+                        [
+                            "@Laceconsume1",
+                            "@Laceconsume2",
+                            "@Laceconsume3"
+                        ],
+                        [
+                            "@LaceNecro1",
+                            "@LaceNecro2",
+                            "@LaceNecro3"
+                        ],
+                        [
+                            "@LaceHeist1",
+                            "@LaceHeist2",
+                            "@LaceHeist3"
+                        ]
+                    ]
+                }
+            ],
+            "class_select_character_displays": [
+                "@HornetClassDisplay",
+                "@LaceClassDisplay"
+            ],
+            "descriptions": {
+                "english": "Lead Hornet and her allies to victory."
+            },
+            "icons": {
+                "large": "@ClanIconLarge",
+                "medium": "@ClanIconMedium",
+                "silhouette": "@ClanIconSilhouette",
+                "small": "@ClanIconSmall"
+            },
+            "id": "Silksong",
+            "subclass_descriptions": {
+                "english": "Silksong"
+            },
+            "titles": {
+                "chinese": "丝之歌",
+                "english": "Silksong"
+            },
+            "ui_color": {
+                "a": 1,
+                "b": 0.247,
+                "g": 0.784,
+                "r": 0.925
+            },
+            "ui_color_dark": {
+                "a": 1,
+                "b": 0.121,
+                "g": 0.07,
+                "r": 0.239
+            },
+            "ui_gradient": [
+                {
+                    "color": {
+                        "a": 1,
+                        "b": 0.247,
+                        "g": 0.784,
+                        "r": 0.925
+                    },
+                    "time": 0
+                },
+                {
+                    "color": {
+                        "a": 1,
+                        "b": 0.121,
+                        "g": 0.07,
+                        "r": 0.239
+                    },
+                    "time": 1
+                }
+            ]
+        }
+    ],
+    "game_objects": [
+        {
+            "extensions": {
+                "character_art": {
+                    "sprite": "@HornetCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 2,
+                            "y": -0.2,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 3.6,
+                            "y": 3.6,
+                            "z": 4
+                        }
+                    }
+                }
+            },
+            "id": "HornetClassDisplay",
+            "type": "character_art"
+        },
+        {
+            "extensions": {
+                "character_art": {
+                    "sprite": "@LaceCharacterArt",
+                    "transform": {
+                        "position": {
+                            "x": 2,
+                            "y": -0.2,
+                            "z": 0
+                        },
+                        "scale": {
+                            "x": 3.6,
+                            "y": 3.6,
+                            "z": 4
+                        }
+                    }
+                }
+            },
+            "id": "LaceClassDisplay",
+            "type": "character_art"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "SilksongCardDraftIcon",
+            "path": "textures/SilksongCardDraftIcon.png"
+        },
+        {
+            "id": "ClanIconSmall",
+            "path": "textures/ClanIconSmall.png"
+        },
+        {
+            "id": "ClanIconMedium",
+            "path": "textures/ClanIconMedium.png"
+        },
+        {
+            "id": "ClanIconLarge",
+            "path": "textures/ClanIconLarge.png"
+        },
+        {
+            "id": "ClanIconSilhouette",
+            "path": "textures/ClanIconSilhouette.png"
+        },
+        {
+            "id": "ClanIconOutline",
+            "path": "textures/ClanIconOutline.png"
+        },
+        {
+            "id": "HornetChampionIcon",
+            "path": "textures/IconHornet.png"
+        },
+        {
+            "id": "LaceChampionIcon",
+            "path": "textures/IconLace.png"
+        },
+        {
+            "id": "SilksongUnitCardFrame",
+            "path": "textures/UnitCardFrame.png"
+        },
+        {
+            "id": "SilksongSpellCardFrame",
+            "path": "textures/SpellCardFrame.png"
+        }
+    ]
+}

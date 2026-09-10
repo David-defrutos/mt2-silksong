@@ -1,0 +1,161 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnAlchemistZylotol",
+      "names": {
+        "english": "Alchemist Zylotol",
+        "chinese": "炼金术士 奇洛托"
+      },
+      "card_art": "@AlchemistZylotolCardArt",
+      "cost": 3,
+      "card_type": "monster",
+      "rarity": "rare",
+      "class": "@Silksong",
+      "unlock_level": 4,
+      "pools": [
+        "MegaPool",
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnAlchemistZylotolEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "The Plasmium, our great research... We have progressed.",
+          "chinese": "原质血，我们伟大的研究...已取得进展。"
+        }
+      ]
+    },
+    {
+      "id": "AlchemistZylotolAbility",
+      "names": {
+        "english": "Inject",
+        "chinese": "注入"
+      },
+      "descriptions": {
+        "english": "Channel [effect0.powerabs] [Silk_Song_Clan.Plugin_Silk]. Apply [effect1.status0.power] [damageshield] and [effect2.status0.power] [Silk_Song_Clan.Plugin_PermanentImbue] to a friendly unit.",
+        "chinese": "灌注 [effect0.powerabs][Silk_Song_Clan.Plugin_Silk]。使一个友方单位获得[damageshield] [effect1.status0.power] 和[Silk_Song_Clan.Plugin_PermanentImbue] [effect2.status0.power]。"
+      },
+      "is_an_ability": true,
+      "cooldown": 2,
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@AlchemistChannelSilkEffect"
+        },
+        {
+          "id": "@AlchemistInjectEffect"
+        },
+        {
+          "id": "@AlchemistInjectImbueEffect"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "AlchemistZylotol",
+      "names": {
+        "english": "Alchemist Zylotol",
+        "chinese": "炼金术士 奇洛托",
+        "french": "Alchemist Zylotol"
+      },
+      "character_art": "@AlchemistZylotolCharacterArt",
+      "size": 3,
+      "health": 1,
+      "attack_damage": 40,
+      "subtypes": ["@Bug", "SubtypesData_BannerUnit"],
+      "ability": "@AlchemistZylotolAbility"
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnAlchemistZylotolEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "drop_target_character",
+      "param_character": "@AlchemistZylotol"
+    },
+    {
+      "id": "AlchemistChannelSilkEffect",
+      "name": "@CardEffectRewardSilk",
+      "target_mode": "self",
+      "param_int": -3,
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true,
+      "additional_tooltips": [
+        "@SilkTooltip",
+        "@SilkChannelTooltip"
+      ]
+    },
+    {
+      "id": "AlchemistInjectEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "drop_target_character",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "damage shield",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "AlchemistInjectImbueEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_targeted_characters",
+      "param_status_effects": [
+        {
+          "status": "@PermanentImbue",
+          "count": 10
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "AlchemistZylotolCardArt",
+      "path": "textures/AlchemistZylotolCardArt.png"
+    },
+    {
+      "id": "AlchemistZylotolCharacterArt",
+      "path": "textures/AlchemistZylotolCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "AlchemistZylotolCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@AlchemistZylotolCardArt"
+        }
+      }
+    },
+    {
+      "id": "AlchemistZylotolCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@AlchemistZylotolCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.9,
+              "z": 0
+            },
+            "scale": {
+              "x": 1.4,
+              "y": 1.4,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

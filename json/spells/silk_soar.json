@@ -1,0 +1,89 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SilkSoar",
+      "names": {
+        "english": "Silk Soar",
+        "chinese": "灵丝腾跃"
+      },
+      "descriptions": {
+        "english": "[ascend]. [Silk_Song_Clan.Plugin_Combo] with Unit: Draw a card."
+      },
+      "cost": 1,
+      "unlock_level": 6,
+      "card_art": "@SilkSoarCardArt",
+      "card_type": "spell",
+      "rarity": "rare",
+      "class": "@Silksong",
+      "pools": [
+        "MegaPool"
+      ],
+      "effects": [
+        {
+          "id": "@SilkSoarAscendEffect"
+        },
+        {
+          "id": "@SilkSoarComboEffect"
+        },
+        {
+          "id": "@SilkSoarDrawCardEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A graceful ascent that can bind enemies when combined with other techniques."
+        }
+      ]
+    }
+  ],
+  "upgrade_masks": [
+    {
+      "id": "SilkSoarUpgradeMask",
+      "card_type": "monster"
+    }
+  ],
+  "effects": [
+    {
+      "id": "SilkSoarAscendEffect",
+      "name": "CardEffectBump",
+      "target_mode": "drop_target_character",
+      "target_team": "both",
+      "param_int": 1
+    },
+    {
+      "id": "SilkSoarComboEffect",
+      "name": "@CardEffectTestLastCard",
+      "target_mode": "self",
+      "should_test": true,
+      "should_cancel_subsequent_effects_if_test_fails": true,
+      "param_card_filter": "@SilkSoarUpgradeMask",
+      "additional_tooltips": [
+        "@ComboPreviousTooltip"
+      ]
+    },
+    {
+      "id": "SilkSoarDrawCardEffect",
+      "name": "CardEffectDraw",
+      "target_mode": "self",
+      "param_int": 1
+    }
+  ],
+  "sprites": [
+    {
+      "id": "SilkSoarCardArt",
+      "path": "textures/SilkSoarCardArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "SilkSoarCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@SilkSoarCardArt"
+        }
+      }
+    }
+  ]
+}

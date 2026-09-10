@@ -1,0 +1,55 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+    "status_effects": [
+        {
+            "id": "Warrior",
+            "class_name": "@StatusEffectWarriorState",
+            "names": {
+                "english": "Warrior",
+                "chinese": "战士"
+            },
+            "card_tooltips": {
+                "english": "On hitting an enemy, gain 1 [Silk_Song_Clan.Plugin_Silk]."
+            },
+            "character_tooltips": {
+                "english": "On hitting an enemy, gains 1 [Silk_Song_Clan.Plugin_Silk]."
+            },
+            "notifications": {
+                "english": "Warrior",
+                "chinese": "战士"
+            },
+            "replacement_texts": {
+                "english": "<b>Warrior</b>",
+                "chinese": "<b>战士</b>"
+            },
+            "display_category": "persistent",
+            "trigger_stage": "on_post_attacking",
+            "is_stackable": false,
+            "icon": "@Warrior"
+        }
+    ],
+    "additional_tooltips": [
+        {
+            "id": "WarriorTooltip",
+            "titles": {
+                "english": "Warrior",
+                "chinese": "战士"
+            },
+            "descriptions": {
+                "english": "On hitting an enemy, gain 1 [Silk_Song_Clan.Plugin_Silk]."
+            }
+        }
+    ],
+    "sprites": [
+        {
+            "id": "Warrior",
+            "path": "textures/StatusWarrior.png"
+        }
+    ],
+    "atlas_icons": [
+        {
+            "id": "Warrior",
+            "path": "textures/StatusWarriorTooltip.png"
+        }
+    ]
+}

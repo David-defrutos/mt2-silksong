@@ -1,0 +1,172 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnVarga",
+      "names": {
+        "english": "Varga",
+        "chinese": "瓦尔加",
+        "french": "Varga"
+      },
+      "card_art": "@VargaCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "common",
+      "class": "@Silksong",
+      "unlock_level": 2,
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnVargaEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "The Fleamaster though, is always want to move on. We will be drag away somewhere much worse soon, I think.",
+          "chinese": "不过蚤大师总是想继续赶路。不久以后，我们就要被拽到更更糟糕的地方了，我猜。"
+        }
+      ]
+    },
+    {
+      "id": "VargaChannelAbility",
+      "names": {
+        "english": "Wrangle",
+        "chinese": "争论"
+      },
+      "descriptions": {
+        "english": "Channel [effect0.powerabs] [Silk_Song_Clan.Plugin_Silk]. Add a random Flea to Hand.",
+        "chinese": "灌注 [effect0.powerabs][Silk_Song_Clan.Plugin_Silk]。将一个随机蚤民单位加入你的手牌。"
+      },
+      "is_an_ability": true,
+      "cooldown": 4,
+      "initial_cooldown": 0,
+      "targetless": true,
+      "effects": [
+        {
+          "id": "@VargaChannelSilkEffect"
+        },
+        {
+          "id": "@VargaAddFleaEffect"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "Varga",
+      "names": {
+        "english": "Varga",
+        "chinese": "瓦尔加",
+        "french": "Varga"
+      },
+      "character_art": "@VargaCharacterArt",
+      "size": 1,
+      "health": 20,
+      "attack_damage": 15,
+      "subtypes": [
+        "@Flea",
+        "SubtypesData_BannerUnit"
+      ],
+      "ability": "@VargaChannelAbility",
+      "triggers": [
+        {
+          "id": "@VargaRallyTrigger"
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "VargaRallyTrigger",
+      "trigger": "card_monster_played",
+      "descriptions": {
+        "english": "Reduce friendly units' [cooldown] by 1."
+      },
+      "effects": [
+        {
+          "id": "@VargaReduceCooldownsEffect"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnVargaEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "drop_target_character",
+      "param_character": "@Varga"
+    },
+    {
+      "id": "VargaReduceCooldownsEffect",
+      "name": "CardEffectAdjustAbilityCooldown",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_int": -1,
+      "param_bool": false
+    },
+    {
+      "id": "VargaChannelSilkEffect",
+      "name": "@CardEffectRewardSilk",
+      "target_mode": "self",
+      "param_int": -2,
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true,
+      "additional_tooltips": [
+        "@SilkTooltip",
+        "@SilkChannelTooltip"
+      ]
+    },
+    {
+      "id": "VargaAddFleaEffect",
+      "name": "CardEffectAddBattleCard",
+      "param_card_pool": "@FleaPool",
+      "param_int": 3,
+      "param_int_2": 1
+    }
+  ],
+  "sprites": [
+    {
+      "id": "VargaCardArt",
+      "path": "textures/VargaCardArt.png"
+    },
+    {
+      "id": "VargaCharacterArt",
+      "path": "textures/VargaCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "VargaCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@VargaCardArt"
+        }
+      }
+    },
+    {
+      "id": "VargaCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@VargaCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.5,
+              "z": 0
+            },
+            "scale": {
+              "x": 1.1,
+              "y": 1.1,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

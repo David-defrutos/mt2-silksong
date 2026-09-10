@@ -1,0 +1,12 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+    "subtypes": [
+        {
+            "id": "Pinstress",
+            "names": {
+                "english": "Pinstress",
+                "chinese": "针姬"
+            }
+        }
+    ]
+}

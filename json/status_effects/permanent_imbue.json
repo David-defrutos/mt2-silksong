@@ -1,0 +1,51 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+    "status_effects": [
+        {
+            "id": "PermanentImbue",
+            "class_name": "@StatusEffectAcrobaticState",
+            "names": {
+                "english": "Permanent Imbue",
+                "chinese": "永久线轴"
+            },
+            "stackable_names": {
+                "english": "Permanent Imbue {0}",
+                "chinese": "永久线轴 {0}"
+            },
+            "card_tooltips": {
+                "english": "At the start of each turn, permanently gain +[codeint0] [attack]. Lost if damaged."
+            },
+            "character_tooltips": {
+                "english": "At the start of each turn, permanently gain +[codeint0] [attack]. Lost if damaged."
+            },
+            "notifications": {
+                "english": "Permanently Imbued",
+                "chinese": "获得永久线轴"
+            },
+            "replacement_texts": {
+                "english": "<b>Permanent Imbue</b>",
+                "chinese": "<b>永久线轴</b>"
+            },
+            "display_category": "positive",
+            "trigger_stage": "on_post_room_combat",
+            "additional_trigger_stages": ["on_attacked"],
+            "is_stackable": true,
+            "param_int": 2,
+            "param_int_2": 0,
+            "param_str": "damage",
+            "icon": "@PermanentImbue"
+        }
+    ],
+    "sprites": [
+        {
+            "id": "PermanentImbue",
+            "path": "textures/StatusPermanentImbue.png"
+        }
+    ],
+    "atlas_icons": [
+        {
+            "id": "PermanentImbue",
+            "path": "textures/StatusPermanentImbueTooltip.png"
+        }
+    ]
+}

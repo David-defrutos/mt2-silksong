@@ -1,0 +1,168 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnCrullAndBenjin",
+      "names": {
+        "english": "Crull and Benjin",
+        "chinese": "克鲁尔 & 本金",
+        "french": "Crull and Benjin"
+      },
+      "card_art": "@CrullAndBenjinCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@Silksong",
+      "unlock_level": 9,
+      "pools": [
+        "MegaPool"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnCrullAndBenjinEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Us moorbugs gotta eat, don't we?",
+          "chinese": "咱们住荒地的也得搞口饭吃啊，你说是不是？"
+        }
+      ]
+    },
+    {
+      "id": "CrullAndBenjinFeastAbility",
+      "names": {
+        "english": "Feast",
+        "chinese": "盛宴"
+      },
+      "descriptions": {
+        "english": "Add 2 random uncommon or rare Morsels to Hand.",
+        "chinese": "将 2 个高级或稀有[snack]单位加入你的手牌。"
+      },
+      "is_an_ability": true,
+      "cooldown": 2,
+      "initial_cooldown": 0,
+      "targetless": true,
+      "effects": [
+        {
+          "id": "@CrullAndBenjinAddMorselsEffect"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "CrullAndBenjin",
+      "names": {
+        "english": "Crull and Benjin",
+        "chinese": "克鲁尔 & 本金",
+        "french": "Crull and Benjin"
+      },
+      "character_art": "@CrullAndBenjinCharacterArt",
+      "size": 1,
+      "health": 8,
+      "attack_damage": 8,
+      "subtypes": ["@Bug", "SubtypesData_BannerUnit"],
+      "ability": "@CrullAndBenjinFeastAbility",
+      "triggers": [
+        {
+          "id": "@CrullAndBenjinHungerTrigger"
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "CrullAndBenjinHungerTrigger",
+      "descriptions": {
+        "english": "+[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health]."
+      },
+      "trigger": "on_food_spawn",
+      "effects": [
+        {
+          "id": "@CrullAndBenjinHungerEffect"
+        }
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "CrullHungerUpgrade",
+      "bonus_damage": 2,
+      "bonus_hp": 2
+    },
+    {
+      "id": "CrullAndBenjinHungerUpgrade",
+      "trigger_upgrades": [
+        {
+          "id": "@CrullAndBenjinHungerTrigger"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnCrullAndBenjinEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "drop_target_character",
+      "param_character": "@CrullAndBenjin"
+    },
+    {
+      "id": "CrullAndBenjinHungerEffect",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "self",
+      "target_team": "monsters",
+      "param_upgrade": "@CrullHungerUpgrade"
+    },
+    {
+      "id": "CrullAndBenjinAddMorselsEffect",
+      "name": "CardEffectAddBattleCard",
+      "param_card_pool": "@MorselPool",
+      "param_int": 3,
+      "param_int_2": 2
+    }
+  ],
+  "sprites": [
+    {
+      "id": "CrullAndBenjinCardArt",
+      "path": "textures/CrullAndBenjinCardArt.png"
+    },
+    {
+      "id": "CrullAndBenjinCharacterArt",
+      "path": "textures/CrullAndBenjinCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "CrullAndBenjinCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@CrullAndBenjinCardArt"
+        }
+      }
+    },
+    {
+      "id": "CrullAndBenjinCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@CrullAndBenjinCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 0.8,
+              "z": 0
+            },
+            "scale": {
+              "x": 1.3,
+              "y": 1.3,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}
