@@ -55,12 +55,7 @@
     "character_triggers": [
         { "id": "HornetProtector1ImbueProtectTrigger", "trigger": "on_kill", "effects": [ { "id": "@HornetProtector1ImbueEffect" }, { "id": "@HornetProtector1ProtectEffect" } ], "descriptions": { "english": "Apply [effect0.status0.power] [Silk_Song_Clan.Plugin_PermanentImbue] and [effect1.status0.power] [Silk_Song_Clan.Plugin_PermanentProtection] to friendly units." } },
         { "id": "HornetProtector2ImbueProtectTrigger", "trigger": "on_any_unit_death_on_floor", "effects": [ { "id": "@HornetProtector1ImbueEffect" }, { "id": "@HornetProtector1ProtectEffect" } ], "descriptions": { "english": "Apply [effect0.status0.power] [Silk_Song_Clan.Plugin_PermanentImbue] and [effect1.status0.power] [Silk_Song_Clan.Plugin_PermanentProtection] to friendly units." } },
-        { "id": "HornetProtector3ImbueProtectTrigger", "trigger": "on_any_unit_death_on_floor", "effects": [ { "id": "@HornetProtector2ImbueEffect" }, { "id": "@HornetProtector2ProtectEffect" } ], "descriptions": { "english": "Apply [effect0.status0.power] [Silk_Song_Clan.Plugin_PermanentImbue] and [effect1.status0.power] [Silk_Song_Clan.Plugin_PermanentProtection] to friendly units." } },
-        { "id": "HornetWitchStrikeTrigger", "trigger": "on_attacking", "effects": [ "@HornetWitchStrikeEffect" ], "descriptions": { "english": "Apply [MeleeWweakness] [effect0.status0.power].", "chinese": "施加[MeleeWweakness] [effect0.status0.power]。" } },
-        { "id": "BeastStrikeTrigger", "trigger": "@Silksong", "effects": [ "@BeastStrikeEffect" ], "descriptions": { "english": "Gain [lifesteal] [effect0.status0.power].", "chinese": "获得[lifesteal] [effect0.status0.power]。" } },
-        { "id": "HornetHunter1Trigger", "trigger": "@Silksong", "effects": [ "@HornetHunter1Effect" ], "descriptions": { "english": "Gain +[effect0.upgrade0.bonusdamage][attack] permanently.", "chinese": "永久获得 +[effect0.upgrade0.bonusdamage][attack]。" } },
-        { "id": "HornetHunter2Trigger", "trigger": "@Silksong", "effects": [ "@HornetHunter2Effect" ], "descriptions": { "english": "Gain +[effect0.upgrade0.bonusdamage][attack] and +[effect0.upgrade0.bonushp][health] permanently.", "chinese": "永久获得 +[effect0.upgrade0.bonusdamage][attack]，+[effect0.upgrade0.bonushp][health]。" } },
-        { "id": "HornetHunter3Trigger", "trigger": "@Silksong", "effects": [ "@HornetHunter3Effect" ], "descriptions": { "english": "Gain +[effect0.upgrade0.bonusdamage][attack] and +[effect0.upgrade0.bonushp][health] permanently.", "chinese": "永久获得 +[effect0.upgrade0.bonusdamage][attack]，+[effect0.upgrade0.bonushp][health]。" } }
+        { "id": "HornetProtector3ImbueProtectTrigger", "trigger": "on_any_unit_death_on_floor", "effects": [ { "id": "@HornetProtector2ImbueEffect" }, { "id": "@HornetProtector2ProtectEffect" } ], "descriptions": { "english": "Apply [effect0.status0.power] [Silk_Song_Clan.Plugin_PermanentImbue] and [effect1.status0.power] [Silk_Song_Clan.Plugin_PermanentProtection] to friendly units." } }
     ],
     "effects": [
         { "id": "SpawnHornet", "name": "CardEffectSpawnMonster", "target_mode": "room", "target_card_type": "spell", "param_character": "@Hornet" },
@@ -72,12 +67,7 @@
         { "id": "HornetProtector2ImbueEffect", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "monsters", "param_status_effects": [ { "status": "@PermanentImbue", "count": 2 } ] },
         { "id": "HornetProtector2ProtectEffect", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "monsters", "param_status_effects": [ { "status": "@PermanentProtection", "count": 2 } ] },
         { "id": "HornetProtector3ImbueEffect", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "monsters", "param_status_effects": [ { "status": "@PermanentImbue", "count": 3 } ] },
-        { "id": "HornetProtector3ProtectEffect", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "monsters", "param_status_effects": [ { "status": "@PermanentProtection", "count": 3 } ] },
-        { "id": "HornetWitchStrikeEffect", "name": "CardEffectAddStatusEffect", "target_mode": "last_attacked_character", "target_team": "heroes", "param_status_effects": [ { "status": "MeleeW weakness", "count": 1 } ] },
-        { "id": "BeastStrikeEffect", "name": "CardEffectAddStatusEffect", "target_mode": "self", "param_status_effects": [ { "status": "lifesteal", "count": 2 } ] },
-        { "id": "HornetHunter1Effect", "name": "CardEffectAddCardUpgradeToUnits", "target_mode": "self", "param_upgrade": "@HornetHunter1Upgrade", "param_int_3": 2 },
-        { "id": "HornetHunter2Effect", "name": "CardEffectAddCardUpgradeToUnits", "target_mode": "self", "param_upgrade": "@HornetHunter2Upgrade", "param_int_3": 2 },
-        { "id": "HornetHunter3Effect", "name": "CardEffectAddCardUpgradeToUnits", "target_mode": "self", "param_upgrade": "@HornetHunter3Upgrade", "param_int_3": 2 }
+        { "id": "HornetProtector3ProtectEffect", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "monsters", "param_status_effects": [ { "status": "@PermanentProtection", "count": 3 } ] }
     ],
     "game_objects": [
         { "id": "Hornet", "type": "card_art", "extensions": { "card_art": { "sprite": "@Hornet" } } },
@@ -88,9 +78,6 @@
         { "id": "HornetCharacterArt", "path": "textures/HornetCharacterArt.png" }
     ],
     "traits": [
-        { "id": "HornetHunter1Trait", "name": "@CardTraitScaleDamageFullSilk", "param_float": 1.25, "tooltip_suppressed": false },
-        { "id": "HornetHunter2Trait", "name": "@CardTraitScaleDamageFullSilk", "param_float": 1.5, "tooltip_suppressed": false },
-        { "id": "HornetHunter3Trait", "name": "@CardTraitScaleDamageFullSilk", "param_float": 2.0, "tooltip_suppressed": false },
         { "id": "Consume", "name": "CardTraitExhaustState" }
     ],
     "upgrades": [
@@ -99,12 +86,6 @@
         { "id": "HornetReaper3", "titles": { "english": "Reaper III" }, "bonus_damage": 60, "bonus_hp": 40, "status_effect_upgrades": [ { "status": "trample", "count": 1 }, { "status": "multistrike", "count": 1 } ], "trigger_upgrades": [ "@HornetWitchStrikeTrigger" ] },
         { "id": "HornetProtector1", "titles": { "english": "Protector", "chinese": "野兽纹章" }, "bonus_damage": 25, "bonus_hp": 10, "trigger_upgrades": [ "@HornetProtector1ImbueProtectTrigger" ] },
         { "id": "HornetProtector2", "titles": { "english": "Protector", "chinese": "野兽纹章" }, "bonus_damage": 35, "bonus_hp": 20, "trigger_upgrades": [ "@HornetProtector2ImbueProtectTrigger" ] },
-        { "id": "HornetProtector3", "titles": { "english": "Protector", "chinese": "野兽纹章" }, "bonus_damage": 45, "bonus_hp": 30, "trigger_upgrades": [ "@HornetProtector3ImbueProtectTrigger" ] },
-        { "id": "HornetHunter1Upgrade", "bonus_damage": 5 },
-        { "id": "HornetHunter2Upgrade", "bonus_damage": 5, "bonus_hp": 3 },
-        { "id": "HornetHunter3Upgrade", "bonus_damage": 7, "bonus_hp": 5 },
-        { "id": "HornetHunter1", "titles": { "english": "Hunter", "chinese": "猎人纹章" }, "bonus_damage": 15, "bonus_hp": 5, "show_description_on_cards": true, "trigger_upgrades": [ "@HornetHunter1Trigger" ] },
-        { "id": "HornetHunter2", "titles": { "english": "Hunter II", "chinese": "猎人纹章 II" }, "bonus_damage": 30, "bonus_hp": 12, "show_description_on_cards": true, "remove_upgrades": [ "@HornetHunter1" ], "trigger_upgrades": [ "@HornetHunter2Trigger" ] },
-        { "id": "HornetHunter3", "titles": { "english": "Hunter III", "chinese": "猎人纹章 III" }, "bonus_damage": 45, "bonus_hp": 20, "show_description_on_cards": true, "remove_upgrades": [ "@HornetHunter2" ], "trigger_upgrades": [ "@HornetHunter3Trigger" ] }
+        { "id": "HornetProtector3", "titles": { "english": "Protector", "chinese": "野兽纹章" }, "bonus_damage": 45, "bonus_hp": 30, "trigger_upgrades": [ "@HornetProtector3ImbueProtectTrigger" ] }
     ]
 }
