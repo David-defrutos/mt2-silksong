@@ -13,10 +13,8 @@
       "card_type": "monster",
       "rarity": "common",
       "class": "@Silksong",
-      "unlock_level": 2,
-      "pools": [
-        "UnitsAllBanner"
-      ],
+      "unlock_level": 99,
+      "pools": [],
       "targets_room": true,
       "effects": [
         {
@@ -28,7 +26,8 @@
           "english": "The Fleamaster though, is always want to move on. We will be drag away somewhere much worse soon, I think.",
           "chinese": "不过蚤大师总是想继续赶路。不久以后，我们就要被拽到更更糟糕的地方了，我猜。"
         }
-      ]
+      ],
+      "hide_in_logbook": true
     },
     {
       "id": "VargaChannelAbility",

@@ -8,8 +8,8 @@
         "chinese": "丝之琴"
       },
       "descriptions": {
-        "english": "Apply [dazed] [effect0.status0.power] to the front enemy unit.",
-        "chinese": "对前排敌方单位施加[dazed] [effect0.status0.power]。"
+        "english": "Channel [effect0.powerabs] [Silk_Song_Clan.Plugin_Silk]. Apply [dazed] [effect1.status0.power] to the front enemy unit.",
+        "chinese": "灌注 [effect0.powerabs][Silk_Song_Clan.Plugin_Silk]。对前排敌方单位施加[dazed] [effect1.status0.power]。"
       },
       "cost": 2,
       "card_type": "spell",
@@ -23,6 +23,9 @@
       ],
       "effects": [
         {
+          "id": "@NeedolinChannelSilkEffect"
+        },
+        {
           "id": "@NeedolinDazeEffect"
         }
       ],
@@ -34,6 +37,18 @@
     }
   ],
   "effects": [
+    {
+      "id": "NeedolinChannelSilkEffect",
+      "name": "@CardEffectRewardSilk",
+      "target_mode": "self",
+      "param_int": -4,
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true,
+      "additional_tooltips": [
+        "@SilkTooltip",
+        "@SilkChannelTooltip"
+      ]
+    },
     {
       "id": "NeedolinDazeEffect",
       "name": "CardEffectAddStatusEffect",

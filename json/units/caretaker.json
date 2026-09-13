@@ -70,43 +70,17 @@
         {
           "status": "armor",
           "count": 8
+        },
+        {
+          "status": "duality",
+          "count": 1
         }
       ],
       "subtypes": [
         "@Snail",
         "SubtypesData_BannerUnit"
       ],
-      "ability": "@CaretakerGuidance",
-      "triggers": [
-        "@CaretakerSpawnTrigger"
-      ]
-    }
-  ],
-  "character_triggers": [
-    {
-      "id": "CaretakerSpawnTrigger",
-      "descriptions": {
-        "english": "[Silk_Song_Clan.Plugin_Combo] with Snail Subtype: Apply [duality].",
-        "chinese": "[Silk_Song_Clan.Plugin_Combo]与蜗牛子类型：应用 [duality]。"
-      },
-      "trigger": "on_spawn",
-      "effects": [
-        {
-          "id": "@CaretakerComboEffect"
-        },
-        {
-          "id": "@CaretakerDualityEffect"
-        }
-      ]
-    }
-  ],
-  "upgrade_masks": [
-    {
-      "id": "CaretakerComboSnailMask",
-      "card_type": "monster",
-      "required_subtypes": [
-        "@Snail"
-      ]
+      "ability": "@CaretakerGuidance"
     }
   ],
   "effects": [
@@ -115,28 +89,6 @@
       "name": "CardEffectSpawnMonster",
       "target_mode": "drop_target_character",
       "param_character": "@Caretaker"
-    },
-    {
-      "id": "CaretakerComboEffect",
-      "name": "@CardEffectTestLastCard",
-      "target_mode": "self",
-      "should_test": true,
-      "should_cancel_subsequent_effects_if_test_fails": true,
-      "param_card_filter": "@CaretakerComboSnailMask",
-      "additional_tooltips": [
-        "@ComboTooltip"
-      ]
-    },
-    {
-      "id": "CaretakerDualityEffect",
-      "name": "CardEffectAddStatusEffect",
-      "target_mode": "self",
-      "param_status_effects": [
-        {
-          "status": "duality",
-          "count": 1
-        }
-      ]
     },
     {
       "id": "CaretakerChannelSilkEffect",

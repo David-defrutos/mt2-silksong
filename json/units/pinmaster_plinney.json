@@ -36,7 +36,7 @@
         "chinese": "磨砺"
       },
       "descriptions": {
-        "english": "Give a friendly unit [Silk_Song_Clan.Plugin_PermanentImbue] [effect1.status0.power]."
+        "english": "Give a friendly unit [Silk_Song_Clan.Plugin_PermanentImbue] [effect0.status0.power]."
       },
       "is_an_ability": true,
       "cooldown": 2,
@@ -65,7 +65,13 @@
         "@Bug",
         "SubtypesData_BannerUnit"
       ],
-      "ability": "@PinmasterAbilityTrigger"
+      "ability": "@PinmasterAbilityTrigger",
+      "starting_status_effects": [
+        {
+          "status": "@Warrior",
+          "count": 1
+        }
+      ]
     }
   ],
   "effects": [
@@ -74,14 +80,6 @@
       "name": "CardEffectSpawnMonster",
       "target_mode": "drop_target_character",
       "param_character": "@PinmasterPlinney"
-    },
-    {
-      "id": "PinmasterSpendGoldEffect",
-      "name": "CardEffectRewardGold",
-      "target_mode": "self",
-      "param_int": -30,
-      "should_test": true,
-      "should_cancel_subsequent_effects_if_test_fails": true
     },
     {
       "id": "PinmasterSharpenEffect",

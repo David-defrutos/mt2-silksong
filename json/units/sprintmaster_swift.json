@@ -52,6 +52,10 @@
         {
           "status": "ambush",
           "count": 1
+        },
+        {
+          "status": "@Warrior",
+          "count": 1
         }
       ],
       "triggers": [

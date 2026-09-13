@@ -8,18 +8,21 @@
         "chinese": "灵丝腾跃"
       },
       "descriptions": {
-        "english": "[ascend]. [Silk_Song_Clan.Plugin_Combo] with Unit: Draw a card."
+        "english": "Channel [effect0.powerabs] [Silk_Song_Clan.Plugin_Silk]. [ascend]. [Silk_Song_Clan.Plugin_Combo] with Unit: Draw a card."
       },
       "cost": 1,
       "unlock_level": 6,
       "card_art": "@SilkSoarCardArt",
       "card_type": "spell",
-      "rarity": "rare",
+      "rarity": "uncommon",
       "class": "@Silksong",
       "pools": [
         "MegaPool"
       ],
       "effects": [
+        {
+          "id": "@SilkSoarChannelSilkEffect"
+        },
         {
           "id": "@SilkSoarAscendEffect"
         },
@@ -44,6 +47,18 @@
     }
   ],
   "effects": [
+    {
+      "id": "SilkSoarChannelSilkEffect",
+      "name": "@CardEffectRewardSilk",
+      "target_mode": "self",
+      "param_int": -1,
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true,
+      "additional_tooltips": [
+        "@SilkTooltip",
+        "@SilkChannelTooltip"
+      ]
+    },
     {
       "id": "SilkSoarAscendEffect",
       "name": "CardEffectBump",

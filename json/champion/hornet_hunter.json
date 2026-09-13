@@ -1,132 +1,142 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
-    "traits": [
-        {
-            "id": "HornetHunter1Trait",
-            "name": "@CardTraitScaleDamageFullSilk",
-            "tooltip_suppressed": false,
-            "param_float": 1.25
-        },
-        {
-            "id": "HornetHunter2Trait",
-            "name": "@CardTraitScaleDamageFullSilk",
-            "tooltip_suppressed": false,
-            "param_float": 1.50
-        },
-        {
-            "id": "HornetHunter3Trait",
-            "name": "@CardTraitScaleDamageFullSilk",
-            "tooltip_suppressed": false,
-            "param_float": 2.00
-        }
-    ],
-    "effects": [
-        {
-            "id": "HornetHunter1Effect",
-            "name": "CardEffectAddCardUpgradeToUnits",
-            "target_mode": "self",
-            "param_upgrade": "@HornetHunter1Upgrade",
-            "param_int_3": 2
-        },
-        {
-            "id": "HornetHunter2Effect",
-            "name": "CardEffectAddCardUpgradeToUnits",
-            "target_mode": "self",
-            "param_upgrade": "@HornetHunter2Upgrade",
-            "param_int_3": 2
-        },
-        {
-            "id": "HornetHunter3Effect",
-            "name": "CardEffectAddCardUpgradeToUnits",
-            "target_mode": "self",
-            "param_upgrade": "@HornetHunter3Upgrade",
-            "param_int_3": 2
-        }
-    ],
-    "character_triggers": [
-        {
-            "id": "HornetHunter1Trigger",
-            "trigger": "@Silksong",
-            "descriptions": {
-                "english": "Gain +[effect0.upgrade0.bonusdamage][attack] permanently.",
-                "chinese": "永久获得 +[effect0.upgrade0.bonusdamage][attack]。"
-            },
-            "effects": ["@HornetHunter1Effect"]
-        },
-        {
-            "id": "HornetHunter2Trigger",
-            "trigger": "@Silksong",
-            "descriptions": {
-                "english": "Gain +[effect0.upgrade0.bonusdamage][attack] and +[effect0.upgrade0.bonushp][health] permanently.",
-                "chinese": "永久获得 +[effect0.upgrade0.bonusdamage][attack]，+[effect0.upgrade0.bonushp][health]。"
-            },
-            "effects": ["@HornetHunter2Effect"]
-        },
-        {
-            "id": "HornetHunter3Trigger",
-            "trigger": "@Silksong",
-            "descriptions": {
-                "english": "Gain +[effect0.upgrade0.bonusdamage][attack] and +[effect0.upgrade0.bonushp][health] permanently.",
-                "chinese": "永久获得 +[effect0.upgrade0.bonusdamage][attack]，+[effect0.upgrade0.bonushp][health]。"
-            },
-            "effects": ["@HornetHunter3Effect"]
-        }
-    ],
-    "upgrades": [
-        {
-            "id": "HornetHunter1Upgrade",
-            "bonus_damage": 5
-        },
-        {
-            "id": "HornetHunter2Upgrade",
-            "bonus_damage": 5,
-            "bonus_hp": 3
-        },
-        {
-            "id": "HornetHunter3Upgrade",
-            "bonus_damage": 7,
-            "bonus_hp": 5
-        },
-        {
-            "id": "HornetHunter1",
-            "titles": {
-                "english": "Hunter",
-                "chinese": "猎人纹章"
-            },
-            "bonus_damage": 15,
-            "bonus_hp": 5,
-            "trigger_upgrades": [
-                "@HornetHunter1Trigger"
-            ],
-            "show_description_on_cards": true
-        },
-        {
-            "id": "HornetHunter2",
-            "titles": {
-                "english": "Hunter II",
-                "chinese": "猎人纹章 II"
-            },
-            "bonus_damage": 30,
-            "bonus_hp": 12,
-            "remove_upgrades": ["@HornetHunter1"],
-            "trigger_upgrades": [
-                "@HornetHunter2Trigger"
-            ],
-            "show_description_on_cards": true
-        },
-        {
-            "id": "HornetHunter3",
-            "titles": {
-                "english": "Hunter III",
-                "chinese": "猎人纹章 III"
-            },
-            "bonus_damage": 45,
-            "bonus_hp": 20,
-            "remove_upgrades": ["@HornetHunter2"],
-            "trigger_upgrades": [
-                "@HornetHunter3Trigger"
-            ],
-            "show_description_on_cards": true
-        }
-    ]
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "traits": [
+    {
+      "id": "HornetHunter1Trait",
+      "name": "@CardTraitScaleDamageFullSilk",
+      "tooltip_suppressed": false,
+      "param_float": 1.25
+    },
+    {
+      "id": "HornetHunter2Trait",
+      "name": "@CardTraitScaleDamageFullSilk",
+      "tooltip_suppressed": false,
+      "param_float": 1.5
+    },
+    {
+      "id": "HornetHunter3Trait",
+      "name": "@CardTraitScaleDamageFullSilk",
+      "tooltip_suppressed": false,
+      "param_float": 2.0
+    }
+  ],
+  "effects": [
+    {
+      "id": "HornetHunter1Effect",
+      "name": "CardEffectAddCardUpgradeToUnits",
+      "target_mode": "self",
+      "param_upgrade": "@HornetHunter1Upgrade",
+      "param_int_3": 2
+    },
+    {
+      "id": "HornetHunter2Effect",
+      "name": "CardEffectAddCardUpgradeToUnits",
+      "target_mode": "self",
+      "param_upgrade": "@HornetHunter2Upgrade",
+      "param_int_3": 2
+    },
+    {
+      "id": "HornetHunter3Effect",
+      "name": "CardEffectAddCardUpgradeToUnits",
+      "target_mode": "self",
+      "param_upgrade": "@HornetHunter3Upgrade",
+      "param_int_3": 2
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HornetHunter1Trigger",
+      "trigger": "@Silksong",
+      "descriptions": {
+        "english": "Gain +[effect0.upgrade0.bonusdamage][attack] permanently.",
+        "chinese": "永久获得 +[effect0.upgrade0.bonusdamage][attack]。"
+      },
+      "effects": [
+        "@HornetHunter1Effect"
+      ]
+    },
+    {
+      "id": "HornetHunter2Trigger",
+      "trigger": "@Silksong",
+      "descriptions": {
+        "english": "Gain +[effect0.upgrade0.bonusdamage][attack] and +[effect0.upgrade0.bonushp][health] permanently.",
+        "chinese": "永久获得 +[effect0.upgrade0.bonusdamage][attack]，+[effect0.upgrade0.bonushp][health]。"
+      },
+      "effects": [
+        "@HornetHunter2Effect"
+      ]
+    },
+    {
+      "id": "HornetHunter3Trigger",
+      "trigger": "@Silksong",
+      "descriptions": {
+        "english": "Gain +[effect0.upgrade0.bonusdamage][attack] and +[effect0.upgrade0.bonushp][health] permanently.",
+        "chinese": "永久获得 +[effect0.upgrade0.bonusdamage][attack]，+[effect0.upgrade0.bonushp][health]。"
+      },
+      "effects": [
+        "@HornetHunter3Effect"
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "HornetHunter1Upgrade",
+      "bonus_damage": 3
+    },
+    {
+      "id": "HornetHunter2Upgrade",
+      "bonus_damage": 3,
+      "bonus_hp": 2
+    },
+    {
+      "id": "HornetHunter3Upgrade",
+      "bonus_damage": 4,
+      "bonus_hp": 3
+    },
+    {
+      "id": "HornetHunter1",
+      "titles": {
+        "english": "Hunter",
+        "chinese": "猎人纹章"
+      },
+      "bonus_damage": 15,
+      "bonus_hp": 5,
+      "trigger_upgrades": [
+        "@HornetHunter1Trigger"
+      ],
+      "show_description_on_cards": true
+    },
+    {
+      "id": "HornetHunter2",
+      "titles": {
+        "english": "Hunter II",
+        "chinese": "猎人纹章 II"
+      },
+      "bonus_damage": 30,
+      "bonus_hp": 12,
+      "remove_upgrades": [
+        "@HornetHunter1"
+      ],
+      "trigger_upgrades": [
+        "@HornetHunter2Trigger"
+      ],
+      "show_description_on_cards": true
+    },
+    {
+      "id": "HornetHunter3",
+      "titles": {
+        "english": "Hunter III",
+        "chinese": "猎人纹章 III"
+      },
+      "bonus_damage": 45,
+      "bonus_hp": 20,
+      "remove_upgrades": [
+        "@HornetHunter2"
+      ],
+      "trigger_upgrades": [
+        "@HornetHunter3Trigger"
+      ],
+      "show_description_on_cards": true
+    }
+  ]
 }

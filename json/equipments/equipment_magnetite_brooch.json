@@ -1,0 +1,126 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "MagnetiteBrooch",
+      "names": {
+        "english": "Magnetite Brooch",
+        "chinese": "磁石胸针"
+      },
+      "lore_tooltips": [
+        {
+          "english": "It gathers what the dead leave behind, and holds it until it cannot hold any more."
+        }
+      ],
+      "card_art": "@MagnetiteBroochArt",
+      "cost": 2,
+      "card_type": "equipment",
+      "rarity": "uncommon",
+      "class": "@Silksong",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        "@Equip_MagnetiteBrooch"
+      ],
+      "pools": [
+        "MegaPool",
+        "RoomAndEquipmentMerchant_EquipmentPool",
+        "RoomAndEquipmentDraftPool",
+        "EquipmentPoolNonEnemy",
+        "FreeEquipmentMutatorPool"
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "upg_MagnetiteBrooch",
+      "titles": {
+        "english": "Magnetite Brooch"
+      },
+      "bonus_damage": 5,
+      "bonus_hp": 0,
+      "trigger_upgrades": [
+        "@BroochKillTrigger"
+      ],
+      "icon": "@MagnetiteBroochArt"
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "BroochKillTrigger",
+      "trigger": "on_kill",
+      "descriptions": {
+        "english": "Gain [avarice] [effect0.status0.power]. At [avarice] 15, consume it and deal [effect2.power] damage to all enemy units.",
+        "chinese": "获得[avarice] [effect0.status0.power]。当[avarice]达到 15 时，消耗全部并对所有敌方单位造成[effect2.power]点伤害。"
+      },
+      "effects": [
+        "@BroochGainAvarice",
+        "@BroochSpend",
+        "@BroochBurst"
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "Equip_MagnetiteBrooch",
+      "name": "CardEffectAttachEquipment",
+      "target_mode": "drop_target_character",
+      "target_team": "monsters",
+      "param_upgrade": "@upg_MagnetiteBrooch"
+    },
+    {
+      "id": "BroochGainAvarice",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "avarice",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "BroochSpend",
+      "name": "CardEffectRemoveStatusEffectOnStatusThreshold",
+      "target_mode": "self",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "avarice",
+          "count": 15
+        },
+        {
+          "status": "avarice",
+          "count": 15
+        }
+      ],
+      "should_test": true,
+      "should_cancel_subsequent_effects_if_test_fails": true
+    },
+    {
+      "id": "BroochBurst",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 15
+    }
+  ],
+  "sprites": [
+    {
+      "id": "MagnetiteBroochArt",
+      "path": "textures/MagnetiteBroochArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "MagnetiteBroochArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@MagnetiteBroochArt"
+        }
+      }
+    }
+  ]
+}

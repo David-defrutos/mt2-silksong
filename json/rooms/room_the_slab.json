@@ -1,0 +1,103 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "TheSlab",
+      "names": {
+        "english": "The Slab",
+        "chinese": "石板监牢"
+      },
+      "descriptions": {
+        "english": "Whenever a unit dies in this room, gain 2 [Silk_Song_Clan.Plugin_Silk].",
+        "chinese": "此房间内每有一个单位死亡，获得 2 点[Silk_Song_Clan.Plugin_Silk]。"
+      },
+      "lore_tooltips": [
+        {
+          "english": "Nothing leaves the Slab. What is spent here is spun back into thread."
+        }
+      ],
+      "card_art": "@TheSlabArt",
+      "cost": 2,
+      "card_type": "room",
+      "rarity": "uncommon",
+      "class": "@Silksong",
+      "targets_room": true,
+      "targetless": true,
+      "effects": [
+        "@TheSlabRoomEffect"
+      ],
+      "pools": [
+        "MegaPool",
+        "RoomAndEquipmentMerchant_RoomPool",
+        "RoomAndEquipmentDraftPool",
+        "RoomAndEquipmentMerchant_RoomAndEquipmentPool",
+        "TrainRoomPool"
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "TheSlabRoomUpgrade",
+      "titles": {
+        "english": "The Slab"
+      },
+      "descriptions": {
+        "english": "Whenever a unit dies in this room, gain 2 [Silk_Song_Clan.Plugin_Silk].",
+        "chinese": "此房间内每有一个单位死亡，获得 2 点[Silk_Song_Clan.Plugin_Silk]。"
+      },
+      "room_modifier_upgrades": [
+        "@TheSlabRoomModifier"
+      ],
+      "icon": "@TheSlabArt"
+    }
+  ],
+  "room_modifiers": [
+    {
+      "id": "TheSlabRoomModifier",
+      "name": "RoomStateAddEffectOnUnitDeath",
+      "descriptions": {
+        "english": "Whenever a unit dies in this room, gain 2 [Silk_Song_Clan.Plugin_Silk].",
+        "chinese": "此房间内每有一个单位死亡，获得 2 点[Silk_Song_Clan.Plugin_Silk]。"
+      },
+      "param_effects": [
+        "@TheSlabSilkEffect"
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "TheSlabRoomEffect",
+      "name": "CardEffectAttachTrainRoomAttachment",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_upgrade": "@TheSlabRoomUpgrade",
+      "param_int_2": 0
+    },
+    {
+      "id": "TheSlabSilkEffect",
+      "name": "@CardEffectRewardSilk",
+      "target_mode": "self",
+      "param_int": 2,
+      "additional_tooltips": [
+        "@SilkTooltip"
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "TheSlabArt",
+      "path": "textures/TheSlabCardArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "TheSlabArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@TheSlabArt"
+        }
+      }
+    }
+  ]
+}

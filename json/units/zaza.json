@@ -37,11 +37,12 @@
         "chinese": "卑微的坐骑"
       },
       "descriptions": {
-        "english": "Add a random Equipment to Hand."
+        "english": "Add a random Equipment with [ephemeral] to your hand.",
+        "chinese": "将 1 张带有[ephemeral]的随机装备卡加入你的手牌。"
       },
       "is_an_ability": true,
-      "cooldown": 2,
-      "initial_cooldown": 0,
+      "cooldown": 3,
+      "initial_cooldown": 2,
       "targetless": true,
       "effects": [
         {
@@ -70,36 +71,13 @@
         {
           "status": "valor",
           "count": 8
-        }
-      ],
-      "triggers": [
-        {
-          "id": "@ZazaSpawnTrigger"
-        }
-      ]
-    }
-  ],
-  "character_triggers": [
-    {
-      "id": "ZazaSpawnTrigger",
-      "trigger": "on_spawn",
-      "descriptions": {
-        "english": "[Silk_Song_Clan.Plugin_Combo] with Garamond: Gain \"[ability]: Add a random Equipment to Hand\"."
-      },
-      "effects": [
-        {
-          "id": "@ZazaSpawnEffectCombo"
         },
         {
-          "id": "@ZazaSpawnEffect"
+          "status": "@Warrior",
+          "count": 1
         }
-      ]
-    }
-  ],
-  "upgrades": [
-    {
-      "id": "ZazaComboUpgrade",
-      "ability_upgrade": "@ZazaHumbleSteedAbility"
+      ],
+      "ability": "@ZazaHumbleSteedAbility"
     }
   ],
   "effects": [
@@ -110,29 +88,14 @@
       "param_character": "@Zaza"
     },
     {
-      "id": "ZazaSpawnEffectCombo",
-      "name": "@CardEffectTestLastCardName",
-      "target_mode": "self",
-      "param_card": "@SpawnGaramond",
-      "should_test": true,
-      "should_cancel_subsequent_effects_if_test_fails": true,
-      "additional_tooltips": [
-        "@ComboTooltip"
-      ]
-    },
-    {
-      "id": "ZazaSpawnEffect",
-      "name": "CardEffectAddTempCardUpgradeToUnits",
-      "target_mode": "self",
-      "target_team": "monsters",
-      "param_upgrade": "@ZazaComboUpgrade"
-    },
-    {
       "id": "ZazaAddEquipmentEffect",
       "name": "CardEffectAddBattleCard",
       "target_mode": "hand",
       "param_card_type": "equipment",
-      "param_card_pool": "RoomAndEquipmentMerchant_EquipmentPool"
+      "param_card_pool": "RoomAndEquipmentMerchant_EquipmentPool",
+      "param_int": 3,
+      "param_int_2": 1,
+      "param_upgrade": "@ZazaEtherealEquipmentUpgrade"
     }
   ],
   "sprites": [
@@ -175,6 +138,20 @@
           }
         }
       }
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "ZazaEtherealEquipmentUpgrade",
+      "trait_upgrades": [
+        "@ZazaEphemeralTrait"
+      ]
+    }
+  ],
+  "traits": [
+    {
+      "id": "ZazaEphemeralTrait",
+      "name": "CardTraitEphemeral"
     }
   ]
 }

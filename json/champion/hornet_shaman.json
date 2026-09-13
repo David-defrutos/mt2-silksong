@@ -1,122 +1,701 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
-    "cards": [
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "LaceHarmAbility",
+      "names": {
+        "english": "Harm"
+      },
+      "card_art": "@Lace",
+      "card_type": "spell",
+      "is_an_ability": true,
+      "cooldown": 1,
+      "targetless": true,
+      "targets_room": false,
+      "effects": [
+        "@LaceHarmAbilityHeroes"
+      ],
+      "descriptions": {
+        "english": "Deal [effect0.power] damage to enemy units, plus 1 for each [Silk_Song_Clan.Plugin_Silk] you have."
+      },
+      "traits": [
+        "@LaceHarmSilkScaling"
+      ]
+    },
+    {
+      "id": "SpawnLace",
+      "names": {
+        "english": "Lace",
+        "chinese": "蕾丝"
+      },
+      "card_art": "@Lace",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "rarity": "champion",
+      "cost": 0,
+      "unlock_level": 0,
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        "@SpawnLace"
+      ],
+      "lore_tooltips": [
         {
-            "id": "LaceHarmAbility",
-            "names": { "english": "Harm" },
-            "card_art": "@Lace",
-            "card_type": "spell",
-            "is_an_ability": true,
-            "cooldown": 1,
-            "targetless": true,
-            "targets_room": false,
-            "effects": [ "@LaceHarmAbilityMonsters", "@LaceHarmAbilityHeroes" ],
-            "descriptions": { "english": "Deal [effect1.power] damage to enemy units and [effect0.power] damage to allies." }
+          "english": "The princess-protector of Hallownest, Daughter of Three Queens, Hornet hunts with needle and silk to prevent the fate of Hallownest from coming to Pharloom."
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "Lace",
+      "names": {
+        "english": "Lace",
+        "chinese": "蕾丝"
+      },
+      "character_art": "@LaceCharacterArt",
+      "health": 10,
+      "attack_damage": 10,
+      "size": 2,
+      "ability": "@LaceHarmAbility",
+      "chatter": "@CTR_Lace",
+      "subtypes": [
+        "SubtypesData_Champion_83f21cbe-9d9b-4566-a2c3-ca559ab8ff34"
+      ],
+      "triggers": [
+        "@LaceSelfHarmTrigger",
+        "@LaceRevengeSilkTrigger"
+      ]
+    }
+  ],
+  "chatter": [
+    {
+      "id": "CTR_Lace",
+      "gender": "female",
+      "added_expressions": [
+        {
+          "english": "Hmph."
         },
         {
-            "id": "SpawnLace",
-            "names": { "english": "Lace", "chinese": "蕾丝" },
-            "card_art": "@Lace",
-            "card_type": "monster",
-            "class": "@Silksong",
-            "rarity": "champion",
-            "cost": 0,
-            "unlock_level": 0,
-            "targets_room": true,
-            "targetless": false,
-            "effects": [ "@SpawnLace" ],
-            "lore_tooltips": [ { "english": "The princess-protector of Hallownest, Daughter of Three Queens, Hornet hunts with needle and silk to prevent the fate of Hallownest from coming to Pharloom." } ]
-        }
-    ],
-    "characters": [
+          "english": "Predictable."
+        },
         {
-            "id": "Lace",
-            "names": { "english": "Lace", "chinese": "蕾丝" },
-            "character_art": "@LaceCharacterArt",
-            "health": 10, "attack_damage": 10, "size": 2,
-            "ability": "@LaceHarmAbility",
-            "chatter": "@CTR_Lace",
-            "starting_status_effects": [ { "status": "@Warrior", "count": 1 } ],
-            "subtypes": [ "SubtypesData_Champion_83f21cbe-9d9b-4566-a2c3-ca559ab8ff34" ]
+          "english": "Stand aside."
         }
-    ],
-    "chatter": [
+      ],
+      "idle_expressions": [
         {
-            "id": "CTR_Lace",
-            "gender": "female",
-            "added_expressions": [
-                { "english": "Hmph." },
-                { "english": "Predictable." },
-                { "english": "Stand aside." }
-            ],
-            "idle_expressions": [
-                { "english": "A carriage of rust and cinders. How very beneath me." },
-                { "english": "You fight without form. Without discipline. It offends me more than the wound." },
-                { "english": "Needle and thread, and a debt still owed. I have not forgotten it." },
-                { "english": "Feed them to me, then. I will not refuse a gift so poorly guarded." },
-                { "english": "Every silk thread ends somewhere. Mine ends where I choose." }
-            ]
+          "english": "A carriage of rust and cinders. How very beneath me."
+        },
+        {
+          "english": "You fight without form. Without discipline. It offends me more than the wound."
+        },
+        {
+          "english": "Needle and thread, and a debt still owed. I have not forgotten it."
+        },
+        {
+          "english": "Feed them to me, then. I will not refuse a gift so poorly guarded."
+        },
+        {
+          "english": "Every silk thread ends somewhere. Mine ends where I choose."
         }
-    ],
-    "character_triggers": [
-        { "id": "LaceConsumerStrikeTrigger", "trigger": "on_kill", "effects": [ { "id": "@LaceConsumerStrikeMorselEffect" } ], "descriptions": { "english": "Add a random uncommon or rare Morsel to Hand." } },
-        { "id": "LaceConsumer1BuffTrigger", "trigger": "on_feed", "effects": [ "@LaceConsumer1BuffEffect" ], "descriptions": { "english": "Gain +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] permanently." } },
-        { "id": "LaceConsumer2BuffTrigger", "trigger": "on_feed", "effects": [ "@LaceConsumer2BuffEffect" ], "descriptions": { "english": "Gain +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] permanently." } },
-        { "id": "LaceConsumer3BuffTrigger", "trigger": "on_feed", "effects": [ "@LaceConsumer3BuffEffect" ], "descriptions": { "english": "Gain +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] permanently." } },
-        { "id": "LaceConsumer1DamageTrigger", "trigger": "on_food_spawn", "effects": [ "@LaceConsumer1DamageEffect" ], "descriptions": { "english": "Deal [effect0.power] damage to enemy units." } },
-        { "id": "LaceConsumer2DamageTrigger", "trigger": "on_food_spawn", "effects": [ "@LaceConsumer2DamageEffect" ], "descriptions": { "english": "Deal [effect0.power] damage to enemy units." } },
-        { "id": "LaceConsumer3DamageTrigger", "trigger": "on_food_spawn", "effects": [ "@LaceConsumer3DamageEffect" ], "descriptions": { "english": "Deal [effect0.power] damage to enemy units." } },
-        { "id": "LaceNecroExit", "trigger": "on_death", "effects": [ "@LaceNecroReform" ], "descriptions": { "english": "<b>Reform</b> a random unit." } },
-        { "id": "LaceNecroEntry", "trigger": "on_spawn", "effects": [ "@LaceNecroReform" ], "descriptions": { "english": "<b>Reform</b> a random unit." } },
-        { "id": "LaceNecroKill", "trigger": "on_kill", "effects": [ "@LaceNecroReform" ], "descriptions": { "english": "<b>Reform</b> a random unit." } },
-        { "id": "LaceHeistHit1", "trigger": "on_hit", "effects": [ "@LaceHeistEffectAvarice1" ], "descriptions": { "english": "Apply [effect0.status0.power] [avarice] to all friendly units." } },
-        { "id": "LaceHeistHit2", "trigger": "on_hit", "effects": [ "@LaceHeistEffectAvarice2" ], "descriptions": { "english": "Apply [effect0.status0.power] [avarice] to all friendly units." } },
-        { "id": "LaceHeistHit3", "trigger": "on_hit", "effects": [ "@LaceHeistEffectAvarice3" ], "descriptions": { "english": "Apply [effect0.status0.power] [avarice] to all friendly units." } },        
-        { "id": "LaceNecroOnDeathTrigger", "trigger": "on_death", "effects": [ "@LaceNecroOnDeadHollowWisps1" ], "descriptions": { "english": "Add [effect0.secondarypower] random <b>HollowWisps</b> to your hand."} },
-        { "id": "LaceNecroResolveTrigger1", "trigger": "pre_combat", "effects": [ "@LaceNecroAddHollowWisps1" ], "descriptions": { "english": "Add [effect0.secondarypower] random <b>HollowWisps</b> to your hand." } },
-        { "id": "LaceNecroResolveTrigger2", "trigger": "pre_combat", "effects": [ "@LaceNecroAddHollowWisps2" ], "descriptions": { "english": "Add [effect0.secondarypower] random <b>HollowWisps</b> to your hand." } },
-        { "id": "LaceNecroResolveTrigger3", "trigger": "pre_combat", "effects": [ "@LaceNecroAddHollowWisps3" ], "descriptions": { "english": "Add [effect0.secondarypower] random <b>HollowWisps</b> to your hand." } }
-    ],
-    "effects": [
-        { "id": "LaceHarmAbilityMonsters", "name": "CardEffectDamage", "target_mode": "room", "target_team": "monsters", "param_int": 1 },
-        { "id": "LaceHarmAbilityHeroes", "name": "CardEffectDamage", "target_mode": "room", "target_team": "heroes", "param_int": 5 },
-        { "id": "SpawnLace", "name": "CardEffectSpawnMonster", "target_mode": "room", "target_card_type": "spell", "param_character": "@Lace" },
-        { "id": "LaceConsumer1BuffEffect", "name": "CardEffectAddCardUpgradeToUnits", "target_mode": "self", "param_bool": true, "param_upgrade": "@LaceConsumer1Upgrade", "param_int": 0, "param_int_2": 1, "param_int_3": 1 },
-        { "id": "LaceConsumer2BuffEffect", "name": "CardEffectAddCardUpgradeToUnits", "target_mode": "self", "param_bool": true, "param_upgrade": "@LaceConsumer2Upgrade", "param_int": 0, "param_int_2": 2, "param_int_3": 2 },
-        { "id": "LaceConsumer3BuffEffect", "name": "CardEffectAddCardUpgradeToUnits", "target_mode": "self", "param_bool": true, "param_upgrade": "@LaceConsumer3Upgrade", "param_int": 0, "param_int_2": 3, "param_int_3": 3 },
-        { "id": "LaceConsumerStrikeMorselEffect", "name": "CardEffectAddBattleCard", "param_card_pool": "@MorselPool", "param_int": 3, "param_int_2": 1 },
-        { "id": "LaceConsumer1DamageEffect", "name": "CardEffectDamage", "target_mode": "room", "target_team": "heroes", "param_int": 1 },
-        { "id": "LaceConsumer2DamageEffect", "name": "CardEffectDamage", "target_mode": "room", "target_team": "heroes", "param_int": 2 },
-        { "id": "LaceConsumer3DamageEffect", "name": "CardEffectDamage", "target_mode": "room", "target_team": "heroes", "param_int": 3 },
-        { "id": "LaceNecroOnDeadHollowWisps1", "name": "CardEffectAddBattleCard", "target_mode": "room", "param_card_pool": "@HollowWispDeadPool", "param_int": 3, "param_int_2": 1, "additional_tooltips": [ "@HollowWispTooltip" ] },
-        { "id": "LaceNecroAddHollowWisps1", "name": "CardEffectAddBattleCard", "target_mode": "room", "param_card_pool": "@HollowWispPool", "param_int": 3, "param_int_2": 1, "additional_tooltips": [ "@HollowWispTooltip" ] },
-        { "id": "LaceNecroAddHollowWisps2", "name": "CardEffectAddBattleCard", "target_mode": "room", "param_card_pool": "@HollowWispPool", "param_int": 3, "param_int_2": 2, "additional_tooltips": [ "@HollowWispTooltip" ] },
-        { "id": "LaceNecroAddHollowWisps3", "name": "CardEffectAddBattleCard", "target_mode": "room", "param_card_pool": "@HollowWispPool", "param_int": 3, "param_int_2": 3, "additional_tooltips": [ "@HollowWispTooltip" ] },
-        { "id": "LaceHeistEffectAvarice1", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "monsters", "param_status_effects": [ { "status": "avarice", "count": 1 } ] },
-        { "id": "LaceHeistEffectAvarice2", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "monsters", "param_status_effects": [ { "status": "avarice", "count": 2 } ] },
-        { "id": "LaceHeistEffectAvarice3", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "monsters", "param_status_effects": [ { "status": "avarice", "count": 3 } ] }
-    ],
-    "game_objects": [
-        { "id": "Lace", "type": "card_art", "extensions": { "card_art": { "sprite": "@Lace" } } },
-        { "id": "LaceCharacterArt", "type": "character_art", "extensions": { "character_art": { "sprite": "@LaceCharacterArt", "transform": { "scale": { "x": 1.1505, "y": 1.1505, "z": 1 }, "position": { "x": 0, "y": 1, "z": 0 } } } } }
-    ],
-    "sprites": [
-        { "id": "Lace", "path": "textures/LaceCardArt.png" },
-        { "id": "LaceCharacterArt", "path": "textures/LaceCharacterArt.png" }
-    ],
-    "upgrades": [
-        { "id": "LaceNecro1", "titles": { "english": "Necromancer" }, "bonus_damage": 10, "bonus_hp": 10, "status_effect_upgrades": [ { "status": "conduit", "count": 10 } ], "trigger_upgrades": [ "@LaceNecroResolveTrigger1", "@LaceNecroOnDeathTrigger" ] },
-        { "id": "LaceNecro2", "titles": { "english": "Necromancer II" }, "bonus_damage": 20, "bonus_hp": 20, "status_effect_upgrades": [ { "status": "conduit", "count": 20 } ],"trigger_upgrades": [ "@LaceNecroResolveTrigger2", "@LaceNecroOnDeathTrigger" ] },
-        { "id": "LaceNecro3", "titles": { "english": "Necromancer III" }, "bonus_damage": 40, "bonus_hp": 40, "status_effect_upgrades": [ { "status": "conduit", "count": 40 } ],"trigger_upgrades": [ "@LaceNecroResolveTrigger3", "@LaceNecroOnDeathTrigger" ] },
-        { "id": "Laceconsume1", "titles": { "english": "Consumer" }, "bonus_damage": 20, "bonus_hp": 10, "trigger_upgrades": [ "@LaceConsumerStrikeTrigger", "@LaceConsumer1BuffTrigger", "@LaceConsumer1DamageTrigger" ] },
-        { "id": "Laceconsume2", "titles": { "english": "Consumer II" }, "bonus_damage": 50, "bonus_hp": 20, "trigger_upgrades": [ "@LaceConsumerStrikeTrigger", "@LaceConsumer2BuffTrigger", "@LaceConsumer2DamageTrigger" ] },
-        { "id": "Laceconsume3", "titles": { "english": "Consumer III" }, "bonus_damage": 60, "bonus_hp": 40, "status_effect_upgrades": [ { "status": "multistrike", "count": 1 } ], "trigger_upgrades": [ "@LaceConsumerStrikeTrigger", "@LaceConsumer3BuffTrigger", "@LaceConsumer3DamageTrigger" ] },
-        { "id": "LaceHeist1", "titles": { "english": "Heist" }, "bonus_damage": 10, "bonus_hp": 30, "status_effect_upgrades": [ { "status": "spikes", "count": 5 } ], "trigger_upgrades": [ "@LaceHeistHit1" ] },
-        { "id": "LaceHeist2", "titles": { "english": "Heist II" }, "bonus_damage": 20, "bonus_hp": 60, "status_effect_upgrades": [ { "status": "spikes", "count": 10 } ],"trigger_upgrades": [ "@LaceHeistHit2" ] },
-        { "id": "LaceHeist3", "titles": { "english": "Heist III" }, "bonus_damage": 40, "bonus_hp": 80, "status_effect_upgrades": [ { "status": "spikes", "count": 15 } ],"trigger_upgrades": [ "@LaceHeistHit3" ] },        
-        { "id": "LaceConsumer1Upgrade", "bonus_damage": 1, "bonus_hp": 1 },
-        { "id": "LaceConsumer2Upgrade", "bonus_damage": 2, "bonus_hp": 2 },
-        { "id": "LaceConsumer3Upgrade", "bonus_damage": 3, "bonus_hp": 3 },
-        { "id": "LaceReformBuff", "bonus_damage": 5, "bonus_hp": 5, "status_effect_upgrades": [ { "status": "burnout", "count": 1 } ] }
-    ]
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "LaceConsumerStrikeTrigger",
+      "trigger": "on_turn_begin",
+      "effects": [
+        {
+          "id": "@LaceConsumerStrikeMorselEffect"
+        }
+      ],
+      "descriptions": {
+        "english": "Add a random <b>HollowWisp</b> to your hand."
+      }
+    },
+    {
+      "id": "LaceConsumer1BuffTrigger",
+      "trigger": "on_feed",
+      "effects": [
+        "@LaceConsumer1BuffEffect"
+      ],
+      "descriptions": {
+        "english": "Gain +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] permanently."
+      }
+    },
+    {
+      "id": "LaceConsumer2BuffTrigger",
+      "trigger": "on_feed",
+      "effects": [
+        "@LaceConsumer2BuffEffect"
+      ],
+      "descriptions": {
+        "english": "Gain +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] permanently."
+      }
+    },
+    {
+      "id": "LaceConsumer3BuffTrigger",
+      "trigger": "on_feed",
+      "effects": [
+        "@LaceConsumer3BuffEffect"
+      ],
+      "descriptions": {
+        "english": "Gain +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] permanently."
+      }
+    },
+    {
+      "id": "LaceConsumer1DamageTrigger",
+      "trigger": "on_food_spawn",
+      "effects": [
+        "@LaceConsumer1DamageEffect"
+      ],
+      "descriptions": {
+        "english": "Deal [effect0.power] damage to enemy units."
+      }
+    },
+    {
+      "id": "LaceConsumer2DamageTrigger",
+      "trigger": "on_food_spawn",
+      "effects": [
+        "@LaceConsumer2DamageEffect"
+      ],
+      "descriptions": {
+        "english": "Deal [effect0.power] damage to enemy units."
+      }
+    },
+    {
+      "id": "LaceConsumer3DamageTrigger",
+      "trigger": "on_food_spawn",
+      "effects": [
+        "@LaceConsumer3DamageEffect"
+      ],
+      "descriptions": {
+        "english": "Deal [effect0.power] damage to enemy units."
+      }
+    },
+    {
+      "id": "LaceNecroExit",
+      "trigger": "on_death",
+      "effects": [
+        "@LaceNecroReform"
+      ],
+      "descriptions": {
+        "english": "<b>Reform</b> a random unit."
+      }
+    },
+    {
+      "id": "LaceNecroEntry",
+      "trigger": "on_spawn",
+      "effects": [
+        "@LaceNecroReform"
+      ],
+      "descriptions": {
+        "english": "<b>Reform</b> a random unit."
+      }
+    },
+    {
+      "id": "LaceNecroKill",
+      "trigger": "on_kill",
+      "effects": [
+        "@LaceNecroReform"
+      ],
+      "descriptions": {
+        "english": "<b>Reform</b> a random unit."
+      }
+    },
+    {
+      "id": "LaceHeistHit1",
+      "trigger": "on_hit",
+      "effects": [
+        "@LaceHeistEffectAvarice1"
+      ],
+      "descriptions": {
+        "english": "Gain [effect0.status0.power] [avarice]."
+      }
+    },
+    {
+      "id": "LaceHeistHit2",
+      "trigger": "on_hit",
+      "effects": [
+        "@LaceHeistEffectAvarice2"
+      ],
+      "descriptions": {
+        "english": "Gain [effect0.status0.power] [avarice]."
+      }
+    },
+    {
+      "id": "LaceHeistHit3",
+      "trigger": "on_hit",
+      "effects": [
+        "@LaceHeistEffectAvarice3"
+      ],
+      "descriptions": {
+        "english": "Gain [effect0.status0.power] [avarice]."
+      }
+    },
+    {
+      "id": "LaceNecroOnDeathTrigger",
+      "trigger": "on_death",
+      "effects": [
+        "@LaceNecroOnDeadHollowWisps1"
+      ],
+      "descriptions": {
+        "english": "Add [effect0.secondarypower] random <b>HollowWisps</b> to your hand."
+      }
+    },
+    {
+      "id": "LaceNecroResolveTrigger1",
+      "trigger": "pre_combat",
+      "effects": [
+        "@LaceNecroAddHollowWisps1"
+      ],
+      "descriptions": {
+        "english": "Add [effect0.secondarypower] random <b>HollowWisps</b> to your hand."
+      }
+    },
+    {
+      "id": "LaceNecroResolveTrigger2",
+      "trigger": "pre_combat",
+      "effects": [
+        "@LaceNecroAddHollowWisps2"
+      ],
+      "descriptions": {
+        "english": "Add [effect0.secondarypower] random <b>HollowWisps</b> to your hand."
+      }
+    },
+    {
+      "id": "LaceNecroResolveTrigger3",
+      "trigger": "pre_combat",
+      "effects": [
+        "@LaceNecroAddHollowWisps3"
+      ],
+      "descriptions": {
+        "english": "Add [effect0.secondarypower] random <b>HollowWisps</b> to your hand."
+      }
+    },
+    {
+      "id": "LaceSelfHarmTrigger",
+      "trigger": "on_own_ability_activated",
+      "effects": [
+        "@LaceHarmAbilityMonsters"
+      ],
+      "descriptions": {
+        "english": "Deal [effect0.power] damage to friendly units."
+      }
+    },
+    {
+      "id": "LaceRevengeSilkTrigger",
+      "trigger": "on_hit",
+      "effects": [
+        "@LaceRevengeSilkEffect"
+      ],
+      "descriptions": {
+        "english": "Gain [effect0.powerabs] [Silk_Song_Clan.Plugin_Silk]."
+      }
+    }
+  ],
+  "effects": [
+    {
+      "id": "LaceHarmAbilityMonsters",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_int": 1
+    },
+    {
+      "id": "LaceHarmAbilityHeroes",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 1
+    },
+    {
+      "id": "SpawnLace",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "target_card_type": "spell",
+      "param_character": "@Lace"
+    },
+    {
+      "id": "LaceConsumer1BuffEffect",
+      "name": "CardEffectAddCardUpgradeToUnits",
+      "target_mode": "self",
+      "param_bool": true,
+      "param_upgrade": "@LaceConsumer1Upgrade",
+      "param_int": 0,
+      "param_int_2": 1,
+      "param_int_3": 1
+    },
+    {
+      "id": "LaceConsumer2BuffEffect",
+      "name": "CardEffectAddCardUpgradeToUnits",
+      "target_mode": "self",
+      "param_bool": true,
+      "param_upgrade": "@LaceConsumer2Upgrade",
+      "param_int": 0,
+      "param_int_2": 2,
+      "param_int_3": 2
+    },
+    {
+      "id": "LaceConsumer3BuffEffect",
+      "name": "CardEffectAddCardUpgradeToUnits",
+      "target_mode": "self",
+      "param_bool": true,
+      "param_upgrade": "@LaceConsumer3Upgrade",
+      "param_int": 0,
+      "param_int_2": 3,
+      "param_int_3": 3
+    },
+    {
+      "id": "LaceConsumerStrikeMorselEffect",
+      "name": "CardEffectAddBattleCard",
+      "param_card_pool": "@HollowWispPool",
+      "param_int": 3,
+      "param_int_2": 1,
+      "additional_tooltips": [
+        "@HollowWispTooltip"
+      ]
+    },
+    {
+      "id": "LaceConsumer1DamageEffect",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 1
+    },
+    {
+      "id": "LaceConsumer2DamageEffect",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 2
+    },
+    {
+      "id": "LaceConsumer3DamageEffect",
+      "name": "CardEffectDamage",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_int": 3
+    },
+    {
+      "id": "LaceNecroOnDeadHollowWisps1",
+      "name": "CardEffectAddBattleCard",
+      "target_mode": "room",
+      "param_card_pool": "@HollowWispDeadPool",
+      "param_int": 3,
+      "param_int_2": 1,
+      "additional_tooltips": [
+        "@HollowWispTooltip"
+      ]
+    },
+    {
+      "id": "LaceNecroAddHollowWisps1",
+      "name": "CardEffectAddBattleCard",
+      "target_mode": "room",
+      "param_card_pool": "@HollowWispPool",
+      "param_int": 3,
+      "param_int_2": 1,
+      "additional_tooltips": [
+        "@HollowWispTooltip"
+      ]
+    },
+    {
+      "id": "LaceNecroAddHollowWisps2",
+      "name": "CardEffectAddBattleCard",
+      "target_mode": "room",
+      "param_card_pool": "@HollowWispPool",
+      "param_int": 3,
+      "param_int_2": 2,
+      "additional_tooltips": [
+        "@HollowWispTooltip"
+      ]
+    },
+    {
+      "id": "LaceNecroAddHollowWisps3",
+      "name": "CardEffectAddBattleCard",
+      "target_mode": "room",
+      "param_card_pool": "@HollowWispPool",
+      "param_int": 3,
+      "param_int_2": 3,
+      "additional_tooltips": [
+        "@HollowWispTooltip"
+      ]
+    },
+    {
+      "id": "LaceHeistEffectAvarice1",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "avarice",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "LaceHeistEffectAvarice2",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "avarice",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "LaceHeistEffectAvarice3",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "avarice",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "id": "LaceRevengeSilkEffect",
+      "name": "@CardEffectRewardSilk",
+      "target_mode": "self",
+      "param_int": 1,
+      "additional_tooltips": [
+        "@SilkTooltip"
+      ]
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "Lace",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@Lace"
+        }
+      }
+    },
+    {
+      "id": "LaceCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@LaceCharacterArt",
+          "transform": {
+            "scale": {
+              "x": 1.1505,
+              "y": 1.1505,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1,
+              "z": 0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "sprites": [
+    {
+      "id": "Lace",
+      "path": "textures/LaceCardArt.png"
+    },
+    {
+      "id": "LaceCharacterArt",
+      "path": "textures/LaceCharacterArt.png"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "LaceNecro1",
+      "titles": {
+        "english": "Necromancer"
+      },
+      "bonus_damage": 10,
+      "bonus_hp": 10,
+      "status_effect_upgrades": [
+        {
+          "status": "conduit",
+          "count": 10
+        }
+      ],
+      "trigger_upgrades": [
+        "@LaceNecroResolveTrigger1",
+        "@LaceNecroOnDeathTrigger"
+      ]
+    },
+    {
+      "id": "LaceNecro2",
+      "titles": {
+        "english": "Necromancer II"
+      },
+      "bonus_damage": 20,
+      "bonus_hp": 20,
+      "status_effect_upgrades": [
+        {
+          "status": "conduit",
+          "count": 20
+        }
+      ],
+      "trigger_upgrades": [
+        "@LaceNecroResolveTrigger2",
+        "@LaceNecroOnDeathTrigger"
+      ]
+    },
+    {
+      "id": "LaceNecro3",
+      "titles": {
+        "english": "Necromancer III"
+      },
+      "bonus_damage": 40,
+      "bonus_hp": 40,
+      "status_effect_upgrades": [
+        {
+          "status": "conduit",
+          "count": 40
+        }
+      ],
+      "trigger_upgrades": [
+        "@LaceNecroResolveTrigger3",
+        "@LaceNecroOnDeathTrigger"
+      ]
+    },
+    {
+      "id": "Laceconsume1",
+      "titles": {
+        "english": "Consumer"
+      },
+      "bonus_damage": 20,
+      "bonus_hp": 10,
+      "trigger_upgrades": [
+        "@LaceConsumerStrikeTrigger",
+        "@LaceConsumer1BuffTrigger",
+        "@LaceConsumer1DamageTrigger"
+      ]
+    },
+    {
+      "id": "Laceconsume2",
+      "titles": {
+        "english": "Consumer II"
+      },
+      "bonus_damage": 50,
+      "bonus_hp": 20,
+      "trigger_upgrades": [
+        "@LaceConsumerStrikeTrigger",
+        "@LaceConsumer2BuffTrigger",
+        "@LaceConsumer2DamageTrigger"
+      ]
+    },
+    {
+      "id": "Laceconsume3",
+      "titles": {
+        "english": "Consumer III"
+      },
+      "bonus_damage": 60,
+      "bonus_hp": 40,
+      "status_effect_upgrades": [
+        {
+          "status": "multistrike",
+          "count": 1
+        }
+      ],
+      "trigger_upgrades": [
+        "@LaceConsumerStrikeTrigger",
+        "@LaceConsumer3BuffTrigger",
+        "@LaceConsumer3DamageTrigger"
+      ]
+    },
+    {
+      "id": "LaceHeist1",
+      "titles": {
+        "english": "Heist"
+      },
+      "bonus_damage": 10,
+      "bonus_hp": 30,
+      "status_effect_upgrades": [
+        {
+          "status": "spikes",
+          "count": 5
+        }
+      ],
+      "trigger_upgrades": [
+        "@LaceHeistHit1"
+      ]
+    },
+    {
+      "id": "LaceHeist2",
+      "titles": {
+        "english": "Heist II"
+      },
+      "bonus_damage": 20,
+      "bonus_hp": 60,
+      "status_effect_upgrades": [
+        {
+          "status": "spikes",
+          "count": 10
+        }
+      ],
+      "trigger_upgrades": [
+        "@LaceHeistHit2"
+      ]
+    },
+    {
+      "id": "LaceHeist3",
+      "titles": {
+        "english": "Heist III"
+      },
+      "bonus_damage": 40,
+      "bonus_hp": 80,
+      "status_effect_upgrades": [
+        {
+          "status": "spikes",
+          "count": 15
+        }
+      ],
+      "trigger_upgrades": [
+        "@LaceHeistHit3"
+      ]
+    },
+    {
+      "id": "LaceConsumer1Upgrade",
+      "bonus_damage": 1,
+      "bonus_hp": 1
+    },
+    {
+      "id": "LaceConsumer2Upgrade",
+      "bonus_damage": 2,
+      "bonus_hp": 2
+    },
+    {
+      "id": "LaceConsumer3Upgrade",
+      "bonus_damage": 3,
+      "bonus_hp": 3
+    },
+    {
+      "id": "LaceReformBuff",
+      "bonus_damage": 5,
+      "bonus_hp": 5,
+      "status_effect_upgrades": [
+        {
+          "status": "burnout",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "traits": [
+    {
+      "id": "LaceHarmSilkScaling",
+      "name": "CardTraitScalingAddDamage",
+      "param_int": 1,
+      "param_tracked_value": "@Silk",
+      "param_bool": true,
+      "additional_tooltips": [
+        "@SilkTooltip"
+      ]
+    }
+  ]
 }

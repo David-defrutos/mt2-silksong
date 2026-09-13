@@ -16,7 +16,7 @@
       "card_type": "spell",
       "targetless": true,
       "targets_room": true,
-      "rarity": "rare",
+      "rarity": "uncommon",
       "class": "@Silksong",
       "pools": [
         "MegaPool"

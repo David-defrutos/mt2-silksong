@@ -86,7 +86,7 @@
     {
       "id": "YarnabyStrikeTrigger",
       "descriptions": {
-        "english": "Add a random uncommon or rare Morsel to Hand."
+        "english": "Add a random <b>HollowWisp</b> to your hand."
       },
       "trigger": "on_kill",
       "effects": [
@@ -127,7 +127,10 @@
       "name": "CardEffectAddBattleCard",
       "param_card_pool": "@HollowWispPool",
       "param_int": 3,
-      "param_int_2": 1
+      "param_int_2": 1,
+      "additional_tooltips": [
+        "@HollowWispTooltip"
+      ]
     }
   ],
   "sprites": [

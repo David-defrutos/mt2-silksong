@@ -4,7 +4,7 @@
     {
       "id": "SpawnGaramond",
       "names": {
-        "english": "Garamond&Zaza",
+        "english": "Garamond",
         "chinese": "加蒙德"
       },
       "card_art": "@GaramondCardArt",
@@ -41,7 +41,7 @@
         "chinese": "立即攻击。"
       },
       "is_an_ability": true,
-      "cooldown": 2,
+      "cooldown": 3,
       "targets_room": false,
       "targetless": true,
       "effects": [
@@ -63,7 +63,10 @@
       "size": 2,
       "health": 24,
       "attack_damage": 36,
-      "subtypes": ["@Bug", "SubtypesData_BannerUnit"],
+      "subtypes": [
+        "@Bug",
+        "SubtypesData_BannerUnit"
+      ],
       "starting_status_effects": [
         {
           "status": "@Warrior",
@@ -71,9 +74,9 @@
         }
       ],
       "triggers": [
-        "@GaramondUpgradeSpawnTrigger",
-        "@GaramondSpawnTrigger"
-      ]
+        "@GaramondUpgradeSpawnTrigger"
+      ],
+      "ability": "@GaramondLanceAbility"
     }
   ],
   "character_triggers": [
@@ -89,29 +92,9 @@
           "id": "@GaramondAddDamageAndHPUpgrade"
         }
       ]
-    },
-    {
-      "id": "GaramondSpawnTrigger",
-      "descriptions": {
-        "english": "[Silk_Song_Clan.Plugin_Combo] with Zaza: Gain  \"[ability]: Attack.\"",
-        "chinese": "[Silk_Song_Clan.Plugin_Combo]与扎扎：获得 \"[ability]: 攻击。\"。"
-      },
-      "trigger": "on_spawn",
-      "effects": [
-        {
-          "id": "@GaramondSpawnEffectCombo"
-        },
-        {
-          "id": "@GaramondAbilitySpawnEffect"
-        }
-      ]
     }
   ],
   "upgrades": [
-    {
-      "id": "GaramondAbilityComboUpgrade",
-      "ability_upgrade": "@GaramondLanceAbility"
-    },
     {
       "id": "GaramondComboUpgrade",
       "bonus_damage": 12,
@@ -126,30 +109,12 @@
       "param_character": "@Garamond"
     },
     {
-      "id": "GaramondSpawnEffectCombo",
-      "name": "@CardEffectTestLastCardName",
-      "target_mode": "self",
-      "param_card": "@SpawnZaza",
-      "should_test": true,
-      "should_cancel_subsequent_effects_if_test_fails": true,
-      "additional_tooltips": [
-        "@ComboTooltip"
-      ]
-    },
-    {
       "id": "GaramondAddDamageAndHPUpgrade",
       "name": "CardEffectAddCardUpgradeToUnits",
       "target_mode": "self",
       "target_team": "monsters",
       "param_upgrade": "@GaramondComboUpgrade",
       "param_int_3": 2
-    },
-    {
-      "id": "GaramondAbilitySpawnEffect",
-      "name": "CardEffectAddTempCardUpgradeToUnits",
-      "target_mode": "self",
-      "target_team": "monsters",
-      "param_upgrade": "@GaramondAbilityComboUpgrade"
     },
     {
       "id": "GaramondLanceEffect",

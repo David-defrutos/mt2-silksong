@@ -1,297 +1,1154 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
-    "additional_tooltips": [
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "additional_tooltips": [
+    {
+      "id": "HollowWispTooltip",
+      "titles": {
+        "english": "HollowWisps"
+      },
+      "descriptions": {
+        "english": "<b>HollowWisps</b> are fragile spirits that can be eaten."
+      },
+      "style": "keyword",
+      "allow_secondary_placement": true
+    }
+  ],
+  "card_pools": [
+    {
+      "id": "HollowWispPool",
+      "cards": [
+        "@SpawnHollowWispPyreg",
+        "@SpawnHollowWispDecay",
+        "@SpawnHollowWispMelee",
+        "@SpawnHollowWispArmor",
+        "@SpawnHollowWispFrost",
+        "@SpawnHollowWispRegen",
+        "@SpawnHollowWispRefrm",
+        "@SpawnHollowWispGold",
+        "@SpawnHollowWispClean"
+      ]
+    },
+    {
+      "id": "HollowWispDeadPool",
+      "cards": [
+        "@SpawnHollowWispRefrm"
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "id": "SpawnHollowWispRefrm",
+      "names": {
+        "english": "HollowWisp (Reform)"
+      },
+      "card_art": "@HollowWispCardArtRefrm",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "uncommon",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
         {
-            "id": "HollowWispTooltip",
-            "titles": { "english": "HollowWisps" },
-            "descriptions": { "english": "<b>HollowWisps</b> are fragile spirits that can be eaten." },
-            "style": "keyword",
-            "allow_secondary_placement": true
+          "id": "@SpawnHollowWispRefrmEffect"
         }
-    ],
-    "card_pools": [
+      ],
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "lore_tooltips": [
         {
-            "id": "HollowWispPool",
-            "cards": [
-                "@SpawnHollowWispPyreg",
-                "@SpawnHollowWispDecay",
-                "@SpawnHollowWispMelee",
-                "@SpawnHollowWispArmor",
-                "@SpawnHollowWispFrost",
-                "@SpawnHollowWispRegen",
-                "@SpawnHollowWispRefrm",
-                "@SpawnHollowWispGoold"
-            ]
-        },
-{
-            "id": "HollowWispDeadPool",
-            "cards": [
-                "@SpawnHollowWispRefrm"
-            ]
-        }        
-    ],
-    "cards": [
-        {
-            "id": "SpawnHollowWispRefrm",
-            "names": { "english": "HollowWisp (Wax)" },
-            "card_art": "@HollowWispCardArtRefrm",
-            "card_type": "monster",
-            "class": "@Silksong",
-            "cost": 0,
-            "rarity": "common",
-            "targets_room": true,
-            "targetless": false,
-            "effects": [ { "id": "@SpawnHollowWispRefrmEffect" } ],
-            "pools": [ "UnitsAllBanner" ],
-            "lore_tooltips": [ { "english": "Reform" } ]
-        },        
-        {
-            "id": "SpawnHollowWispPyreg",
-            "names": { "english": "HollowWisp (Pyreg)" },
-            "card_art": "@HollowWispCardArtPyreg",
-            "card_type": "monster",
-            "class": "@Silksong",
-            "cost": 0,
-            "rarity": "common",
-            "targets_room": true,
-            "targetless": false,
-            "effects": [ { "id": "@SpawnHollowWispPyregEffect" } ],
-            "traits": [ "@HollowWispEphemeralTrait" ],
-            "pools": [ "UnitsAllBanner" ],
-            "lore_tooltips": [ { "english": "A fragile spirit formed from silk and void. Burns with inner fire." } ]
-        },
-        {
-            "id": "SpawnHollowWispDecay",
-            "names": { "english": "HollowWisp (Decay)", "chinese": "沙克拉 (凋零)" },
-            "card_art": "@HollowWispCardArtDecay",
-            "card_type": "monster",
-            "class": "@Silksong",
-            "cost": 0,
-            "rarity": "common",
-            "targets_room": true,
-            "targetless": false,
-            "effects": [ { "id": "@SpawnHollowWispDecayEffect" } ],
-            "traits": [ "@HollowWispEphemeralTrait" ],
-            "pools": [ "UnitsAllBanner" ],
-            "lore_tooltips": [ { "english": "A fragile spirit formed from silk and void. Smells of rot." } ]
-        },
-        {
-            "id": "SpawnHollowWispMelee",
-            "names": { "english": "HollowWisp (Weakn)", "chinese": "沙克拉 (虚弱)" },
-            "card_art": "@HollowWispCardArtMelee",
-            "card_type": "monster",
-            "class": "@Silksong",
-            "cost": 0,
-            "rarity": "common",
-            "targets_room": true,
-            "targetless": false,
-            "effects": [ { "id": "@SpawnHollowWispMeleeEffect" } ],
-            "traits": [ "@HollowWispEphemeralTrait" ],
-            "pools": [ "UnitsAllBanner" ],
-            "lore_tooltips": [ { "english": "A fragile spirit formed from silk and void. Exposes Weaknes." } ]
-        },
-        {
-            "id": "SpawnHollowWispArmor",
-            "names": { "english": "HollowWisp (Armor)" },
-            "card_art": "@HollowWispCardArtArmor",
-            "card_type": "monster",
-            "class": "@Silksong",
-            "cost": 0,
-            "rarity": "common",
-            "targets_room": true,
-            "targetless": false,
-            "effects": [ { "id": "@SpawnHollowWispArmorEffect" } ],
-            "traits": [ "@HollowWispEphemeralTrait" ],
-            "pools": [ "UnitsAllBanner" ],
-            "lore_tooltips": [ { "english": "Armor" } ]
-        },
-        {
-            "id": "SpawnHollowWispFrost",
-            "names": { "english": "HollowWisp (Frost)" },
-            "card_art": "@HollowWispCardArtFrost",
-            "card_type": "monster",
-            "class": "@Silksong",
-            "cost": 0,
-            "rarity": "common",
-            "targets_room": true,
-            "targetless": false,
-            "effects": [ { "id": "@SpawnHollowWispFrostEffect" } ],
-            "traits": [ "@HollowWispEphemeralTrait" ],
-            "pools": [ "UnitsAllBanner" ],
-            "lore_tooltips": [ { "english": "Frost." } ]
-        },
-        {
-            "id": "SpawnHollowWispRegen",
-            "names": { "english": "HollowWisp (Regen)" },
-            "card_art": "@HollowWispCardArtRegen",
-            "card_type": "monster",
-            "class": "@Silksong",
-            "cost": 0,
-            "rarity": "common",
-            "targets_room": true,
-            "targetless": false,
-            "effects": [ { "id": "@SpawnHollowWispRegenEffect" } ],
-            "traits": [ "@HollowWispEphemeralTrait" ],
-            "pools": [ "UnitsAllBanner" ],
-            "lore_tooltips": [ { "english": "Regen." } ]
-        },
-{
-            "id": "SpawnHollowWispGoold",
-            "names": { "english": "HollowWisp (Wax)" },
-            "card_art": "@HollowWispCardArtGoold",
-            "card_type": "monster",
-            "class": "@Silksong",
-            "cost": 0,
-            "rarity": "common",
-            "targets_room": true,
-            "targetless": false,
-            "effects": [ { "id": "@SpawnHollowWispGooldEffect" } ],
-            "traits": [ "@HollowWispEphemeralTrait" ],            
-            "pools": [ "UnitsAllBanner" ],
-            "lore_tooltips": [ { "english": "Reform" } ]
-        }                 
-    ],
-    "characters": [
-        {
-            "id": "HollowWispPyreg",
-            "names": { "english": "HollowWisp (Pyreg)" },
-            "character_art": "@HollowWispPyregCharacterArt",
-            "health": 1, "attack_damage": 0, "size": 1,
-            "subtypes": [ "SubtypesData_Snack", "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006" ],
-            "triggers": [ { "id": "@HollowWispOnDeathTrigger" }, { "id": "@HollowWispEatenPyregTrigger" } ],
-            "starting_status_effects": [ { "status": "eatmany", "count": 1 } ]
-        },
-        {
-            "id": "HollowWispDecay",
-            "names": { "english": "HollowWisp (Decay)" },
-            "character_art": "@HollowWispDecayCharacterArt",
-            "health": 1, "attack_damage": 0, "size": 1,
-            "subtypes": [ "SubtypesData_Snack", "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006" ],
-            "triggers": [ { "id": "@HollowWispOnDeathTrigger" }, { "id": "@HollowWispEatenDecayTrigger" } ],
-            "starting_status_effects": [ { "status": "eatmany", "count": 1 } ]
-        },
-        {
-            "id": "HollowWispMelee",
-            "names": { "english": "HollowWisp (Weakn)" },
-            "character_art": "@HollowWispMeleeCharacterArt",
-            "health": 1, "attack_damage": 0, "size": 1,
-            "subtypes": [ "SubtypesData_Snack", "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006" ],
-            "triggers": [ { "id": "@HollowWispOnDeathTrigger" }, { "id": "@HollowWispEatenWeaknTrigger" } ],
-            "starting_status_effects": [ { "status": "eatmany", "count": 1 } ]
-        },
-        {
-            "id": "HollowWispArmor",
-            "names": { "english": "HollowWisp (Armor)" },
-            "character_art": "@HollowWispArmorCharacterArt",
-            "health": 1, "attack_damage": 0, "size": 1,
-            "subtypes": [ "SubtypesData_Snack", "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006" ],
-            "triggers": [ { "id": "@HollowWispOnDeathTrigger" }, { "id": "@HollowWispEatenArmorTrigger" } ],
-            "starting_status_effects": [ { "status": "eatmany", "count": 1 } ]
-        },
-        {
-            "id": "HollowWispFrost",
-            "names": { "english": "HollowWisp (Frost)" },
-            "character_art": "@HollowWispFrostCharacterArt",
-            "health": 1, "attack_damage": 0, "size": 1,
-            "subtypes": [ "SubtypesData_Snack", "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006" ],
-            "triggers": [ { "id": "@HollowWispOnDeathTrigger" }, { "id": "@HollowWispEatenFrostTrigger" } ],
-            "starting_status_effects": [ { "status": "eatmany", "count": 1 } ]
-        },
-        {
-            "id": "HollowWispRegen",
-            "names": { "english": "HollowWisp (Regen)" },
-            "character_art": "@HollowWispRegenCharacterArt",
-            "health": 1, "attack_damage": 0, "size": 1,
-            "subtypes": [ "SubtypesData_Snack", "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006" ],
-            "triggers": [ { "id": "@HollowWispOnDeathTrigger" }, { "id": "@HollowWispEatenRegenTrigger" } ],
-            "starting_status_effects": [ { "status": "eatmany", "count": 1 } ]
-        },
-        {
-            "id": "HollowWispRefrm",
-            "names": { "english": "HollowWisp (Reform)" },
-            "character_art": "@HollowWispRefrmCharacterArt",
-            "health": 1, "attack_damage": 0, "size": 1,
-            "subtypes": [ "SubtypesData_Snack", "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006" ],
-            "triggers": [ { "id": "@HollowWispOnDeathTrigger" }, { "id": "@HollowWispEatenRefrmTrigger" } ],
-            "starting_status_effects": [ { "status": "eatmany", "count": 2 } ]
-        },
-        {
-            "id": "HollowWispGoold",
-            "names": { "english": "HollowWisp (Gold)" },
-            "character_art": "@HollowWispGooldCharacterArt",
-            "health": 1, "attack_damage": 0, "size": 1,
-            "subtypes": [ "SubtypesData_Snack", "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006" ],
-            "triggers": [ { "id": "@HollowWispOnDeathTrigger" }, { "id": "@HollowWispEatenGooldTrigger" } ],
-            "starting_status_effects": [ { "status": "eatmany", "count": 1 } ]
+          "english": "A fragile spirit formed from silk and void. What it touches comes back."
         }
-    ],
-    "character_triggers": [
-        { "id": "HollowWispOnDeathTrigger", "trigger": "on_death", "effects": [ { "id": "@HollowWispReformEffect" } ], "descriptions": { "english": "<b>Reform</b> a random unit."} },
-        { "id": "HollowWispEatenPyregTrigger", "trigger": "on_eaten", "effects": [ "@HollowWispEatenPyregEffect" ], "descriptions": { "english": "Apply [effect0.status0.power] [pyregel] to all enemies when eaten." } },
-        { "id": "HollowWispEatenDecayTrigger", "trigger": "on_eaten", "effects": [ "@HollowWispEatenDecayEffect" ], "descriptions": { "english": "Apply [effect0.status0.power] [decay] to all enemies when eaten." } },
-        { "id": "HollowWispEatenWeaknTrigger", "trigger": "on_eaten", "effects": [ "@HollowWispEatenWeaknEffect" ], "descriptions": { "english": "Apply [meleeweakness] [effect0.status0.power] to all enemies when eaten." } },
-        { "id": "HollowWispEatenArmorTrigger", "trigger": "on_eaten", "effects": [ "@HollowWispEatenArmorEffect" ], "descriptions": { "english": "Apply [effect0.status0.power] [armor] to all friendly units when eaten.." } },
-        { "id": "HollowWispEatenFrostTrigger", "trigger": "on_eaten", "effects": [ "@HollowWispEatenFrostEffect" ], "descriptions": { "english": "Apply [effect0.status0.power] [frostbite] to all enemy units when eaten." } },
-        { "id": "HollowWispEatenRegenTrigger", "trigger": "on_eaten", "effects": [ "@HollowWispEatenRegenEffect" ], "descriptions": { "english": "Apply [effect0.status0.power] [regen] to all friendly units when eaten." } },
-        { "id": "HollowWispEatenGooldTrigger", "trigger": "on_eaten", "effects": [ "@HollowWispEatenGooldEffect" ], "descriptions": { "english": "Apply [effect0.status0.power] [avarice] to all friendly units when eaten." } },
-        { "id": "HollowWispEatenRefrmTrigger", "trigger": "on_eaten", "effects": [ "@HollowWispEatenRefrmEffect" ], "descriptions": { "english": "Reform a unit when eaten." } }        
-    ],
-    "effects": [
-        { "id": "HollowWispReformEffect",     "name": "CardEffectRecursion", "target_mode": "exhaust", "target_card_type": "monster", "target_card_selection_mode": "random_to_hand_with_upgrades", "param_int": 1, "param_int_2": 1, "param_upgrade": "Raise", "should_test": true, "should_fail_to_cast_if_test_fails": true },    
-        { "id": "HollowWispEatenRefrmEffect", "name": "CardEffectRecursion", "target_mode": "exhaust", "target_card_type": "monster", "target_card_selection_mode": "random_to_hand_with_upgrades", "param_int": 1, "param_int_2": 1, "param_upgrade": "Raise", "should_test": true, "should_fail_to_cast_if_test_fails": true },            
-        { "id": "SpawnHollowWispPyregEffect", "name": "CardEffectSpawnMonster", "target_mode": "room", "param_character": "@HollowWispPyreg" },
-        { "id": "SpawnHollowWispDecayEffect", "name": "CardEffectSpawnMonster", "target_mode": "room", "param_character": "@HollowWispDecay" },
-        { "id": "SpawnHollowWispMeleeEffect", "name": "CardEffectSpawnMonster", "target_mode": "room", "param_character": "@HollowWispMelee" },
-        { "id": "SpawnHollowWispArmorEffect", "name": "CardEffectSpawnMonster", "target_mode": "room", "param_character": "@HollowWispArmor" },
-        { "id": "SpawnHollowWispFrostEffect", "name": "CardEffectSpawnMonster", "target_mode": "room", "param_character": "@HollowWispFrost" },
-        { "id": "SpawnHollowWispRegenEffect", "name": "CardEffectSpawnMonster", "target_mode": "room", "param_character": "@HollowWispRegen" },
-        { "id": "SpawnHollowWispRefrmEffect", "name": "CardEffectSpawnMonster", "target_mode": "room", "param_character": "@HollowWispRefrm" },        
-        { "id": "SpawnHollowWispGooldEffect", "name": "CardEffectSpawnMonster", "target_mode": "room", "param_character": "@HollowWispGoold" },
-        { "id": "HollowWispEatenArmorEffect", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "monsters", "param_status_effects": [ { "status": "armor", "count": 4 } ] },
-        { "id": "HollowWispEatenRegenEffect", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "monsters", "param_status_effects": [ { "status": "regen", "count": 3 } ] },
-        { "id": "HollowWispEatenGooldEffect", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "monsters", "param_status_effects": [ { "status": "avarice", "count": 3 } ] },
-        { "id": "HollowWispEatenFrostEffect", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "heroes", "param_status_effects": [ { "status": "poison", "count": 3 } ] },
-        { "id": "HollowWispEatenPyregEffect", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "heroes", "param_status_effects": [ { "status": "pyregel", "count": 3 } ] },
-        { "id": "HollowWispEatenDecayEffect", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "heroes", "param_status_effects": [ { "status": "decay", "count": 3 } ] },
-        { "id": "HollowWispEatenWeaknEffect", "name": "CardEffectAddStatusEffect", "target_mode": "room", "target_team": "heroes", "param_status_effects": [ { "status": "melee weakness", "count": 1 } ] }
-    ],
-    "traits": [
-        { "id": "HollowWispEphemeralTrait", "name": "CardTraitEphemeral" }
-    ],
-    "game_objects": [
-        { "id": "HollowWispCardArtPyreg", "type": "card_art", "extensions": { "card_art": { "sprite": "@HollowWisp_Sprite_CardArt_Pyreg" } } },
-        { "id": "HollowWispCardArtDecay", "type": "card_art", "extensions": { "card_art": { "sprite": "@HollowWisp_Sprite_CardArt_Decay" } } },
-        { "id": "HollowWispCardArtMelee", "type": "card_art", "extensions": { "card_art": { "sprite": "@HollowWisp_Sprite_CardArt_Melee" } } },
-        { "id": "HollowWispCardArtArmor", "type": "card_art", "extensions": { "card_art": { "sprite": "@HollowWisp_Sprite_CardArt_Armor" } } },
-        { "id": "HollowWispCardArtFrost", "type": "card_art", "extensions": { "card_art": { "sprite": "@HollowWisp_Sprite_CardArt_Frost" } } },
-        { "id": "HollowWispCardArtRegen", "type": "card_art", "extensions": { "card_art": { "sprite": "@HollowWisp_Sprite_CardArt_Regen" } } },
-        { "id": "HollowWispCardArtRefrm", "type": "card_art", "extensions": { "card_art": { "sprite": "@HollowWisp_Sprite_CardArt_Refrm" } } },
-        { "id": "HollowWispCardArtGoold", "type": "card_art", "extensions": { "card_art": { "sprite": "@HollowWisp_Sprite_CardArt_Goold" } } },
-        { "id": "HollowWispPyregCharacterArt", "type": "character_art", "extensions": { "character_art": { "sprite": "@HollowWisp_Sprite_CharacterArt_Pyreg", "transform": { "scale": { "x": 0.3705, "y": 0.3705, "z": 1 }, "position": { "x": 0, "y": 1.5, "z": 0 } } } } },
-        { "id": "HollowWispDecayCharacterArt", "type": "character_art", "extensions": { "character_art": { "sprite": "@HollowWisp_Sprite_CharacterArt_Decay", "transform": { "scale": { "x": 0.3777, "y": 0.3777, "z": 1 }, "position": { "x": 0, "y": 1.5, "z": 0 } } } } },
-        { "id": "HollowWispMeleeCharacterArt", "type": "character_art", "extensions": { "character_art": { "sprite": "@HollowWisp_Sprite_CharacterArt_Melee", "transform": { "scale": { "x": 0.483, "y": 0.483, "z": 1 }, "position": { "x": 0, "y": 1.5, "z": 0 } } } } },
-        { "id": "HollowWispArmorCharacterArt", "type": "character_art", "extensions": { "character_art": { "sprite": "@HollowWisp_Sprite_CharacterArt_Armor", "transform": { "scale": { "x": 0.4503, "y": 0.4503, "z": 1 }, "position": { "x": 0, "y": 1.5, "z": 0 } } } } },
-        { "id": "HollowWispFrostCharacterArt", "type": "character_art", "extensions": { "character_art": { "sprite": "@HollowWisp_Sprite_CharacterArt_Frost", "transform": { "scale": { "x": 0.3446, "y": 0.3446, "z": 1 }, "position": { "x": 0, "y": 1.5, "z": 0 } } } } },
-        { "id": "HollowWispRegenCharacterArt", "type": "character_art", "extensions": { "character_art": { "sprite": "@HollowWisp_Sprite_CharacterArt_Regen", "transform": { "scale": { "x": 0.4482, "y": 0.4482, "z": 1 }, "position": { "x": 0, "y": 1.5, "z": 0 } } } } },
-        { "id": "HollowWispRefrmCharacterArt", "type": "character_art", "extensions": { "character_art": { "sprite": "@HollowWisp_Sprite_CharacterArt_Refrm", "transform": { "scale": { "x": 0.5902, "y": 0.5902, "z": 1 }, "position": { "x": 0, "y": 1.5, "z": 0 } } } } },
-        { "id": "HollowWispGooldCharacterArt", "type": "character_art", "extensions": { "character_art": { "sprite": "@HollowWisp_Sprite_CharacterArt_Goold", "transform": { "scale": { "x": 0.3456, "y": 0.3456, "z": 1 }, "position": { "x": 0, "y": 1.5, "z": 0 } } } } }
-    ],
-    "sprites": [
-        { "id": "HollowWisp_Sprite_CardArt_Pyreg", "path": "textures/HollowWisp/HollowWispCardArtPyreg.png" },
-        { "id": "HollowWisp_Sprite_CardArt_Melee", "path": "textures/HollowWisp/HollowWispCardArtMelee.png" },
-        { "id": "HollowWisp_Sprite_CardArt_Armor", "path": "textures/HollowWisp/HollowWispCardArtArmor.png" },
-        { "id": "HollowWisp_Sprite_CardArt_Frost", "path": "textures/HollowWisp/HollowWispCardArtFrost.png" },
-        { "id": "HollowWisp_Sprite_CardArt_Decay", "path": "textures/HollowWisp/HollowWispCardArtDecay.png" },
-        { "id": "HollowWisp_Sprite_CardArt_Regen", "path": "textures/HollowWisp/HollowWispCardArtRegen.png" },
-        { "id": "HollowWisp_Sprite_CardArt_Refrm", "path": "textures/HollowWisp/HollowWispCardArtRefrm.png" },
-        { "id": "HollowWisp_Sprite_CardArt_Goold", "path": "textures/HollowWisp/HollowWispCardArtGoold.png" },
-        { "id": "HollowWisp_Sprite_CharacterArt_Pyreg", "path": "textures/HollowWisp/HollowWispCharacterArtFireBG.png" },
-        { "id": "HollowWisp_Sprite_CharacterArt_Decay", "path": "textures/HollowWisp/HollowWispCharacterArtDecayBG.png" },
-        { "id": "HollowWisp_Sprite_CharacterArt_Melee", "path": "textures/HollowWisp/HollowWispCharacterArtMeleeBG.png" },
-        { "id": "HollowWisp_Sprite_CharacterArt_Armor", "path": "textures/HollowWisp/HollowWispCharacterArtArmorBG.png" },
-        { "id": "HollowWisp_Sprite_CharacterArt_Frost", "path": "textures/HollowWisp/HollowWispCharacterArtFrostBG.png" },
-        { "id": "HollowWisp_Sprite_CharacterArt_Regen", "path": "textures/HollowWisp/HollowWispCharacterArtRegenBG.png" },
-        { "id": "HollowWisp_Sprite_CharacterArt_Refrm", "path": "textures/HollowWisp/HollowWispCharacterArtRefrmBG.png" },
-        { "id": "HollowWisp_Sprite_CharacterArt_Goold", "path": "textures/HollowWisp/HollowWispCharacterArtGooldBG.png" }
-    ]
+      ]
+    },
+    {
+      "id": "SpawnHollowWispPyreg",
+      "names": {
+        "english": "HollowWisp (Pyreg)"
+      },
+      "card_art": "@HollowWispCardArtPyreg",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispPyregEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A fragile spirit formed from silk and void. Burns with inner fire."
+        }
+      ]
+    },
+    {
+      "id": "SpawnHollowWispDecay",
+      "names": {
+        "english": "HollowWisp (Decay)",
+        "chinese": "沙克拉 (凋零)"
+      },
+      "card_art": "@HollowWispCardArtDecay",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispDecayEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A fragile spirit formed from silk and void. Smells of rot."
+        }
+      ]
+    },
+    {
+      "id": "SpawnHollowWispMelee",
+      "names": {
+        "english": "HollowWisp (Weakn)",
+        "chinese": "沙克拉 (虚弱)"
+      },
+      "card_art": "@HollowWispCardArtMelee",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispMeleeEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A fragile spirit formed from silk and void. Exposes Weaknes."
+        }
+      ]
+    },
+    {
+      "id": "SpawnHollowWispArmor",
+      "names": {
+        "english": "HollowWisp (Armor)"
+      },
+      "card_art": "@HollowWispCardArtArmor",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispArmorEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Armor"
+        }
+      ]
+    },
+    {
+      "id": "SpawnHollowWispFrost",
+      "names": {
+        "english": "HollowWisp (Frost)"
+      },
+      "card_art": "@HollowWispCardArtFrost",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispFrostEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Frost."
+        }
+      ]
+    },
+    {
+      "id": "SpawnHollowWispRegen",
+      "names": {
+        "english": "HollowWisp (Regen)"
+      },
+      "card_art": "@HollowWispCardArtRegen",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispRegenEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Regen."
+        }
+      ]
+    },
+    {
+      "id": "SpawnHollowWispGold",
+      "names": {
+        "english": "HollowWisp (Gold)"
+      },
+      "card_art": "@HollowWispCardArtGold",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispGoldEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A fragile spirit formed from silk and void. Its hollow rings with coins."
+        }
+      ]
+    },
+    {
+      "id": "SpawnHollowWispClean",
+      "names": {
+        "english": "HollowWisp (Clean)"
+      },
+      "card_art": "@HollowWispCardArtClean",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "uncommon",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispCleanEffect"
+        }
+      ],
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A fragile spirit formed from silk and void. Its light burns off what clings to you."
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "HollowWispPyreg",
+      "names": {
+        "english": "HollowWisp (Pyreg)"
+      },
+      "character_art": "@HollowWispPyregCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenPyregTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "HollowWispDecay",
+      "names": {
+        "english": "HollowWisp (Decay)"
+      },
+      "character_art": "@HollowWispDecayCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenDecayTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "HollowWispMelee",
+      "names": {
+        "english": "HollowWisp (Weakn)"
+      },
+      "character_art": "@HollowWispMeleeCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenWeaknTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "HollowWispArmor",
+      "names": {
+        "english": "HollowWisp (Armor)"
+      },
+      "character_art": "@HollowWispArmorCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenArmorTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "HollowWispFrost",
+      "names": {
+        "english": "HollowWisp (Frost)"
+      },
+      "character_art": "@HollowWispFrostCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenFrostTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "HollowWispRegen",
+      "names": {
+        "english": "HollowWisp (Regen)"
+      },
+      "character_art": "@HollowWispRegenCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenRegenTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "HollowWispRefrm",
+      "names": {
+        "english": "HollowWisp (Reform)"
+      },
+      "character_art": "@HollowWispRefrmCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispOnDeathTrigger"
+        },
+        {
+          "id": "@HollowWispEatenRefrmTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "HollowWispGold",
+      "names": {
+        "english": "HollowWisp (Gold)"
+      },
+      "character_art": "@HollowWispGoldCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenGoldTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "HollowWispClean",
+      "names": {
+        "english": "HollowWisp (Clean)"
+      },
+      "character_art": "@HollowWispCleanCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenCleanTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HollowWispOnDeathTrigger",
+      "trigger": "on_death",
+      "effects": [
+        {
+          "id": "@HollowWispReformEffect"
+        }
+      ],
+      "descriptions": {
+        "english": "<b>Reform</b> a random unit."
+      }
+    },
+    {
+      "id": "HollowWispEatenPyregTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenPyregEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [effect0.status0.power] [pyregel] to all enemies when eaten."
+      }
+    },
+    {
+      "id": "HollowWispEatenDecayTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenDecayEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [effect0.status0.power] [decay] to all enemies when eaten."
+      }
+    },
+    {
+      "id": "HollowWispEatenWeaknTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenWeaknEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [meleeweakness] [effect0.status0.power] to all enemies when eaten."
+      }
+    },
+    {
+      "id": "HollowWispEatenArmorTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenArmorEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [effect0.status0.power] [armor] to all friendly units when eaten.."
+      }
+    },
+    {
+      "id": "HollowWispEatenFrostTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenFrostEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [effect0.status0.power] [frostbite] to all enemy units when eaten."
+      }
+    },
+    {
+      "id": "HollowWispEatenRegenTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenRegenEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [effect0.status0.power] [regen] to all friendly units when eaten."
+      }
+    },
+    {
+      "id": "HollowWispEatenGoldTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenGoldEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [effect0.status0.power] [avarice] to all friendly units when eaten."
+      }
+    },
+    {
+      "id": "HollowWispEatenRefrmTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenRefrmEffect"
+      ],
+      "descriptions": {
+        "english": "Reform a unit when eaten."
+      }
+    },
+    {
+      "id": "HollowWispEatenCleanTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenCleanEffect"
+      ],
+      "descriptions": {
+        "english": "Remove all [debuff] effects from all friendly units when eaten."
+      }
+    }
+  ],
+  "effects": [
+    {
+      "id": "HollowWispReformEffect",
+      "name": "CardEffectRecursion",
+      "target_mode": "exhaust",
+      "target_card_type": "monster",
+      "target_card_selection_mode": "random_to_hand",
+      "param_int": 1,
+      "param_int_2": 1,
+      "param_upgrade": "Raise",
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true
+    },
+    {
+      "id": "HollowWispEatenRefrmEffect",
+      "name": "CardEffectRecursion",
+      "target_mode": "exhaust",
+      "target_card_type": "monster",
+      "target_card_selection_mode": "random_to_hand",
+      "param_int": 1,
+      "param_int_2": 1,
+      "param_upgrade": "Raise",
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true
+    },
+    {
+      "id": "SpawnHollowWispPyregEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispPyreg"
+    },
+    {
+      "id": "SpawnHollowWispDecayEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispDecay"
+    },
+    {
+      "id": "SpawnHollowWispMeleeEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispMelee"
+    },
+    {
+      "id": "SpawnHollowWispArmorEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispArmor"
+    },
+    {
+      "id": "SpawnHollowWispFrostEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispFrost"
+    },
+    {
+      "id": "SpawnHollowWispRegenEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispRegen"
+    },
+    {
+      "id": "SpawnHollowWispRefrmEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispRefrm"
+    },
+    {
+      "id": "SpawnHollowWispGoldEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispGold"
+    },
+    {
+      "id": "HollowWispEatenArmorEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "armor",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "HollowWispEatenRegenEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "regen",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "id": "HollowWispEatenGoldEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "avarice",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "id": "HollowWispEatenFrostEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "poison",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "id": "HollowWispEatenPyregEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "pyregel",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "id": "HollowWispEatenDecayEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "decay",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "id": "HollowWispEatenWeaknEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "melee weakness",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "HollowWispEatenCleanEffect",
+      "name": "CardEffectRemoveAllStatusEffects",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_int": 1
+    },
+    {
+      "id": "SpawnHollowWispCleanEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispClean"
+    }
+  ],
+  "traits": [
+    {
+      "id": "HollowWispEphemeralTrait",
+      "name": "CardTraitEphemeral"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "HollowWispCardArtPyreg",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Pyreg"
+        }
+      }
+    },
+    {
+      "id": "HollowWispCardArtDecay",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Decay"
+        }
+      }
+    },
+    {
+      "id": "HollowWispCardArtMelee",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Melee"
+        }
+      }
+    },
+    {
+      "id": "HollowWispCardArtArmor",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Armor"
+        }
+      }
+    },
+    {
+      "id": "HollowWispCardArtFrost",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Frost"
+        }
+      }
+    },
+    {
+      "id": "HollowWispCardArtRegen",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Regen"
+        }
+      }
+    },
+    {
+      "id": "HollowWispCardArtRefrm",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Refrm"
+        }
+      }
+    },
+    {
+      "id": "HollowWispCardArtGold",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Gold"
+        }
+      }
+    },
+    {
+      "id": "HollowWispPyregCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Pyreg",
+          "transform": {
+            "scale": {
+              "x": 0.3705,
+              "y": 0.3705,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "HollowWispDecayCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Decay",
+          "transform": {
+            "scale": {
+              "x": 0.3777,
+              "y": 0.3777,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "HollowWispMeleeCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Melee",
+          "transform": {
+            "scale": {
+              "x": 0.483,
+              "y": 0.483,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "HollowWispArmorCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Armor",
+          "transform": {
+            "scale": {
+              "x": 0.4503,
+              "y": 0.4503,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "HollowWispFrostCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Frost",
+          "transform": {
+            "scale": {
+              "x": 0.3446,
+              "y": 0.3446,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "HollowWispRegenCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Regen",
+          "transform": {
+            "scale": {
+              "x": 0.4482,
+              "y": 0.4482,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "HollowWispRefrmCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Refrm",
+          "transform": {
+            "scale": {
+              "x": 0.5902,
+              "y": 0.5902,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "HollowWispGoldCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Gold",
+          "transform": {
+            "scale": {
+              "x": 0.3456,
+              "y": 0.3456,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "HollowWispCardArtClean",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Clean"
+        }
+      }
+    },
+    {
+      "id": "HollowWispCleanCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Clean",
+          "transform": {
+            "scale": {
+              "x": 0.45,
+              "y": 0.45,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "sprites": [
+    {
+      "id": "HollowWisp_Sprite_CardArt_Pyreg",
+      "path": "textures/HollowWisp/HollowWispCardArtPyreg.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CardArt_Melee",
+      "path": "textures/HollowWisp/HollowWispCardArtMelee.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CardArt_Armor",
+      "path": "textures/HollowWisp/HollowWispCardArtArmor.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CardArt_Frost",
+      "path": "textures/HollowWisp/HollowWispCardArtFrost.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CardArt_Decay",
+      "path": "textures/HollowWisp/HollowWispCardArtDecay.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CardArt_Regen",
+      "path": "textures/HollowWisp/HollowWispCardArtRegen.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CardArt_Refrm",
+      "path": "textures/HollowWisp/HollowWispCardArtRefrm.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CardArt_Gold",
+      "path": "textures/HollowWisp/HollowWispCardArtGold.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Pyreg",
+      "path": "textures/HollowWisp/HollowWispCharacterArtFireBG.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Decay",
+      "path": "textures/HollowWisp/HollowWispCharacterArtDecayBG.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Melee",
+      "path": "textures/HollowWisp/HollowWispCharacterArtMeleeBG.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Armor",
+      "path": "textures/HollowWisp/HollowWispCharacterArtArmorBG.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Frost",
+      "path": "textures/HollowWisp/HollowWispCharacterArtFrostBG.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Regen",
+      "path": "textures/HollowWisp/HollowWispCharacterArtRegenBG.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Refrm",
+      "path": "textures/HollowWisp/HollowWispCharacterArtRefrmBG.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Gold",
+      "path": "textures/HollowWisp/HollowWispCharacterArtGoldBG.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CardArt_Clean",
+      "path": "textures/HollowWisp/HollowWispCardArtSilk.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Clean",
+      "path": "textures/HollowWisp/HollowWispCharacterArtLight.png"
+    }
+  ]
 }

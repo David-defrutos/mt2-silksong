@@ -50,31 +50,20 @@
         {
           "status": "mageblade",
           "count": 2
+        },
+        {
+          "status": "@Warrior",
+          "count": 1
         }
       ],
       "triggers": [
         {
-          "id": "@PinstressSpawnTrigger"
+          "id": "@PinstressStrikeTrigger"
         }
       ]
     }
   ],
   "character_triggers": [
-    {
-      "id": "PinstressSpawnTrigger",
-      "trigger": "on_spawn",
-      "descriptions": {
-        "english": "[Silk_Song_Clan.Plugin_Combo] with Pinstress Subtype: Gain \"[strike]: Gain [conduit] [effect1.upgrade.charactertrigger0.effect0.status0.power].\""
-      },
-      "effects": [
-        {
-          "id": "@PinstressComboEffect"
-        },
-        {
-          "id": "@PinstressSpawnEffect"
-        }
-      ]
-    },
     {
       "id": "PinstressStrikeTrigger",
       "trigger": "on_attacking",
@@ -88,24 +77,6 @@
       ]
     }
   ],
-  "upgrade_masks": [
-    {
-      "id": "PinstressComboPinstressMask",
-      "required_subtypes": [
-        "@Pinstress"
-      ]
-    }
-  ],
-  "upgrades": [
-    {
-      "id": "PinstressComboUpgrade",
-      "trigger_upgrades": [
-        {
-          "id": "@PinstressStrikeTrigger"
-        }
-      ]
-    }
-  ],
   "effects": [
     {
       "id": "SpawnPinstressEffect",
@@ -114,31 +85,13 @@
       "param_character": "@Pinstress"
     },
     {
-      "id": "PinstressComboEffect",
-      "name": "@CardEffectTestLastCard",
-      "target_mode": "self",
-      "should_test": true,
-      "should_cancel_subsequent_effects_if_test_fails": true,
-      "param_card_filter": "@PinstressComboPinstressMask",
-      "additional_tooltips": [
-        "@ComboTooltip"
-      ]
-    },
-    {
-      "id": "PinstressSpawnEffect",
-      "name": "CardEffectAddTempCardUpgradeToUnits",
-      "target_mode": "self",
-      "target_team": "monsters",
-      "param_upgrade": "@PinstressComboUpgrade"
-    },
-    {
       "id": "PinstressStrikeEffect",
       "name": "CardEffectAddStatusEffect",
       "target_mode": "self",
       "param_status_effects": [
         {
           "status": "conduit",
-          "count": 2
+          "count": 1
         }
       ]
     }

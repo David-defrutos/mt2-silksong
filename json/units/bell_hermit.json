@@ -51,30 +51,18 @@
         {
           "status": "armor",
           "count": 8
+        },
+        {
+          "status": "duality",
+          "count": 1
         }
       ],
       "triggers": [
-        "@BellHermitSilksongTrigger",
-        "@BellHermitSpawnTrigger"
+        "@BellHermitSilksongTrigger"
       ]
     }
   ],
   "character_triggers": [
-    {
-      "id": "BellHermitSpawnTrigger",
-      "descriptions": {
-        "english": "[Silk_Song_Clan.Plugin_Combo] with Snail Subtype: Apply [duality]."
-      },
-      "trigger": "on_spawn",
-      "effects": [
-        {
-          "id": "@BellHermitComboEffect"
-        },
-        {
-          "id": "@BellHermitDualityEffect"
-        }
-      ]
-    },
     {
       "id": "BellHermitSilksongTrigger",
       "descriptions": {
@@ -89,43 +77,12 @@
       ]
     }
   ],
-  "upgrade_masks": [
-    {
-      "id": "BellHermitComboSnailMask",
-      "card_type": "monster",
-      "required_subtypes": [
-        "@Snail"
-      ]
-    }
-  ],
   "effects": [
-    {
-      "id": "BellHermitDualityEffect",
-      "name": "CardEffectAddStatusEffect",
-      "target_mode": "self",
-      "param_status_effects": [
-        {
-          "status": "duality",
-          "count": 1
-        }
-      ]
-    },
     {
       "id": "SpawnBellHermitEffect",
       "name": "CardEffectSpawnMonster",
       "target_mode": "drop_target_character",
       "param_character": "@BellHermit"
-    },
-    {
-      "id": "BellHermitComboEffect",
-      "name": "@CardEffectTestLastCard",
-      "target_mode": "self",
-      "should_test": true,
-      "should_cancel_subsequent_effects_if_test_fails": true,
-      "param_card_filter": "@BellHermitComboSnailMask",
-      "additional_tooltips": [
-        "@ComboTooltip"
-      ]
     },
     {
       "id": "BellHermitImbueEffect",
@@ -135,7 +92,7 @@
       "param_status_effects": [
         {
           "status": "@PermanentImbue",
-          "count": 3
+          "count": 2
         }
       ]
     }

@@ -13,10 +13,8 @@
       "card_type": "monster",
       "rarity": "common",
       "class": "@Silksong",
-      "unlock_level": 2,
-      "pools": [
-        "UnitsAllBanner"
-      ],
+      "unlock_level": 99,
+      "pools": [],
       "targets_room": true,
       "effects": [
         {
@@ -28,7 +26,8 @@
           "english": "The time has come for us fleas to find each other and travel together, as has happened through generations before.",
           "chinese": "是时候让我们蚤民同胞相聚，结伴远行了，就像我们的先辈那样。"
         }
-      ]
+      ],
+      "hide_in_logbook": true
     }
   ],
   "characters": [
@@ -43,7 +42,10 @@
       "size": 2,
       "health": 16,
       "attack_damage": 12,
-      "subtypes": ["@Flea", "SubtypesData_BannerUnit"],
+      "subtypes": [
+        "@Flea",
+        "SubtypesData_BannerUnit"
+      ],
       "triggers": [
         {
           "id": "@FleamasterResolveTrigger"

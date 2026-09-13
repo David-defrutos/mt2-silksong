@@ -11,7 +11,7 @@
       "card_art": "@NuuCardArt",
       "cost": 1,
       "card_type": "monster",
-      "rarity": "uncommon",
+      "rarity": "rare",
       "class": "@Silksong",
       "unlock_level": 10,
       "pools": [
@@ -47,28 +47,18 @@
         "@Bug",
         "SubtypesData_BannerUnit"
       ],
-      "triggers": [ "@NuuHungerTrigger", "@NuuKillTrigger" ]
+      "triggers": [
+        "@NuuHungerTrigger",
+        "@NuuKillTrigger"
+      ]
     }
   ],
   "character_triggers": [
     {
-      "id": "NuuHarvestTrigger",
-      "descriptions": {
-        "english": "Add an uncommon or rare Morsel unit to your hand.",
-        "chinese": "将 1 个高级或稀有[snack]单位加入你的手牌。"
-      },
-      "trigger": "on_any_unit_death_on_floor",
-      "effects": [
-        {
-          "id": "@NuuHarvestEffect"
-        }
-      ]
-    },
-    {
       "id": "NuuKillTrigger",
       "descriptions": {
-        "english": "Add an uncommon or rare Morsel unit to your hand.",
-        "chinese": "将 1 个高级或稀有[snack]单位加入你的手牌。"
+        "english": "Add a random <b>HollowWisp</b> to your hand.",
+        "chinese": "将一个随机空洞幽灵加入你的手牌。"
       },
       "trigger": "on_kill",
       "effects": [
@@ -76,7 +66,7 @@
           "id": "@NuuHarvestEffect"
         }
       ]
-    },    
+    },
     {
       "id": "NuuHungerTrigger",
       "descriptions": {
@@ -107,7 +97,10 @@
       "target_mode": "self",
       "param_card_pool": "@HollowWispPool",
       "param_int": 3,
-      "param_int_2": 1
+      "param_int_2": 1,
+      "additional_tooltips": [
+        "@HollowWispTooltip"
+      ]
     },
     {
       "id": "NuuImbueHungerEffect",

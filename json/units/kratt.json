@@ -13,10 +13,8 @@
       "card_type": "monster",
       "rarity": "uncommon",
       "class": "@Silksong",
-      "unlock_level": 7,
-      "pools": [
-        "UnitsAllBanner"
-      ],
+      "unlock_level": 99,
+      "pools": [],
       "targets_room": true,
       "effects": [
         {
@@ -28,7 +26,8 @@
           "english": "Poor little Kratt did not mean to steal a look! This old carriage needs constant care. I was only doing repairs! I had no intent to intrude! And I barely saw a thing!",
           "chinese": "可怜的小克拉特不是故意偷看的！<br>这辆老车需要时常保养。我只是在修车！无意闯入！我什么也没看见！"
         }
-      ]
+      ],
+      "hide_in_logbook": true
     },
     {
       "id": "KrattAbility",

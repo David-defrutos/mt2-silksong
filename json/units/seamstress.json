@@ -50,47 +50,14 @@
         {
           "status": "mageblade",
           "count": 2
-        }
-      ],
-      "triggers": [
-        {
-          "id": "@SeamstressSpawnTrigger"
-        }
-      ]
-    }
-  ],
-  "character_triggers": [
-    {
-      "id": "SeamstressSpawnTrigger",
-      "trigger": "on_spawn",
-      "descriptions": {
-        "english": "[Silk_Song_Clan.Plugin_Combo] with Pinstress Subtype: Gain \"[conduit] [effect1.upgrade.status0.power]\"."
-      },
-      "effects": [
-        {
-          "id": "@SeamstressComboEffect"
         },
         {
-          "id": "@SeamstressSpawnEffect"
-        }
-      ]
-    }
-  ],
-  "upgrade_masks": [
-    {
-      "id": "SeamstressComboPinstressMask",
-      "required_subtypes": [
-        "@Pinstress"
-      ]
-    }
-  ],
-  "upgrades": [
-    {
-      "id": "SeamstressComboUpgrade",
-      "status_effect_upgrades": [
-        {
           "status": "conduit",
-          "count": 16
+          "count": 6
+        },
+        {
+          "status": "@Warrior",
+          "count": 1
         }
       ]
     }
@@ -101,24 +68,6 @@
       "name": "CardEffectSpawnMonster",
       "target_mode": "room",
       "param_character": "@Seamstress"
-    },
-    {
-      "id": "SeamstressComboEffect",
-      "name": "@CardEffectTestLastCard",
-      "target_mode": "self",
-      "should_test": true,
-      "should_cancel_subsequent_effects_if_test_fails": true,
-      "param_card_filter": "@SeamstressComboPinstressMask",
-      "additional_tooltips": [
-        "@ComboTooltip"
-      ]
-    },
-    {
-      "id": "SeamstressSpawnEffect",
-      "name": "CardEffectAddTempCardUpgradeToUnits",
-      "target_mode": "self",
-      "target_team": "monsters",
-      "param_upgrade": "@SeamstressComboUpgrade"
     }
   ],
   "sprites": [

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "Bellhart",
+      "names": {
+        "english": "Bellhart",
+        "chinese": "钟心镇"
+      },
+      "descriptions": {
+        "english": "[Silk_Song_Clan.Plugin_Silksong] triggers an additional time in this room.",
+        "chinese": "[Silk_Song_Clan.Plugin_Silksong]在此房间额外触发一次。"
+      },
+      "lore_tooltips": [
+        {
+          "english": "The bell is cracked and still it answers. Every thread strung from its rim carries the note twice."
+        }
+      ],
+      "card_art": "@BellhartArt",
+      "cost": 2,
+      "card_type": "room",
+      "rarity": "rare",
+      "class": "@Silksong",
+      "targets_room": true,
+      "targetless": true,
+      "effects": [
+        "@BellhartRoomEffect"
+      ],
+      "pools": [
+        "MegaPool",
+        "RoomAndEquipmentMerchant_RoomPool",
+        "RoomAndEquipmentDraftPool",
+        "RoomAndEquipmentMerchant_RoomAndEquipmentPool",
+        "TrainRoomPool"
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "BellhartRoomUpgrade",
+      "titles": {
+        "english": "Bellhart"
+      },
+      "descriptions": {
+        "english": "[Silk_Song_Clan.Plugin_Silksong] triggers an additional time in this room.",
+        "chinese": "[Silk_Song_Clan.Plugin_Silksong]在此房间额外触发一次。"
+      },
+      "room_modifier_upgrades": [
+        "@BellhartRoomModifier"
+      ],
+      "icon": "@BellhartArt"
+    }
+  ],
+  "room_modifiers": [
+    {
+      "id": "BellhartRoomModifier",
+      "name": "RoomStateModifyTriggerCount",
+      "descriptions": {
+        "english": "[Silk_Song_Clan.Plugin_Silksong] triggers an additional time in this room.",
+        "chinese": "[Silk_Song_Clan.Plugin_Silksong]在此房间额外触发一次。"
+      },
+      "param_trigger": "@Silksong",
+      "param_int": 1
+    }
+  ],
+  "effects": [
+    {
+      "id": "BellhartRoomEffect",
+      "name": "CardEffectAttachTrainRoomAttachment",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_upgrade": "@BellhartRoomUpgrade",
+      "param_int_2": 0
+    }
+  ],
+  "sprites": [
+    {
+      "id": "BellhartArt",
+      "path": "textures/BellhartCardArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "BellhartArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@BellhartArt"
+        }
+      }
+    }
+  ]
+}

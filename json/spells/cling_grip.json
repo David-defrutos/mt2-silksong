@@ -8,8 +8,8 @@
         "chinese": "攀附抓握"
       },
       "descriptions": {
-        "english": "[retreat]. Add \"Advance\" to Hand.",
-        "chinese": "[retreat]。将一张<b>前进</b>卡牌加入你的手牌。"
+        "english": "Channel [effect0.powerabs] [Silk_Song_Clan.Plugin_Silk]. [retreat]. Add \"Advance\" to Hand.",
+        "chinese": "灌注 [effect0.powerabs][Silk_Song_Clan.Plugin_Silk]。[retreat]。将一张<b>前进</b>卡牌加入你的手牌。"
       },
       "cost": 1,
       "unlock_level": 2,
@@ -21,6 +21,9 @@
         "MegaPool"
       ],
       "effects": [
+        {
+          "id": "@ClingGripChannelSilkEffect"
+        },
         {
           "id": "@ClingGripRetreatEffect"
         },
@@ -68,6 +71,18 @@
     }
   ],
   "effects": [
+    {
+      "id": "ClingGripChannelSilkEffect",
+      "name": "@CardEffectRewardSilk",
+      "target_mode": "self",
+      "param_int": -1,
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true,
+      "additional_tooltips": [
+        "@SilkTooltip",
+        "@SilkChannelTooltip"
+      ]
+    },
     {
       "id": "ClingGripRetreatEffect",
       "name": "CardEffectFloorRearrange",

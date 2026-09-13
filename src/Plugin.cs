@@ -1,0 +1,230 @@
+﻿using BepInEx;
+using BepInEx.Logging;
+using HarmonyLib;
+using TrainworksReloaded.Base;
+using TrainworksReloaded.Core;
+using TrainworksReloaded.Core.Interfaces;
+using TrainworksReloaded.Core.Extensions;
+using TrainworksReloaded.Base.Extensions;
+using Conductor.UI;
+
+namespace Silk_Song_Clan.Plugin
+{
+    [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
+    public class Plugin : BaseUnityPlugin
+    {
+        internal static new ManualLogSource Logger = new(MyPluginInfo.PLUGIN_GUID);
+        internal static Lazy<SilkManager> Client = new(() => new SilkManager());
+        public void Awake()
+        {
+            // Plugin startup logic
+            Logger = base.Logger;
+
+            // Setup Game Client
+            var client = Client.Value;
+            DepInjector.AddProvider(client);
+
+            var builder = Railhead.GetBuilder();
+            builder.Configure(
+                MyPluginInfo.PLUGIN_GUID,
+                c =>
+                {
+                    // Be sure to include all of your json files if you add more.
+                    // Be sure to update the project configuration if you include more folders
+                    //   the project only copies json files in the json folder and not in subdirectories.
+                    c.AddMergedJsonFile(
+                        //Class
+                        "json/class/silksong.json",
+
+                        //HUD
+                        "json/class/hud.json",
+
+                        //Champions
+                        "json/champion/hornet_base.json",
+                        "json/champion/hornet_architect.json",
+                        "json/champion/hornet_beast.json",
+                        "json/champion/hornet_cursed.json",
+                        "json/champion/hornet_hunter.json",
+                        "json/champion/hornet_reaper.json",
+                        "json/champion/hornet_shaman.json",
+                        "json/champion/hornet_wanderer.json",
+                        "json/champion/hornet_witch.json",
+
+                        //Relics
+                        "json/relics/architect_key.json",
+                        "json/relics/wormway_key.json",
+                        "json/relics/conjoined_heart.json",
+                        "json/relics/craw_memento.json",
+                        "json/relics/festival_pinata.json",
+                        "json/relics/grey_memento.json",
+                        "json/relics/guardian_memento.json",
+                        "json/relics/hunter_memento.json",
+                        "json/relics/hero_memento.json",
+                        "json/relics/sprintmaster_memento.json",
+                        "json/relics/surface_memento.json",
+                        "json/relics/encrusted_heart.json",
+                        "json/relics/hunters_heart.json",
+                        "json/relics/pollen_heart.json",
+
+                        //Triggers
+                        "json/triggers/silksong.json",
+
+                        //Subtypes
+                        "json/subtypes/snail.json",
+                        "json/subtypes/bug.json",
+                        "json/subtypes/pinstress.json",
+                        "json/subtypes/flea.json",
+
+                        //Cardpools
+                        "json/cardpool/flea_pool.json",
+                        "json/cardpool/banner_pool.json",
+                        "json/cardpool/morsel_pool.json",
+
+                        //Map Nodes
+                        "json/map_nodes/banner.json",
+
+                        //Enhancers
+                        "json/enhancers/acrobat_stone.json",
+                        "json/enhancers/warrior_stone.json",
+                        "json/enhancers/flea_stone.json",
+                        "json/enhancers/snail_stone.json",
+
+                        //Tokens
+                        "json/tokens/flea.json",
+                        "json/tokens/bell_flea.json",
+                        "json/tokens/huge_flea.json",
+                        "json/tokens/brew_flea.json",
+
+                        //Units
+                        "json/units/alchemist_zylotol.json",
+                        "json/units/ballow.json",  
+                        "json/units/bell_hermit.json",
+                        "json/units/caretaker.json",
+                        "json/units/chapel_maid.json",
+                        "json/units/crull_and_benjin.json",
+                        "json/units/fleamaster_mooshka.json",
+                        "json/units/flick_the_fixer.json",
+                        "json/units/garamond.json",
+                        "json/units/gilly.json",
+                        "json/units/green_prince.json",
+                        "json/units/grindle.json",
+                        "json/units/grishkin.json",
+                        "json/units/kratt.json",
+                        "json/units/lumble_the_lucky.json",
+                        "json/units/nuu.json",
+                        "json/units/pavo.json",
+                        "json/units/pebb.json",
+                        "json/units/pinmaster_plinney.json",
+                        "json/units/pinstress.json",
+                        "json/units/relic_seeker_scrounge.json",
+                        "json/units/seamstress.json",
+                        "json/units/shakra.json",
+                        "json/units/sherma.json",
+                        "json/units/sprintmaster_swift.json",
+                        "json/units/twelfth_architect.json",
+                        "json/units/varga.json",
+                        "json/units/vog.json",
+                        "json/units/yarnaby.json",
+                        "json/units/zaza.json",
+
+                        //Spells
+                        "json/spells/nail_strike.json",
+                        "json/spells/clawline.json",
+                        "json/spells/cling_grip.json",
+                        "json/spells/cross_stitch.json",
+                        "json/spells/elegy_of_the_deep.json",
+                        "json/spells/needle_strike.json",
+                        "json/spells/needolin.json",
+                        "json/spells/pale_nale.json",
+                        "json/spells/pale_nales.json",
+                        "json/spells/rune_rage.json",
+                        "json/spells/sharp_dart.json",
+                        "json/spells/silk_soar.json",
+                        "json/spells/silkspear.json",
+                        "json/spells/swift_step.json",
+                        "json/spells/sylphsong.json",
+                        "json/spells/thread_storm.json",
+
+                        //Rooms
+                        "json/rooms/room_bellhart.json",
+                        "json/rooms/room_the_slab.json",
+
+                        //Equipment
+                        "json/equipments/equipment_threefold_pin.json",
+                        "json/equipments/equipment_magnetite_brooch.json",
+
+                        //Status Effects
+                        "json/status_effects/warrior.json",
+                        "json/status_effects/imbue.json",
+                        "json/status_effects/protection.json",
+                        "json/status_effects/permanent_imbue.json",
+                        "json/status_effects/permanent_protection.json",
+                        "json/status_effects/full_silk_attack_buff.json",
+
+                        //Tracked Values
+                        "json/tracked_values/silk.json",
+
+                        //Status Effects Types
+                        "json/status_effect_types/full_silk.json",
+
+                        //Text
+                        "json/text/silk.json",
+                        "json/text/bind.json",
+                        "json/text/combo.json"
+                    );
+                }
+            );
+            Railend.ConfigurePreAction(builder =>
+            {
+                builder.RegisterInstance(client);
+            });
+
+            Railend.ConfigurePostAction(
+                c =>
+                {
+                    var manager = c.GetInstance<IRegister<CharacterTriggerData.Trigger>>();
+                    var triggerManager = c.GetInstance<IRegister<CardTriggerType>>();
+                    var trackedValueManager = c.GetInstance<IRegister<CardStatistics.TrackedValueType>>();
+                    var statusEffectTriggerStageManager = c.GetInstance<IRegister<StatusEffectData.TriggerStage>>();
+
+                    CharacterTriggerData.Trigger GetTrigger(string id)
+                    {
+                        return manager.GetValueOrDefault(MyPluginInfo.PLUGIN_GUID.GetId(TemplateConstants.CharacterTriggerEnum, id));
+                    }
+
+                    // CardTriggerType GetCardTrigger(string id)
+                    // {
+                    //     return triggerManager.GetValueOrDefault(MyPluginInfo.PLUGIN_GUID.GetId(TemplateConstants.CardTriggerEnum, id));
+                    // }
+
+                    CharacterTriggers.Combo = GetTrigger("Combo");
+                    CharacterTriggers.Silksong = GetTrigger("Silksong");
+
+                    CardStatistics.TrackedValueType GetTrackedValueType(string id)
+                    {
+                        return trackedValueManager.GetValueOrDefault(MyPluginInfo.PLUGIN_GUID.GetId(TemplateConstants.TrackedValueTypeEnum, id));
+                    }
+
+                    TrackedValues.Silk = GetTrackedValueType("Silk");
+
+                    StatusEffectData.TriggerStage GetStatusEffectTriggerStage(string id)
+                    {
+                        return statusEffectTriggerStageManager.GetValueOrDefault(MyPluginInfo.PLUGIN_GUID.GetId(TemplateConstants.StatusEffectTriggerStageEnum, id));
+                    }
+
+                    StatusEffectTriggers.OnFullSilk = GetStatusEffectTriggerStage("OnFullSilk");
+                    StatusEffectTriggers.OnFullSilkLost = GetStatusEffectTriggerStage("OnFullSilkLost");
+
+                    var hud = HudManager.GetHUD(MyPluginInfo.PLUGIN_GUID, "SilksongSilkHUD");
+                    hud?.SetTrackedValueHandler(Client.Value);
+                }
+            );
+
+            Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
+            
+            // Enable harmony patches for silk system
+            var harmony = new Harmony(MyPluginInfo.PLUGIN_GUID);
+            harmony.PatchAll();
+        }
+    }
+}

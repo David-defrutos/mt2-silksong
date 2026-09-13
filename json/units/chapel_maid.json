@@ -46,32 +46,22 @@
         {
           "status": "armor",
           "count": 16
+        },
+        {
+          "status": "duality",
+          "count": 1
         }
       ],
-      "subtypes": ["@Snail", "SubtypesData_BannerUnit"],
+      "subtypes": [
+        "@Snail",
+        "SubtypesData_BannerUnit"
+      ],
       "triggers": [
-        "@ChapelMaidSilksongTrigger",
-        "@ChapelMaidSpawnTrigger"
+        "@ChapelMaidSilksongTrigger"
       ]
     }
   ],
   "character_triggers": [
-    {
-      "id": "ChapelMaidSpawnTrigger",
-      "descriptions": {
-        "english": "[Silk_Song_Clan.Plugin_Combo] with Snail Subtype: Apply [duality].",
-        "chinese": "[Silk_Song_Clan.Plugin_Combo]与蜗牛子类型：应用 [duality]。"
-      },
-      "trigger": "on_spawn",
-      "effects": [
-        {
-          "id": "@ChapelMaidComboEffect"
-        },
-        {
-          "id": "@ChapelMaidDualityEffect"
-        }
-      ]
-    },
     {
       "id": "ChapelMaidSilksongTrigger",
       "descriptions": {
@@ -86,43 +76,12 @@
       ]
     }
   ],
-  "upgrade_masks": [
-    {
-      "id": "ChapelMaidComboSnailMask",
-      "card_type": "monster",
-      "required_subtypes": [
-        "@Snail"
-      ]
-    }
-  ],
   "effects": [
-    {
-      "id": "ChapelMaidDualityEffect",
-      "name": "CardEffectAddStatusEffect",
-      "target_mode": "self",
-      "param_status_effects": [
-        {
-          "status": "duality",
-          "count": 1
-        }
-      ]
-    },
     {
       "id": "SpawnChapelMaidEffect",
       "name": "CardEffectSpawnMonster",
       "target_mode": "room",
       "param_character": "@ChapelMaid"
-    },
-    {
-      "id": "ChapelMaidComboEffect",
-      "name": "@CardEffectTestLastCard",
-      "target_mode": "self",
-      "should_test": true,
-      "should_cancel_subsequent_effects_if_test_fails": true,
-      "param_card_filter": "@ChapelMaidComboSnailMask",
-      "additional_tooltips": [
-        "@ComboTooltip"
-      ]
     },
     {
       "id": "ChapelMaidProtectionStatusEffect",
@@ -132,7 +91,7 @@
       "param_status_effects": [
         {
           "status": "@PermanentProtection",
-          "count": 3
+          "count": 2
         }
       ]
     }
