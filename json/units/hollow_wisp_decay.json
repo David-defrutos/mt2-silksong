@@ -1,0 +1,133 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnHollowWispDecay",
+      "names": {
+        "english": "HollowWisp (Decay)",
+        "chinese": "沙克拉 (凋零)"
+      },
+      "card_art": "@HollowWispCardArtDecay",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispDecayEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A fragile spirit formed from silk and void. Smells of rot."
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "HollowWispDecay",
+      "names": {
+        "english": "HollowWisp (Decay)"
+      },
+      "character_art": "@HollowWispDecayCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenDecayTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HollowWispEatenDecayTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenDecayEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [effect0.status0.power] [decay] to all enemies when eaten."
+      }
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnHollowWispDecayEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispDecay"
+    },
+    {
+      "id": "HollowWispEatenDecayEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "decay",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "HollowWisp_Sprite_CardArt_Decay",
+      "path": "textures/HollowWisp/HollowWispCardArtDecay.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Decay",
+      "path": "textures/HollowWisp/HollowWispCharacterArtDecayBG.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "HollowWispCardArtDecay",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Decay"
+        }
+      }
+    },
+    {
+      "id": "HollowWispDecayCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Decay",
+          "transform": {
+            "scale": {
+              "x": 0.3777,
+              "y": 0.3777,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

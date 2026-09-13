@@ -1,0 +1,132 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnHollowWispGold",
+      "names": {
+        "english": "HollowWisp (Gold)"
+      },
+      "card_art": "@HollowWispCardArtGold",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispGoldEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A fragile spirit formed from silk and void. Its hollow rings with coins."
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "HollowWispGold",
+      "names": {
+        "english": "HollowWisp (Gold)"
+      },
+      "character_art": "@HollowWispGoldCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenGoldTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HollowWispEatenGoldTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenGoldEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [effect0.status0.power] [avarice] to all friendly units when eaten."
+      }
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnHollowWispGoldEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispGold"
+    },
+    {
+      "id": "HollowWispEatenGoldEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "avarice",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "HollowWisp_Sprite_CardArt_Gold",
+      "path": "textures/HollowWisp/HollowWispCardArtGold.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Gold",
+      "path": "textures/HollowWisp/HollowWispCharacterArtGoldBG.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "HollowWispCardArtGold",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Gold"
+        }
+      }
+    },
+    {
+      "id": "HollowWispGoldCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Gold",
+          "transform": {
+            "scale": {
+              "x": 0.3456,
+              "y": 0.3456,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

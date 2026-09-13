@@ -1,0 +1,132 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnHollowWispArmor",
+      "names": {
+        "english": "HollowWisp (Armor)"
+      },
+      "card_art": "@HollowWispCardArtArmor",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispArmorEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Armor"
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "HollowWispArmor",
+      "names": {
+        "english": "HollowWisp (Armor)"
+      },
+      "character_art": "@HollowWispArmorCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenArmorTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HollowWispEatenArmorTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenArmorEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [effect0.status0.power] [armor] to all friendly units when eaten.."
+      }
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnHollowWispArmorEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispArmor"
+    },
+    {
+      "id": "HollowWispEatenArmorEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "armor",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "HollowWisp_Sprite_CardArt_Armor",
+      "path": "textures/HollowWisp/HollowWispCardArtArmor.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Armor",
+      "path": "textures/HollowWisp/HollowWispCharacterArtArmorBG.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "HollowWispCardArtArmor",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Armor"
+        }
+      }
+    },
+    {
+      "id": "HollowWispArmorCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Armor",
+          "transform": {
+            "scale": {
+              "x": 0.4503,
+              "y": 0.4503,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

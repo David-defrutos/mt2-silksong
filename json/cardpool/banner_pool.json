@@ -5,20 +5,15 @@
             "id": "SilksongBannerPool",
             "cards": [
                 "@SpawnSherma",
-                "@SpawnFlickTheFixer",
                 "@SpawnGilly",
                 "@SpawnShakra",
-                "@SpawnPebb",
                 "@SpawnGrindle",
                 "@SpawnZaza",
                 "@SpawnChapelMaid",
                 "@SpawnNuu",
                 "@SpawnPinmasterPlinney",
-                "@SpawnSeamstress",
                 "@SpawnPinstress",
-                "@SpawnCrullAndBenjin",
-                "@SpawnBellHermit",
-                "@SpawnLumbleTheLucky",
+                            "@SpawnLumbleTheLucky",
                 "@SpawnHollowWispRefrm"
             ]
         }

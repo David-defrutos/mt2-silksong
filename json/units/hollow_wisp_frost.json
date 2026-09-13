@@ -1,0 +1,132 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnHollowWispFrost",
+      "names": {
+        "english": "HollowWisp (Frost)"
+      },
+      "card_art": "@HollowWispCardArtFrost",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispFrostEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Frost."
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "HollowWispFrost",
+      "names": {
+        "english": "HollowWisp (Frost)"
+      },
+      "character_art": "@HollowWispFrostCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenFrostTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HollowWispEatenFrostTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenFrostEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [effect0.status0.power] [frostbite] to all enemy units when eaten."
+      }
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnHollowWispFrostEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispFrost"
+    },
+    {
+      "id": "HollowWispEatenFrostEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "poison",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "HollowWisp_Sprite_CardArt_Frost",
+      "path": "textures/HollowWisp/HollowWispCardArtFrost.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Frost",
+      "path": "textures/HollowWisp/HollowWispCharacterArtFrostBG.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "HollowWispCardArtFrost",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Frost"
+        }
+      }
+    },
+    {
+      "id": "HollowWispFrostCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Frost",
+          "transform": {
+            "scale": {
+              "x": 0.3446,
+              "y": 0.3446,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

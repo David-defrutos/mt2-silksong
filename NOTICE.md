@@ -20,25 +20,38 @@ sin pedir permiso.
 
 ## Modificaciones propias sobre el codigo
 
-Sobre el tag `0.4.0` hay un solo cambio, en `src\Plugin.cs`: ocho lineas que anaden cuatro
-ficheros JSON a la lista que el plugin carga al arrancar.
+Sobre el tag `0.4.0` hay un solo cambio, en `src\Plugin.cs`: la **lista de ficheros JSON**
+que el plugin carga al arrancar. El resto del codigo esta intacto.
+
+La lista ha ido cambiando con el contenido:
+
+| cuando | rutas | que paso |
+|---|---|---|
+| tag `0.4.0` original | 99 | punto de partida |
+| 13-sep, salas y equipo | 103 | +4: dos salas y dos equipos nuevos |
+| 13-sep, poda del clan | 80 | -23: pulgas, unidades genericas y Pinata |
+| 13-sep, troceo de los HollowWisp | 89 | -1 `hornet_cursed.json`, +10 `hollow_wisp_*.json` |
+
+El bloque de tokens queda asi:
 
 ```csharp
-//Rooms
-"json/rooms/room_bellhart.json",
-"json/rooms/room_the_slab.json",
-
-//Equipment
-"json/equipments/equipment_threefold_pin.json",
-"json/equipments/equipment_magnetite_brooch.json",
+//Tokens
+"json/units/hollow_wisp_shared.json",
+"json/units/hollow_wisp_pyreg.json",
+"json/units/hollow_wisp_decay.json",
+"json/units/hollow_wisp_melee.json",
+"json/units/hollow_wisp_armor.json",
+"json/units/hollow_wisp_frost.json",
+"json/units/hollow_wisp_regen.json",
+"json/units/hollow_wisp_refrm.json",
+"json/units/hollow_wisp_gold.json",
+"json/units/hollow_wisp_clean.json",
 ```
-
-De 99 rutas a 103.
 
 ## El contenido
 
 Los `json\` y `textures\` de la raiz son **trabajo propio derivado** del contenido original
-del clan: unidades rediseñadas, la senda de Lace rehecha, los nueve HollowWisp, las dos
+del clan: unidades rediseñadas, la senda de Lace rehecha, los nueve HollowWisp (ahora en `json\units\hollow_wisp_*.json`), las dos
 salas, el equipo y el balanceo. Se mantienen tambien bajo MIT, que es lo coherente con la
 base de la que parten.
 

@@ -62,23 +62,26 @@
       "size": 1,
       "health": 5,
       "attack_damage": 5,
-      "subtypes": ["@Bug", "SubtypesData_BannerUnit"],
+      "subtypes": [
+        "@Bug",
+        "SubtypesData_BannerUnit"
+      ],
       "ability": "@GrindleRetreatAbility",
       "triggers": [
         {
-          "id": "@GrindleStrikeTrigger"
+          "id": "@GrindleHarvestTrigger"
         }
       ]
     }
   ],
   "character_triggers": [
     {
-      "id": "GrindleStrikeTrigger",
+      "id": "GrindleHarvestTrigger",
       "descriptions": {
         "english": "Gain [effect0.power] [coin].",
         "chinese": "获得 [effect0.power][coin]。"
       },
-      "trigger": "on_attacking",
+      "trigger": "on_any_unit_death_on_floor",
       "effects": [
         {
           "id": "@GrindleGainGoldEffect"
@@ -97,7 +100,7 @@
       "id": "GrindleGainGoldEffect",
       "name": "CardEffectRewardGold",
       "target_mode": "self",
-      "param_int": 10
+      "param_int": 5
     },
     {
       "id": "GrindleRetreatEffect",

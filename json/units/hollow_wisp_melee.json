@@ -1,0 +1,133 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnHollowWispMelee",
+      "names": {
+        "english": "HollowWisp (Weakn)",
+        "chinese": "沙克拉 (虚弱)"
+      },
+      "card_art": "@HollowWispCardArtMelee",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispMeleeEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A fragile spirit formed from silk and void. Exposes Weaknes."
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "HollowWispMelee",
+      "names": {
+        "english": "HollowWisp (Weakn)"
+      },
+      "character_art": "@HollowWispMeleeCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenWeaknTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HollowWispEatenWeaknTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenWeaknEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [meleeweakness] [effect0.status0.power] to all enemies when eaten."
+      }
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnHollowWispMeleeEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispMelee"
+    },
+    {
+      "id": "HollowWispEatenWeaknEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "melee weakness",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "HollowWisp_Sprite_CardArt_Melee",
+      "path": "textures/HollowWisp/HollowWispCardArtMelee.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Melee",
+      "path": "textures/HollowWisp/HollowWispCharacterArtMeleeBG.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "HollowWispCardArtMelee",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Melee"
+        }
+      }
+    },
+    {
+      "id": "HollowWispMeleeCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Melee",
+          "transform": {
+            "scale": {
+              "x": 0.483,
+              "y": 0.483,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

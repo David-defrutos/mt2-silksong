@@ -1,0 +1,132 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnHollowWispRegen",
+      "names": {
+        "english": "HollowWisp (Regen)"
+      },
+      "card_art": "@HollowWispCardArtRegen",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispRegenEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Regen."
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "HollowWispRegen",
+      "names": {
+        "english": "HollowWisp (Regen)"
+      },
+      "character_art": "@HollowWispRegenCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenRegenTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HollowWispEatenRegenTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenRegenEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [effect0.status0.power] [regen] to all friendly units when eaten."
+      }
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnHollowWispRegenEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispRegen"
+    },
+    {
+      "id": "HollowWispEatenRegenEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "regen",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "HollowWisp_Sprite_CardArt_Regen",
+      "path": "textures/HollowWisp/HollowWispCardArtRegen.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Regen",
+      "path": "textures/HollowWisp/HollowWispCharacterArtRegenBG.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "HollowWispCardArtRegen",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Regen"
+        }
+      }
+    },
+    {
+      "id": "HollowWispRegenCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Regen",
+          "transform": {
+            "scale": {
+              "x": 0.4482,
+              "y": 0.4482,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

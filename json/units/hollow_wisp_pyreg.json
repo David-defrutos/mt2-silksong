@@ -1,0 +1,132 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnHollowWispPyreg",
+      "names": {
+        "english": "HollowWisp (Pyreg)"
+      },
+      "card_art": "@HollowWispCardArtPyreg",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "common",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispPyregEffect"
+        }
+      ],
+      "traits": [
+        "@HollowWispEphemeralTrait"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A fragile spirit formed from silk and void. Burns with inner fire."
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "HollowWispPyreg",
+      "names": {
+        "english": "HollowWisp (Pyreg)"
+      },
+      "character_art": "@HollowWispPyregCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispEatenPyregTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HollowWispEatenPyregTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenPyregEffect"
+      ],
+      "descriptions": {
+        "english": "Apply [effect0.status0.power] [pyregel] to all enemies when eaten."
+      }
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnHollowWispPyregEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispPyreg"
+    },
+    {
+      "id": "HollowWispEatenPyregEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "pyregel",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "HollowWisp_Sprite_CardArt_Pyreg",
+      "path": "textures/HollowWisp/HollowWispCardArtPyreg.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Pyreg",
+      "path": "textures/HollowWisp/HollowWispCharacterArtFireBG.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "HollowWispCardArtPyreg",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Pyreg"
+        }
+      }
+    },
+    {
+      "id": "HollowWispPyregCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Pyreg",
+          "transform": {
+            "scale": {
+              "x": 0.3705,
+              "y": 0.3705,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

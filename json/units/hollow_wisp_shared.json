@@ -1,0 +1,72 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "card_pools": [
+    {
+      "id": "HollowWispPool",
+      "cards": [
+        "@SpawnHollowWispPyreg",
+        "@SpawnHollowWispDecay",
+        "@SpawnHollowWispMelee",
+        "@SpawnHollowWispArmor",
+        "@SpawnHollowWispFrost",
+        "@SpawnHollowWispRegen",
+        "@SpawnHollowWispRefrm",
+        "@SpawnHollowWispGold",
+        "@SpawnHollowWispClean"
+      ]
+    },
+    {
+      "id": "HollowWispDeadPool",
+      "cards": [
+        "@SpawnHollowWispRefrm"
+      ]
+    }
+  ],
+  "additional_tooltips": [
+    {
+      "id": "HollowWispTooltip",
+      "titles": {
+        "english": "HollowWisps"
+      },
+      "descriptions": {
+        "english": "<b>HollowWisps</b> are fragile spirits that can be eaten."
+      },
+      "style": "keyword",
+      "allow_secondary_placement": true
+    }
+  ],
+  "traits": [
+    {
+      "id": "HollowWispEphemeralTrait",
+      "name": "CardTraitEphemeral"
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HollowWispOnDeathTrigger",
+      "trigger": "on_death",
+      "effects": [
+        {
+          "id": "@HollowWispReformEffect"
+        }
+      ],
+      "descriptions": {
+        "english": "<b>Reform</b> a random unit."
+      }
+    }
+  ],
+  "effects": [
+    {
+      "id": "HollowWispReformEffect",
+      "name": "CardEffectRecursion",
+      "target_mode": "exhaust",
+      "target_card_type": "monster",
+      "target_card_selection_mode": "random_to_hand",
+      "param_int": 1,
+      "param_int_2": 1,
+      "param_upgrade": "Raise",
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true
+    }
+  ]
+}

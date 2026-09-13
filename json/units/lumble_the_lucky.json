@@ -14,7 +14,6 @@
       "card_art": "@LumbleTheLuckyCardArt",
       "card_type": "monster",
       "pools": [
-        "MegaPool",
         "UnitsAllBanner"
       ],
       "targets_room": true,

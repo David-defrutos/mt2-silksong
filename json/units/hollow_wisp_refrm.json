@@ -1,0 +1,135 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnHollowWispRefrm",
+      "names": {
+        "english": "HollowWisp (Reform)"
+      },
+      "card_art": "@HollowWispCardArtRefrm",
+      "card_type": "monster",
+      "class": "@Silksong",
+      "cost": 0,
+      "rarity": "uncommon",
+      "targets_room": true,
+      "targetless": false,
+      "effects": [
+        {
+          "id": "@SpawnHollowWispRefrmEffect"
+        }
+      ],
+      "pools": [
+        "UnitsAllBanner"
+      ],
+      "lore_tooltips": [
+        {
+          "english": "A fragile spirit formed from silk and void. What it touches comes back."
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "HollowWispRefrm",
+      "names": {
+        "english": "HollowWisp (Reform)"
+      },
+      "character_art": "@HollowWispRefrmCharacterArt",
+      "health": 1,
+      "attack_damage": 0,
+      "size": 1,
+      "subtypes": [
+        "SubtypesData_Snack",
+        "SubtypesData_Morsel_806f365c-671e-436f-9728-662772596006"
+      ],
+      "triggers": [
+        {
+          "id": "@HollowWispOnDeathTrigger"
+        },
+        {
+          "id": "@HollowWispEatenRefrmTrigger"
+        }
+      ],
+      "starting_status_effects": [
+        {
+          "status": "eatmany",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "HollowWispEatenRefrmTrigger",
+      "trigger": "on_eaten",
+      "effects": [
+        "@HollowWispEatenRefrmEffect"
+      ],
+      "descriptions": {
+        "english": "Reform a unit when eaten."
+      }
+    }
+  ],
+  "effects": [
+    {
+      "id": "HollowWispEatenRefrmEffect",
+      "name": "CardEffectRecursion",
+      "target_mode": "exhaust",
+      "target_card_type": "monster",
+      "target_card_selection_mode": "random_to_hand",
+      "param_int": 1,
+      "param_int_2": 1,
+      "param_upgrade": "Raise",
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true
+    },
+    {
+      "id": "SpawnHollowWispRefrmEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@HollowWispRefrm"
+    }
+  ],
+  "sprites": [
+    {
+      "id": "HollowWisp_Sprite_CardArt_Refrm",
+      "path": "textures/HollowWisp/HollowWispCardArtRefrm.png"
+    },
+    {
+      "id": "HollowWisp_Sprite_CharacterArt_Refrm",
+      "path": "textures/HollowWisp/HollowWispCharacterArtRefrmBG.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "HollowWispCardArtRefrm",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@HollowWisp_Sprite_CardArt_Refrm"
+        }
+      }
+    },
+    {
+      "id": "HollowWispRefrmCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@HollowWisp_Sprite_CharacterArt_Refrm",
+          "transform": {
+            "scale": {
+              "x": 0.5902,
+              "y": 0.5902,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            }
+          }
+        }
+      }
+    }
+  ]
+}
