@@ -55,7 +55,6 @@ namespace Silk_Song_Clan.Plugin
                         "json/relics/wormway_key.json",
                         "json/relics/conjoined_heart.json",
                         "json/relics/craw_memento.json",
-                        "json/relics/festival_pinata.json",
                         "json/relics/grey_memento.json",
                         "json/relics/guardian_memento.json",
                         "json/relics/hunter_memento.json",
@@ -73,7 +72,6 @@ namespace Silk_Song_Clan.Plugin
                         "json/subtypes/snail.json",
                         "json/subtypes/bug.json",
                         "json/subtypes/pinstress.json",
-                        "json/subtypes/flea.json",
 
                         //Cardpools
                         "json/cardpool/banner_pool.json",

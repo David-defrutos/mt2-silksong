@@ -176,36 +176,6 @@
       }
     },
     {
-      "id": "LaceNecroExit",
-      "trigger": "on_death",
-      "effects": [
-        "@LaceNecroReform"
-      ],
-      "descriptions": {
-        "english": "<b>Reform</b> a random unit."
-      }
-    },
-    {
-      "id": "LaceNecroEntry",
-      "trigger": "on_spawn",
-      "effects": [
-        "@LaceNecroReform"
-      ],
-      "descriptions": {
-        "english": "<b>Reform</b> a random unit."
-      }
-    },
-    {
-      "id": "LaceNecroKill",
-      "trigger": "on_kill",
-      "effects": [
-        "@LaceNecroReform"
-      ],
-      "descriptions": {
-        "english": "<b>Reform</b> a random unit."
-      }
-    },
-    {
       "id": "LaceHeistHit1",
       "trigger": "on_hit",
       "effects": [
@@ -673,17 +643,6 @@
       "id": "LaceConsumer3Upgrade",
       "bonus_damage": 3,
       "bonus_hp": 3
-    },
-    {
-      "id": "LaceReformBuff",
-      "bonus_damage": 5,
-      "bonus_hp": 5,
-      "status_effect_upgrades": [
-        {
-          "status": "burnout",
-          "count": 1
-        }
-      ]
     }
   ],
   "traits": [
