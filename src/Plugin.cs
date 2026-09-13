@@ -76,7 +76,6 @@ namespace Silk_Song_Clan.Plugin
                         "json/subtypes/flea.json",
 
                         //Cardpools
-                        "json/cardpool/flea_pool.json",
                         "json/cardpool/banner_pool.json",
                         "json/cardpool/morsel_pool.json",
 
@@ -86,44 +85,28 @@ namespace Silk_Song_Clan.Plugin
                         //Enhancers
                         "json/enhancers/acrobat_stone.json",
                         "json/enhancers/warrior_stone.json",
-                        "json/enhancers/flea_stone.json",
                         "json/enhancers/snail_stone.json",
 
                         //Tokens
-                        "json/tokens/flea.json",
-                        "json/tokens/bell_flea.json",
-                        "json/tokens/huge_flea.json",
-                        "json/tokens/brew_flea.json",
 
                         //Units
-                        "json/units/alchemist_zylotol.json",
-                        "json/units/ballow.json",  
                         "json/units/bell_hermit.json",
-                        "json/units/caretaker.json",
                         "json/units/chapel_maid.json",
                         "json/units/crull_and_benjin.json",
-                        "json/units/fleamaster_mooshka.json",
                         "json/units/flick_the_fixer.json",
                         "json/units/garamond.json",
                         "json/units/gilly.json",
                         "json/units/green_prince.json",
                         "json/units/grindle.json",
-                        "json/units/grishkin.json",
-                        "json/units/kratt.json",
                         "json/units/lumble_the_lucky.json",
                         "json/units/nuu.json",
-                        "json/units/pavo.json",
                         "json/units/pebb.json",
                         "json/units/pinmaster_plinney.json",
                         "json/units/pinstress.json",
-                        "json/units/relic_seeker_scrounge.json",
                         "json/units/seamstress.json",
                         "json/units/shakra.json",
                         "json/units/sherma.json",
                         "json/units/sprintmaster_swift.json",
-                        "json/units/twelfth_architect.json",
-                        "json/units/varga.json",
-                        "json/units/vog.json",
                         "json/units/yarnaby.json",
                         "json/units/zaza.json",
 

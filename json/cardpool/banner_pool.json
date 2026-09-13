@@ -6,8 +6,6 @@
             "cards": [
                 "@SpawnSherma",
                 "@SpawnFlickTheFixer",
-                "@SpawnBallow",
-                "@SpawnPavo",
                 "@SpawnGilly",
                 "@SpawnShakra",
                 "@SpawnPebb",
@@ -19,9 +17,7 @@
                 "@SpawnSeamstress",
                 "@SpawnPinstress",
                 "@SpawnCrullAndBenjin",
-                "@SpawnCaretaker",
                 "@SpawnBellHermit",
-                "@SpawnRelicSeekerScrounge",
                 "@SpawnLumbleTheLucky",
                 "@SpawnHollowWispRefrm"
             ]

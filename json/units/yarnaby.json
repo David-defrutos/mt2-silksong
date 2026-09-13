@@ -11,7 +11,7 @@
       "card_art": "@YarnabyCardArt",
       "cost": 1,
       "card_type": "monster",
-      "rarity": "rare",
+      "rarity": "uncommon",
       "class": "@Silksong",
       "unlock_level": 9,
       "pools": [
