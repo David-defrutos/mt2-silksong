@@ -14,7 +14,7 @@
       "rarity": "common",
       "class": "@Silksong",
       "pools": [
-        "UnitsAllBanner"
+        "MegaPool"
       ],
       "targets_room": true,
       "effects": [
@@ -63,8 +63,7 @@
       "health": 5,
       "attack_damage": 5,
       "subtypes": [
-        "@Bug",
-        "SubtypesData_BannerUnit"
+        "@Bug"
       ],
       "ability": "@GrindleRetreatAbility",
       "triggers": [

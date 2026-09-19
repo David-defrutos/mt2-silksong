@@ -4,13 +4,11 @@
         {
             "id": "SilksongBannerPool",
             "cards": [
-                "@SpawnSherma",
-                "@SpawnGilly",
-                "@SpawnShakra",
-                "@SpawnGrindle",
                 "@SpawnZaza",
                 "@SpawnChapelMaid",
                 "@SpawnNuu",
+    "@SpawnGaramond",
+    "@SpawnGreenPrince",
                 "@SpawnPinmasterPlinney",
                 "@SpawnPinstress",
                             "@SpawnLumbleTheLucky",

@@ -14,7 +14,7 @@
       "rarity": "common",
       "class": "@Silksong",
       "pools": [
-        "UnitsAllBanner"
+        "MegaPool"
       ],
       "targets_room": true,
       "effects": [
@@ -43,8 +43,7 @@
       "health": 30,
       "attack_damage": 35,
       "subtypes": [
-        "@Bug",
-        "SubtypesData_BannerUnit"
+        "@Bug"
       ],
       "starting_status_effects": [
         {

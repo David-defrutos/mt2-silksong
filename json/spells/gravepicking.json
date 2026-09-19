@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "Gravepicking",
+      "names": {
+        "english": "Gravepicking"
+      },
+      "descriptions": {
+        "english": "<b>Reform</b> a random unit."
+      },
+      "cost": 1,
+      "card_type": "spell",
+      "rarity": "common",
+      "class": "@Silksong",
+      "card_art": "@GravepickingCardArt",
+      "targets_room": true,
+      "targetless": true,
+      "pools": [
+        "MegaPool"
+      ],
+      "effects": [
+        {
+          "id": "@GravepickingReformEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "The husks are not rubbish. Sift them, and something usable always turns up."
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "GravepickingReformEffect",
+      "name": "CardEffectRecursion",
+      "target_mode": "exhaust",
+      "target_card_type": "monster",
+      "target_card_selection_mode": "random_to_hand",
+      "param_int": 1,
+      "param_int_2": 1,
+      "param_upgrade": "Raise",
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true
+    }
+  ],
+  "sprites": [
+    {
+      "id": "GravepickingCardArt",
+      "path": "textures/HollowWisp/HollowWispCardArtShadows.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "GravepickingCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@GravepickingCardArt"
+        }
+      }
+    }
+  ]
+}

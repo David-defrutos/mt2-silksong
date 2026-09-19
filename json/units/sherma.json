@@ -14,7 +14,7 @@
       "rarity": "common",
       "class": "@Silksong",
       "pools": [
-        "UnitsAllBanner"
+        "StarterCardsOnly"
       ],
       "targets_room": true,
       "effects": [
@@ -63,8 +63,7 @@
       "health": 10,
       "attack_damage": 0,
       "subtypes": [
-        "@Bug",
-        "SubtypesData_BannerUnit"
+        "@Bug"
       ],
       "ability": "@ShermaRetreatAbility",
       "starting_status_effects": [

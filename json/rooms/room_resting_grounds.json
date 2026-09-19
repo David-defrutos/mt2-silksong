@@ -1,0 +1,102 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/refs/heads/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "RestingGrounds",
+      "names": {
+        "english": "The Resting Grounds"
+      },
+      "descriptions": {
+        "english": "Whenever a unit dies in this room, <b>Reform</b> a random unit."
+      },
+      "lore_tooltips": [
+        {
+          "english": "The dead are stacked here for keeping, not for grieving. Sooner or later, everything is needed twice."
+        }
+      ],
+      "card_art": "@RestingGroundsArt",
+      "cost": 2,
+      "card_type": "room",
+      "rarity": "rare",
+      "class": "@Silksong",
+      "targets_room": true,
+      "targetless": true,
+      "effects": [
+        "@RestingGroundsRoomEffect"
+      ],
+      "pools": [
+        "MegaPool",
+        "RoomAndEquipmentMerchant_RoomPool",
+        "RoomAndEquipmentDraftPool",
+        "RoomAndEquipmentMerchant_RoomAndEquipmentPool",
+        "TrainRoomPool"
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "RestingGroundsRoomUpgrade",
+      "titles": {
+        "english": "The Resting Grounds"
+      },
+      "descriptions": {
+        "english": "Whenever a unit dies in this room, <b>Reform</b> a random unit."
+      },
+      "room_modifier_upgrades": [
+        "@RestingGroundsRoomModifier"
+      ],
+      "icon": "@RestingGroundsArt"
+    }
+  ],
+  "room_modifiers": [
+    {
+      "id": "RestingGroundsRoomModifier",
+      "name": "RoomStateAddEffectOnUnitDeath",
+      "descriptions": {
+        "english": "Whenever a unit dies in this room, <b>Reform</b> a random unit."
+      },
+      "param_effects": [
+        "@RestingGroundsReformEffect"
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "RestingGroundsRoomEffect",
+      "name": "CardEffectAttachTrainRoomAttachment",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_upgrade": "@RestingGroundsRoomUpgrade",
+      "param_int_2": 0
+    },
+    {
+      "id": "RestingGroundsReformEffect",
+      "name": "CardEffectRecursion",
+      "target_mode": "exhaust",
+      "target_card_type": "monster",
+      "target_card_selection_mode": "random_to_hand",
+      "param_int": 1,
+      "param_int_2": 1,
+      "param_upgrade": "Raise",
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true
+    }
+  ],
+  "sprites": [
+    {
+      "id": "RestingGroundsArt",
+      "path": "textures/CaretakerCardArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "RestingGroundsArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@RestingGroundsArt"
+        }
+      }
+    }
+  ]
+}

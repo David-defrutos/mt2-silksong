@@ -43,7 +43,7 @@
                     "id": "LaceChampion",
                     "locked_icon": "@LaceChampionIcon",
                     "portrait": "@LaceChampionIcon",
-                    "starter_card": "@NailStrike",
+                    "starter_card": "@SpawnSherma",
                     "upgrade_tree": [
                         [
                             "@Laceconsume1",

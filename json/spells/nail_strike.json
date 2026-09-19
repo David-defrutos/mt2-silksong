@@ -13,7 +13,7 @@
       },
       "cost": 1,
       "card_type": "spell",
-      "rarity": "starter",
+      "rarity": "common",
       "class": "@Silksong",
       "card_art": "@NailStrikeCardArt",
       "targetless": false,

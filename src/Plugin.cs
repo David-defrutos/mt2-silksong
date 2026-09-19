@@ -97,6 +97,7 @@ namespace Silk_Song_Clan.Plugin
                         "json/units/hollow_wisp_clean.json",
 
                         //Units
+                        "json/units/grishkin.json",
                         "json/units/chapel_maid.json",
                         "json/units/crull_and_benjin.json",
                         "json/units/garamond.json",
@@ -114,6 +115,9 @@ namespace Silk_Song_Clan.Plugin
                         "json/units/zaza.json",
 
                         //Spells
+                        "json/spells/silken_shroud.json",
+                        "json/spells/gravepicking.json",
+                        "json/spells/choir_of_the_bound.json",
                         "json/spells/nail_strike.json",
                         "json/spells/clawline.json",
                         "json/spells/cling_grip.json",
@@ -132,6 +136,7 @@ namespace Silk_Song_Clan.Plugin
                         "json/spells/thread_storm.json",
 
                         //Rooms
+                        "json/rooms/room_resting_grounds.json",
                         "json/rooms/room_bellhart.json",
                         "json/rooms/room_the_slab.json",
 

@@ -1,0 +1,132 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SpawnGrishkin",
+      "names": {
+        "english": "Grishkin",
+        "chinese": "格里希金",
+        "french": "Grishkin"
+      },
+      "card_art": "@GrishkinCardArt",
+      "cost": 1,
+      "card_type": "monster",
+      "rarity": "uncommon",
+      "class": "@Silksong",
+      "pools": [
+        "MegaPool"
+      ],
+      "targets_room": true,
+      "effects": [
+        {
+          "id": "@SpawnGrishkinEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Where others mourn, the Grishkin counts. Every husk is a meal that nobody will miss."
+        }
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "id": "Grishkin",
+      "names": {
+        "english": "Grishkin",
+        "chinese": "格里希金",
+        "french": "Grishkin"
+      },
+      "character_art": "@GrishkinCharacterArt",
+      "size": 1,
+      "health": 15,
+      "attack_damage": 20,
+      "subtypes": [
+        "@Bug"
+      ],
+      "triggers": [
+        {
+          "id": "@GrishkinScavengeTrigger"
+        }
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "GrishkinScavengeUpgrade",
+      "bonus_damage": 3,
+      "bonus_hp": 3
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "GrishkinScavengeTrigger",
+      "descriptions": {
+        "english": "+[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health]."
+      },
+      "trigger": "on_any_monster_death_on_floor",
+      "effects": [
+        {
+          "id": "@GrishkinScavengeEffect"
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SpawnGrishkinEffect",
+      "name": "CardEffectSpawnMonster",
+      "target_mode": "room",
+      "param_character": "@Grishkin"
+    },
+    {
+      "id": "GrishkinScavengeEffect",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "self",
+      "target_team": "monsters",
+      "param_upgrade": "@GrishkinScavengeUpgrade"
+    }
+  ],
+  "sprites": [
+    {
+      "id": "GrishkinCardArt",
+      "path": "textures/GrishkinCardArt.png"
+    },
+    {
+      "id": "GrishkinCharacterArt",
+      "path": "textures/GrishkinCharacterArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "GrishkinCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@GrishkinCardArt"
+        }
+      }
+    },
+    {
+      "id": "GrishkinCharacterArt",
+      "type": "character_art",
+      "extensions": {
+        "character_art": {
+          "sprite": "@GrishkinCharacterArt",
+          "transform": {
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

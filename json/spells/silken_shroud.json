@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/main/schemas/base.json",
+  "cards": [
+    {
+      "id": "SilkenShroud",
+      "names": {
+        "english": "Silken Shroud"
+      },
+      "descriptions": {
+        "english": "Apply [undying] [effect0.status0.power] to a friendly unit."
+      },
+      "cost": 1,
+      "card_type": "spell",
+      "rarity": "common",
+      "class": "@Silksong",
+      "card_art": "@SilkenShroudCardArt",
+      "targets_room": true,
+      "targetless": false,
+      "pools": [
+        "MegaPool"
+      ],
+      "effects": [
+        {
+          "id": "@SilkenShroudUndyingEffect"
+        }
+      ],
+      "lore_tooltips": [
+        {
+          "english": "Wrap the fallen and they are not yet gone. The thread remembers the shape of what it held."
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "SilkenShroudUndyingEffect",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "drop_target_character",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "undying",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "SilkenShroudCardArt",
+      "path": "textures/BindCardArt.png"
+    }
+  ],
+  "game_objects": [
+    {
+      "id": "SilkenShroudCardArt",
+      "type": "card_art",
+      "extensions": {
+        "card_art": {
+          "sprite": "@SilkenShroudCardArt"
+        }
+      }
+    }
+  ]
+}

@@ -206,46 +206,6 @@
       }
     },
     {
-      "id": "LaceNecroOnDeathTrigger",
-      "trigger": "on_death",
-      "effects": [
-        "@LaceNecroOnDeadHollowWisps1"
-      ],
-      "descriptions": {
-        "english": "Add [effect0.secondarypower] random <b>HollowWisps</b> to your hand."
-      }
-    },
-    {
-      "id": "LaceNecroResolveTrigger1",
-      "trigger": "pre_combat",
-      "effects": [
-        "@LaceNecroAddHollowWisps1"
-      ],
-      "descriptions": {
-        "english": "Add [effect0.secondarypower] random <b>HollowWisps</b> to your hand."
-      }
-    },
-    {
-      "id": "LaceNecroResolveTrigger2",
-      "trigger": "pre_combat",
-      "effects": [
-        "@LaceNecroAddHollowWisps2"
-      ],
-      "descriptions": {
-        "english": "Add [effect0.secondarypower] random <b>HollowWisps</b> to your hand."
-      }
-    },
-    {
-      "id": "LaceNecroResolveTrigger3",
-      "trigger": "pre_combat",
-      "effects": [
-        "@LaceNecroAddHollowWisps3"
-      ],
-      "descriptions": {
-        "english": "Add [effect0.secondarypower] random <b>HollowWisps</b> to your hand."
-      }
-    },
-    {
       "id": "LaceSelfHarmTrigger",
       "trigger": "on_own_ability_activated",
       "effects": [
@@ -263,6 +223,72 @@
       ],
       "descriptions": {
         "english": "Gain [effect0.powerabs] [Silk_Song_Clan.Plugin_Silk]."
+      }
+    },
+    {
+      "id": "LaceNecroRaiseTrigger1",
+      "trigger": "pre_combat",
+      "effects": [
+        {
+          "id": "@LaceNecroRaise1"
+        }
+      ],
+      "descriptions": {
+        "english": "Raise a dead unit with [undying] 1 and [decay] 10."
+      }
+    },
+    {
+      "id": "LaceNecroConduitTrigger1",
+      "trigger": "on_any_monster_death_on_floor",
+      "effects": [
+        "@LaceNecroConduitEffect1"
+      ],
+      "descriptions": {
+        "english": "Gain [effect0.status0.power] [conduit]."
+      }
+    },
+    {
+      "id": "LaceNecroRaiseTrigger2",
+      "trigger": "pre_combat",
+      "effects": [
+        {
+          "id": "@LaceNecroRaise2"
+        }
+      ],
+      "descriptions": {
+        "english": "Raise a dead unit with [undying] 2 and [decay] 20."
+      }
+    },
+    {
+      "id": "LaceNecroConduitTrigger2",
+      "trigger": "on_any_monster_death_on_floor",
+      "effects": [
+        "@LaceNecroConduitEffect2"
+      ],
+      "descriptions": {
+        "english": "Gain [effect0.status0.power] [conduit]."
+      }
+    },
+    {
+      "id": "LaceNecroRaiseTrigger3",
+      "trigger": "pre_combat",
+      "effects": [
+        {
+          "id": "@LaceNecroRaise3"
+        }
+      ],
+      "descriptions": {
+        "english": "Raise a dead unit with [undying] 3 and [decay] 30."
+      }
+    },
+    {
+      "id": "LaceNecroConduitTrigger3",
+      "trigger": "on_any_monster_death_on_floor",
+      "effects": [
+        "@LaceNecroConduitEffect3"
+      ],
+      "descriptions": {
+        "english": "Gain [effect0.status0.power] [conduit]."
       }
     }
   ],
@@ -350,50 +376,6 @@
       "param_int": 3
     },
     {
-      "id": "LaceNecroOnDeadHollowWisps1",
-      "name": "CardEffectAddBattleCard",
-      "target_mode": "room",
-      "param_card_pool": "@HollowWispDeadPool",
-      "param_int": 3,
-      "param_int_2": 1,
-      "additional_tooltips": [
-        "@HollowWispTooltip"
-      ]
-    },
-    {
-      "id": "LaceNecroAddHollowWisps1",
-      "name": "CardEffectAddBattleCard",
-      "target_mode": "room",
-      "param_card_pool": "@HollowWispPool",
-      "param_int": 3,
-      "param_int_2": 1,
-      "additional_tooltips": [
-        "@HollowWispTooltip"
-      ]
-    },
-    {
-      "id": "LaceNecroAddHollowWisps2",
-      "name": "CardEffectAddBattleCard",
-      "target_mode": "room",
-      "param_card_pool": "@HollowWispPool",
-      "param_int": 3,
-      "param_int_2": 2,
-      "additional_tooltips": [
-        "@HollowWispTooltip"
-      ]
-    },
-    {
-      "id": "LaceNecroAddHollowWisps3",
-      "name": "CardEffectAddBattleCard",
-      "target_mode": "room",
-      "param_card_pool": "@HollowWispPool",
-      "param_int": 3,
-      "param_int_2": 3,
-      "additional_tooltips": [
-        "@HollowWispTooltip"
-      ]
-    },
-    {
       "id": "LaceHeistEffectAvarice1",
       "name": "CardEffectAddStatusEffect",
       "target_mode": "self",
@@ -433,6 +415,75 @@
       "param_int": 1,
       "additional_tooltips": [
         "@SilkTooltip"
+      ]
+    },
+    {
+      "id": "LaceNecroRaise1",
+      "name": "CardEffectRecursion",
+      "target_mode": "exhaust",
+      "target_card_type": "monster",
+      "target_card_selection_mode": "random_to_room",
+      "param_int": 1,
+      "param_int_2": 1,
+      "param_upgrade": "@LaceRaised1",
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true
+    },
+    {
+      "id": "LaceNecroConduitEffect1",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "conduit",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "LaceNecroRaise2",
+      "name": "CardEffectRecursion",
+      "target_mode": "exhaust",
+      "target_card_type": "monster",
+      "target_card_selection_mode": "random_to_room",
+      "param_int": 1,
+      "param_int_2": 1,
+      "param_upgrade": "@LaceRaised2",
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true
+    },
+    {
+      "id": "LaceNecroConduitEffect2",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "conduit",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "LaceNecroRaise3",
+      "name": "CardEffectRecursion",
+      "target_mode": "exhaust",
+      "target_card_type": "monster",
+      "target_card_selection_mode": "random_to_room",
+      "param_int": 1,
+      "param_int_2": 1,
+      "param_upgrade": "@LaceRaised3",
+      "should_test": true,
+      "should_fail_to_cast_if_test_fails": true
+    },
+    {
+      "id": "LaceNecroConduitEffect3",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "conduit",
+          "count": 3
+        }
       ]
     }
   ],
@@ -485,16 +536,10 @@
         "english": "Necromancer"
       },
       "bonus_damage": 10,
-      "bonus_hp": 10,
-      "status_effect_upgrades": [
-        {
-          "status": "conduit",
-          "count": 10
-        }
-      ],
+      "bonus_hp": 20,
       "trigger_upgrades": [
-        "@LaceNecroResolveTrigger1",
-        "@LaceNecroOnDeathTrigger"
+        "@LaceNecroRaiseTrigger1",
+        "@LaceNecroConduitTrigger1"
       ]
     },
     {
@@ -503,16 +548,10 @@
         "english": "Necromancer II"
       },
       "bonus_damage": 20,
-      "bonus_hp": 20,
-      "status_effect_upgrades": [
-        {
-          "status": "conduit",
-          "count": 20
-        }
-      ],
+      "bonus_hp": 40,
       "trigger_upgrades": [
-        "@LaceNecroResolveTrigger2",
-        "@LaceNecroOnDeathTrigger"
+        "@LaceNecroRaiseTrigger2",
+        "@LaceNecroConduitTrigger2"
       ]
     },
     {
@@ -520,17 +559,59 @@
       "titles": {
         "english": "Necromancer III"
       },
-      "bonus_damage": 40,
-      "bonus_hp": 40,
+      "bonus_damage": 35,
+      "bonus_hp": 60,
+      "trigger_upgrades": [
+        "@LaceNecroRaiseTrigger3",
+        "@LaceNecroConduitTrigger3"
+      ]
+    },
+    {
+      "id": "LaceRaised1",
+      "titles": {
+        "english": "Raised"
+      },
       "status_effect_upgrades": [
         {
-          "status": "conduit",
-          "count": 40
+          "status": "undying",
+          "count": 1
+        },
+        {
+          "status": "decay",
+          "count": 10
         }
-      ],
-      "trigger_upgrades": [
-        "@LaceNecroResolveTrigger3",
-        "@LaceNecroOnDeathTrigger"
+      ]
+    },
+    {
+      "id": "LaceRaised2",
+      "titles": {
+        "english": "Raised"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "undying",
+          "count": 2
+        },
+        {
+          "status": "decay",
+          "count": 20
+        }
+      ]
+    },
+    {
+      "id": "LaceRaised3",
+      "titles": {
+        "english": "Raised"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "undying",
+          "count": 3
+        },
+        {
+          "status": "decay",
+          "count": 30
+        }
       ]
     },
     {
